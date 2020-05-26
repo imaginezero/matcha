@@ -1,17 +1,16 @@
-require('dotenv').config();
-
-const { dirname, join } = require('path');
+const { join } = require('path');
 const { promisify } = require('util');
 const fs = require('fs');
 
 const { GoogleSpreadsheet } = require('google-spreadsheet');
-const { parse, stringify } = require('flatted/cjs');
+const slugify = require('slugify');
 const camelcaseKeys = require('camelcase-keys');
+const cloneDeep = require('clone-deep');
 
 const writeFile = promisify(fs.writeFile);
 const readFile = promisify(fs.readFile);
 
-const fileName = join(dirname(__dirname), 'data', 'activities.dat');
+const fileName = join(process.cwd(), 'data', 'activities.json');
 
 exports.fetchRawData = async () => {
   const doc = new GoogleSpreadsheet(
@@ -29,7 +28,12 @@ exports.fetchRawData = async () => {
           offset: 0,
           limit: sheet.rowCount,
         })
-        .then((rows) => ({ [sheet.title]: rows }))
+        .then((rows) => ({
+          [sheet.title]: rows.map((row) => {
+            row.slug = slugify(row.name.toLowerCase());
+            return row;
+          }),
+        }))
     )
   ).then((partials) =>
     partials.reduce((result, partial) => ({ ...result, ...partial }), {})
@@ -66,31 +70,10 @@ exports.fetchJsonData = async () => {
   );
 };
 
-exports.fetchAndHydrateData = async () => {
-  const {
-    activities,
-    activityTypes,
-    organizations,
-  } = await exports.fetchJsonData();
-  activities.forEach((activity) => {
-    activity.organization = organizations.find(
-      ({ name }) => name === activity.organization
-    );
-    activity.type = activityTypes.find(({ type }) => type === activity.type);
-  });
-  activityTypes.forEach((type) => {
-    type.activities = activities.filter((activity) => activity.type === type);
-  });
-  organizations.forEach((organization) => {
-    organization.activities = activities.filter(
-      (activity) => activity.organization === organization
-    );
-  });
-  return { activities, activityTypes, organizations };
-};
-
 exports.saveData = async () =>
-  writeFile(fileName, stringify(await exports.fetchAndHydrateData()));
+  writeFile(fileName, JSON.stringify(await exports.fetchJsonData()));
 
 exports.getData = async () =>
-  exports.cache || (exports.cache = parse(await readFile(fileName)));
+  cloneDeep(
+    exports.cache || (exports.cache = JSON.parse(await readFile(fileName)))
+  );

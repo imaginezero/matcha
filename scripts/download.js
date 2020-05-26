@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const { saveData } = require('../services/data');
 
 (async () => {
