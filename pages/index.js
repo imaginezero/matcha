@@ -1,10 +1,17 @@
+import auth from '../services/auth';
+
 export default function Home({ activities }) {
-  return <pre>{JSON.stringify(activities, null, 2)}</pre>;
+  return (
+    <>
+      <pre>{JSON.stringify(activities, null, 2)}</pre>
+    </>
+  );
 }
 
-export async function getServerSideProps() {
+export async function getServerSideProps({ req }) {
   const { getData } = require('../services/data');
   const { activities, activityTypes, organizations } = await getData();
+  console.log(await auth.getSession(req));
   return {
     props: {
       activities: activityTypes.reduce(
