@@ -1,14 +1,31 @@
 import { initAuth0 } from '@auth0/nextjs-auth0';
+import { ManagementClient } from 'auth0';
+import axios from 'axios';
 
-export default initAuth0({
+const auth = initAuth0({
   domain: process.env.AUTH0_DOMAIN,
   clientId: process.env.AUTH0_CLIENT_ID,
   clientSecret: process.env.AUTH0_CLIENT_SECRET,
-  scope: 'openid profile',
   redirectUri: process.env.AUTH0_REDIRECT_URI,
   postLogoutRedirectUri: process.env.AUTH0_LOGOUT_URI,
   session: {
     cookieSecret: process.env.AUTH0_COOKIE_SECRET,
     cookieLifetime: 60 * 60 * 24 * 7,
   },
+  // scope: 'openid profile',
 });
+
+auth.getManagementClient = async () =>
+  new ManagementClient({
+    token: await axios
+      .post(`https://${process.env.AUTH0_DOMAIN}/oauth/token`, {
+        client_id: process.env.AUTH0_CLIENT_ID,
+        client_secret: process.env.AUTH0_CLIENT_SECRET,
+        audience: `https://${process.env.AUTH0_DOMAIN}/api/v2/`,
+        grant_type: 'client_credentials',
+      })
+      .then((res) => res.data.access_token),
+    domain: process.env.AUTH0_DOMAIN,
+  });
+
+export default auth;

@@ -34,6 +34,8 @@
   },
   "dependencies": {
     "@auth0/nextjs-auth0": "^0.13.0",
+    "auth0": "^2.25.1",
+    "axios": "^0.19.2",
     "camelcase-keys": "^6.2.2",
     "clone-deep": "^4.0.1",
     "google-spreadsheet": "^3.0.11",
