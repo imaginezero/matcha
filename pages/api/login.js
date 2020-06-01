@@ -1,4 +1,4 @@
-import auth from '../../services/auth';
+import auth from '../../utils/auth';
 
 export default async function login(req, res) {
   try {

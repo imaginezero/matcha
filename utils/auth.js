@@ -11,6 +11,9 @@ const auth = initAuth0({
   session: {
     cookieSecret: process.env.AUTH0_COOKIE_SECRET,
     cookieLifetime: 60 * 60 * 24 * 7,
+    storeIdToken: true,
+    storeAccessToken: true,
+    storeRefreshToken: true,
   },
   // scope: 'openid profile',
 });

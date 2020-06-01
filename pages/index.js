@@ -1,17 +1,14 @@
-import auth from '../services/auth';
+import { getPrefs } from '../utils/prefs';
 
 export default function Home({ activities }) {
-  return (
-    <>
-      <pre>{JSON.stringify(activities, null, 2)}</pre>
-    </>
-  );
+  return <pre>{JSON.stringify(activities, null, 2)}</pre>;
 }
 
 export async function getServerSideProps({ req }) {
   const { getData } = require('../services/data');
   const { activities, activityTypes, organizations } = await getData();
-  console.log(await auth.getSession(req));
+  const prefs = getPrefs(req); // eslint-disable-line
+  console.log(prefs);
   return {
     props: {
       activities: activityTypes.reduce(
