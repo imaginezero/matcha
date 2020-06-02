@@ -12,22 +12,17 @@ const readFile = promisify(fs.readFile);
 const fileName = join(process.cwd(), 'data', 'activities.json');
 
 const normalize = (value) => {
-  switch (value) {
-    case 'TRUE':
-      return true;
-    case 'FALSE':
-      return false;
-    case undefined:
-      return null;
-    default:
-      return value;
-  }
+  if (value === 'TRUE') return true;
+  if (value === 'FALSE') return false;
+  if (value === undefined || value === '') return null;
+  if (/^[\d.]+$/.test(value)) return Number(value);
+  return value;
 };
 
-const getCachedDoc = (() => {
+const getDoc = (() => {
   let doc;
   return async () => {
-    if (!doc) {
+    if (doc === undefined) {
       doc = new GoogleSpreadsheet(
         '1Zym-l_NoWmi-u45UVUJjzLrU-36AKBjteTTaEC9UWk8'
       );
@@ -42,7 +37,7 @@ const getCachedDoc = (() => {
 })();
 
 const fetchRawData = async () => {
-  const doc = await getCachedDoc();
+  const doc = await getDoc();
   return Promise.all(
     doc.sheetsByIndex.map((sheet) =>
       sheet
@@ -84,17 +79,17 @@ const fetchData = async () => {
   );
 };
 
-const getCachedData = (() => {
+exports.getData = (() => {
   let data;
-  return async () => {
-    if (!data) {
+  return async (preview) => {
+    if (preview) return fetchData();
+    if (data === undefined) {
       data = await readFile(fileName);
     }
     return JSON.parse(data);
   };
 })();
 
-exports.getData = async (preview) => (preview ? fetchData() : getCachedData());
-
-exports.saveData = async () =>
-  writeFile(fileName, JSON.stringify(await fetchData()));
+exports.saveData = async () => {
+  return writeFile(fileName, JSON.stringify(await fetchData()));
+};
