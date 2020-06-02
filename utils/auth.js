@@ -18,7 +18,7 @@ const auth = initAuth0({
   // scope: 'openid profile',
 });
 
-auth.getManagementClient = async () =>
+const managementClient = (async () =>
   new ManagementClient({
     token: await axios
       .post(`https://${process.env.AUTH0_DOMAIN}/oauth/token`, {
@@ -29,6 +29,8 @@ auth.getManagementClient = async () =>
       })
       .then((res) => res.data.access_token),
     domain: process.env.AUTH0_DOMAIN,
-  });
+  }))();
+
+auth.getManagementClient = async () => managementClient;
 
 export default auth;
