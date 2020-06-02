@@ -2,9 +2,9 @@ export default function Organization({ organization }) {
   return <pre>{JSON.stringify(organization, null, 2)}</pre>;
 }
 
-export async function getStaticProps({ params: { slug } }) {
+export async function getStaticProps({ params: { slug }, preview }) {
   const { getData } = require('../../services/data');
-  const { activities, activityTypes, organizations } = await getData();
+  const { activities, activityTypes, organizations } = await getData(preview);
   const organization = organizations.find(
     (organization) => organization.slug === slug
   );

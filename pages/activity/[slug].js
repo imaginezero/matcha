@@ -2,9 +2,9 @@ export default function Activity({ activity }) {
   return <pre>{JSON.stringify(activity, null, 2)}</pre>;
 }
 
-export async function getStaticProps({ params: { slug } }) {
+export async function getStaticProps({ params: { slug }, preview }) {
   const { getData } = require('../../services/data');
-  const { activities, activityTypes, organizations } = await getData();
+  const { activities, activityTypes, organizations } = await getData(preview);
   const activity = activities.find((activity) => activity.slug === slug);
   activity.organization =
     organizations.find(

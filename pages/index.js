@@ -4,9 +4,9 @@ export default function Home({ activities }) {
   return <pre>{JSON.stringify(activities, null, 2)}</pre>;
 }
 
-export async function getServerSideProps({ req }) {
+export async function getServerSideProps({ req, preview }) {
   const { getData } = require('../services/data');
-  const { activities, activityTypes, organizations } = await getData();
+  const { activities, activityTypes, organizations } = await getData(preview);
   const prefs = getPrefs(req); // eslint-disable-line
   console.log(prefs);
   return {
