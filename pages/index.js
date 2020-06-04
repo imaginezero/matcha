@@ -1,36 +1,17 @@
-import { getPrefs } from '../utils/prefs';
+import { Fragment } from 'react';
+import Head from 'next/head';
 
-export default function Home({ activities }) {
-  return <pre>{JSON.stringify(activities, null, 2)}</pre>;
-}
+import { Logo } from '../components';
 
-export async function getServerSideProps({ req, preview }) {
-  const { getData } = require('../services/data');
-  const { activities, activityTypes, organizations } = await getData(preview);
-  const prefs = getPrefs(req); // eslint-disable-line
-  console.log(prefs);
-  return {
-    props: {
-      activities: activityTypes.reduce(
-        (result, { type, name, description = null }) => ({
-          ...result,
-          [type]: {
-            name,
-            activities: activities
-              .filter((activity) => activity.type === type)
-              .map((activity) => {
-                activity.organization =
-                  organizations.find(
-                    (organization) =>
-                      organization.name === activity.organization
-                  ) || null;
-                activity.type = { type, name, description };
-                return activity;
-              }),
-          },
-        }),
-        {}
-      ),
-    },
-  };
+export default function HomePage() {
+  return (
+    <Fragment>
+      <Head>
+        <title>Matcha: Coming Soon!</title>
+      </Head>
+      <div>
+        <Logo style={{ display: 'block', margin: '5em auto' }} width="250" />
+      </div>
+    </Fragment>
+  );
 }
