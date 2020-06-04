@@ -1,15 +1,9 @@
-const { join } = require('path');
-const { promisify } = require('util');
-const fs = require('fs');
-
 const { GoogleSpreadsheet } = require('google-spreadsheet');
 const slugify = require('slugify');
 const camelcaseKeys = require('camelcase-keys');
+const cloneDeep = require('clone-deep');
 
-const writeFile = promisify(fs.writeFile);
-const readFile = promisify(fs.readFile);
-
-const fileName = join(process.cwd(), 'data', 'activities.json');
+const data = require('../data/activities.json');
 
 const normalize = (value) => {
   if (value === 'TRUE') return true;
@@ -40,56 +34,33 @@ const fetchRawData = async () => {
   const doc = await getDoc();
   return Promise.all(
     doc.sheetsByIndex.map((sheet) =>
-      sheet
-        .getRows({
-          offset: 0,
-          limit: sheet.rowCount,
-        })
-        .then((rows) => ({
-          [sheet.title]: rows.map((row) => {
-            row.slug = slugify(row.name.toLowerCase());
-            return row;
-          }),
-        }))
+      sheet.getRows().then((rows) => ({ [sheet.title]: rows }))
     )
   ).then((partials) =>
     partials.reduce((result, partial) => ({ ...result, ...partial }), {})
   );
 };
 
-const fetchData = async () => {
+exports.fetchData = async () => {
   const rawData = await fetchRawData();
-  return camelcaseKeys(
-    Object.fromEntries(
-      Object.entries(rawData).map(([key, rows]) => [
-        key,
-        rows
-          .map((row) =>
-            Object.keys(row)
-              .filter((key) => !key.startsWith('_'))
-              .reduce(
-                (obj, key) => ({ ...obj, [key]: normalize(row[key]) }),
-                {}
-              )
-          )
-          .filter((row) => Object.values(row).some((value) => value)),
-      ])
-    ),
-    { deep: true }
+  const data = Object.fromEntries(
+    Object.entries(rawData).map(([key, rawRows]) => {
+      const rows = rawRows
+        .map((row) =>
+          Object.keys(row)
+            .filter((key) => !key.startsWith('_'))
+            .reduce((obj, key) => ({ ...obj, [key]: normalize(row[key]) }), {
+              slug: row.name ? slugify(row.name.toLowerCase()) : null,
+            })
+        )
+        .filter((row) => Object.values(row).some((value) => value));
+      return [key, rows];
+    })
   );
+  return camelcaseKeys(data, { deep: true });
 };
 
-exports.getData = (() => {
-  let data;
-  return async (preview) => {
-    if (preview) return fetchData();
-    if (data === undefined) {
-      data = await readFile(fileName);
-    }
-    return JSON.parse(data);
-  };
-})();
+exports.getData = async (preview) =>
+  preview ? await exports.fetchData() : cloneDeep(data);
 
-exports.saveData = async () => {
-  return writeFile(fileName, JSON.stringify(await fetchData()));
-};
+exports.dataFile = require.resolve('../data/activities.json');

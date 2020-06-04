@@ -1,11 +1,16 @@
 require('dotenv').config();
 
-const { saveData } = require('../services/data');
+const { promisify } = require('util');
+const fs = require('fs');
+
+const { fetchData, dataFile } = require('../services/data');
+
+const writeFile = promisify(fs.writeFile);
 
 (async () => {
   try {
     const start = Date.now();
-    await saveData();
+    await writeFile(dataFile, JSON.stringify(await fetchData()));
     console.log(`Success: activity data saved in ${Date.now() - start}ms.`);
   } catch (error) {
     console.error(error);
