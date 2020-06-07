@@ -6,14 +6,17 @@ export async function getStaticProps({ params: { slug }, preview }) {
   const { getData } = require('../../services/data');
   const { activities, activityTypes, organizations } = await getData(preview);
   const activity = activities.find((activity) => activity.slug === slug);
-  activity.organization =
-    organizations.find(
-      (organization) => organization.name === activity.organization
-    ) || null;
-  activity.type =
-    activityTypes.find((activityType) => activityType.type === activity.type) ||
-    null;
-  return { props: { activity } };
+  return {
+    props: {
+      activity: {
+        ...activity,
+        organization:
+          organizations.find(({ name }) => name === activity.organization) ||
+          null,
+        type: activityTypes.find(({ type }) => type === activity.type) || null,
+      },
+    },
+  };
 }
 
 export async function getStaticPaths() {

@@ -11,26 +11,17 @@ export async function getServerSideProps({ req, preview }) {
   console.log(prefs);
   return {
     props: {
-      activities: activityTypes.reduce(
-        (result, { type, name, description = null }) => ({
-          ...result,
-          [type]: {
-            name,
-            activities: activities
-              .filter((activity) => activity.type === type)
-              .map((activity) => {
-                activity.organization =
-                  organizations.find(
-                    (organization) =>
-                      organization.name === activity.organization
-                  ) || null;
-                activity.type = { type, name, description };
-                return activity;
-              }),
-          },
-        }),
-        {}
-      ),
+      activities: activities.map((activity) => ({
+        ...activity,
+        organization:
+          organizations.find(
+            (organization) => organization.name === activity.organization
+          ) || null,
+        type:
+          activityTypes.find(
+            (activityType) => activityType.name === activity.type
+          ) || null,
+      })),
     },
   };
 }

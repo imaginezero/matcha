@@ -1,7 +1,6 @@
 const { GoogleSpreadsheet } = require('google-spreadsheet');
 const slugify = require('slugify');
 const camelcaseKeys = require('camelcase-keys');
-const cloneDeep = require('clone-deep');
 
 const data = require('../data/activities.json');
 
@@ -60,7 +59,6 @@ exports.fetchData = async () => {
   return camelcaseKeys(data, { deep: true });
 };
 
-exports.getData = async (preview) =>
-  preview ? await exports.fetchData() : cloneDeep(data);
+exports.getData = async (preview) => (preview ? exports.fetchData() : data);
 
 exports.dataFile = require.resolve('../data/activities.json');
