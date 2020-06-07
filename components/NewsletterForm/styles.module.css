@@ -1,0 +1,42 @@
+.formWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 1em 0;
+}
+
+.inputWrapper {
+  display: flex;
+  flex-direction: row;
+}
+
+.paragraph {
+  margin: 2em 0 1.5em;
+  text-align: center;
+  color: #404040;
+}
+
+.emailField {
+  margin-right: 1em;
+  appearance: none;
+  outline: 0;
+  border: 1px solid #72286f;
+  border-radius: 0.125rem;
+  padding: 0.5em 1em;
+}
+
+.submitButton {
+  appearance: none;
+  outline: 0;
+  border: 1px solid #72286f;
+  border-radius: 0.125rem;
+  padding: 0.5em 1em;
+  background-color: #72286f;
+  font-weight: bold;
+  color: #fff;
+}
+
+.hiddenField {
+  position: absolute;
+  left: -5000px;
+}

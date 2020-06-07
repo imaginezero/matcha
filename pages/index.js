@@ -1,17 +1,18 @@
 import { Fragment } from 'react';
 import Head from 'next/head';
 
-import { Logo } from '../components';
+import { Logo, NewsletterForm } from '../components';
 
 export default function HomePage() {
   return (
     <Fragment>
       <Head>
-        <title>Matcha: Coming Soon!</title>
+        <title>Matcha kommt!</title>
       </Head>
       <div>
-        <Logo style={{ display: 'block', margin: '5em auto' }} width="250" />
+        <Logo style={{ display: 'block', margin: '5em auto 0' }} width="250" />
       </div>
+      <NewsletterForm />
     </Fragment>
   );
 }
