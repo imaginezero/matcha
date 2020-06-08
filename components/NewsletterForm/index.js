@@ -5,7 +5,7 @@ import {
   formWrapper,
   inputWrapper,
   paragraph,
-  emailField,
+  emailInput,
   hiddenField,
   submitButton,
 } from './styles.module.css';
@@ -26,7 +26,7 @@ export function NewsletterForm() {
             placeholder="deine@adresse.de"
             autoComplete="off"
             required
-            className={emailField}
+            className={emailInput}
           />
           <input
             type="text"

@@ -1,0 +1,27 @@
+.input {
+  margin-right: 0.5em;
+  appearance: none;
+  outline: 0;
+  border: var(--input-border);
+  border-radius: var(--input-border-radius);
+  padding: 0.5em 1em;
+}
+
+.input:focus {
+  box-shadow: var(--box-shadow-medium);
+}
+
+.button {
+  appearance: none;
+  outline: 0;
+  border: var(--button-border);
+  border-radius: var(--button-border-radius);
+  padding: 0.5em 1em;
+  background-color: var(--button-background);
+  font-weight: bold;
+  color: white;
+}
+
+.button:focus {
+  box-shadow: var(--box-shadow-medium);
+}

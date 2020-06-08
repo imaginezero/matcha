@@ -1,0 +1,34 @@
+:root {
+  /* global tokens */
+
+  --purple-200: #dfa8e4;
+  --purple-400: #c27ac0;
+  --purple-600: #9530a3;
+  --purple-800: #72286f;
+  --gray-300: #e3e3e3;
+  --gray-800: #404040;
+  --white: #ffffff;
+
+  --border-width-default: 1px;
+  --border-radius-medium: 0.25em;
+  --border-radius-pill: 1.5em/50%;
+
+  --box-shadow-light: 0 1px 3px 0 rgba(0, 0, 0, 0.1),
+    0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  --box-shadow-medium: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --box-shadow-heavy: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+
+  /* alias tokens */
+
+  --body-color: var(--gray-800);
+  --headline-color: var(--purple-800);
+
+  --input-border: var(--border-width-default) solid var(--purple-800);
+  --input-border-radius: var(--border-radius-medium);
+
+  --button-border: var(--border-width-default) solid var(--purple-800);
+  --button-border-radius: var(--border-radius-pill);
+  --button-background: var(--purple-800);
+}
