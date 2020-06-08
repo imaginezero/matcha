@@ -12,7 +12,7 @@ import {
 
 export function NewsletterForm() {
   return (
-    <form action={mailchimpUrl} method="post" target="_blank" noValidate>
+    <form action={mailchimpUrl} method="post" target="_blank">
       <div className={formWrapper}>
         <p className={paragraph}>
           Trag dich ein und erfahr, was du gegen die Klimakrise tun kannst:
@@ -25,6 +25,7 @@ export function NewsletterForm() {
             id="mce-EMAIL"
             placeholder="deine@adresse.de"
             autoComplete="off"
+            required
             className={emailField}
           />
           <input
