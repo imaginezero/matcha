@@ -5,10 +5,10 @@ export function Slider() {
   return (
     <input
       type="range"
-      min="1"
+      min="0"
       max="90"
       step="1"
-      defaultValue={effort}
+      value={effort}
       onChange={({ target: { value } }) => setEffort(value)}
     />
   );

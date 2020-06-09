@@ -1,4 +1,5 @@
 import { Fragment } from 'react';
+import Link from 'next/link';
 
 import { Slider } from '../components';
 
@@ -8,7 +9,18 @@ export default function Home({ activities }) {
       <Slider />
       <ul>
         {activities.map((activity, index) => (
-          <li key={index}>{activity.name}</li>
+          <li key={index}>
+            <Link
+              href="organization/[slug]"
+              as={`organization/${activity.organization.slug}`}
+            >
+              <a>{activity.organization.name}</a>
+            </Link>
+            :{' '}
+            <Link href="activity/[slug]" as={`activity/${activity.slug}`}>
+              <a>{activity.name}</a>
+            </Link>
+          </li>
         ))}
       </ul>
     </Fragment>
