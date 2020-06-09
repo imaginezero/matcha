@@ -1,4 +1,5 @@
-@import 'sanitize/*';
+@import 'sanitize';
+@import 'sanitize/typography';
 
 body {
   color: var(--body-color);

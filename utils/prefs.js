@@ -1,8 +1,34 @@
 import cookie from 'cookie';
 
+const defaultPrefs = {
+  isParent: false,
+  isStudent: false,
+  isScientist: false,
+  isOfficial: false,
+  isNgoExec: false,
+  isCompanyExec: false,
+};
+
+const conditions = {
+  parentOnly: 'isParent',
+  studentOnly: 'isStudent',
+  scientistOnly: 'isScientist',
+  officialOnly: 'isOfficial',
+  ngoExecOnly: 'isNgoExec',
+  companyExecOnly: 'isCompanyExec',
+};
+
 export function getPrefs(req) {
   const { prefs = '{}' } = cookie.parse(req.headers.cookie || '');
-  return JSON.parse(prefs);
+  return { ...defaultPrefs, ...JSON.parse(prefs) };
+}
+
+export function getPrefsFilter(req) {
+  const prefs = getPrefs(req);
+  return (activity) =>
+    Object.entries(conditions).every(
+      ([condition, property]) => !activity[condition] || prefs[property]
+    );
 }
 
 export function setPrefs(res, prefs) {
