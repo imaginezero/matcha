@@ -38,7 +38,7 @@
     "axios": "^0.19.2",
     "camelcase-keys": "^6.2.2",
     "cookie": "^0.4.1",
-    "google-spreadsheet": "^3.0.11",
+    "neat-csv": "^5.2.0",
     "next": "^9.4.1",
     "postcss-flexbugs-fixes": "^4.2.1",
     "postcss-normalize": "^9.0.0",
