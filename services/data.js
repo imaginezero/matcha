@@ -1,8 +1,15 @@
-const { GoogleSpreadsheet } = require('google-spreadsheet');
+const axios = require('axios');
+const parse = require('neat-csv');
 const slugify = require('slugify');
 const camelcaseKeys = require('camelcase-keys');
 
 const data = require('../data/activities.json');
+
+const urls = {
+  activities: `https://docs.google.com/spreadsheets/d/e/2PACX-1vSSeVFjS2xuAjwBULrHXhp1stM2Cz_uFfdeV_Qgjx5aahw1bze3AhgD5Ds3LA5FC-EkXjiMJ2-peeAM/pub?gid=561168914&single=true&output=csv`,
+  organizations: `https://docs.google.com/spreadsheets/d/e/2PACX-1vSSeVFjS2xuAjwBULrHXhp1stM2Cz_uFfdeV_Qgjx5aahw1bze3AhgD5Ds3LA5FC-EkXjiMJ2-peeAM/pub?gid=808798055&single=true&output=csv`,
+  activityTypes: `https://docs.google.com/spreadsheets/d/e/2PACX-1vSSeVFjS2xuAjwBULrHXhp1stM2Cz_uFfdeV_Qgjx5aahw1bze3AhgD5Ds3LA5FC-EkXjiMJ2-peeAM/pub?gid=514925567&single=true&output=csv`,
+};
 
 const normalize = (value) => {
   if (value === 'TRUE') return true;
@@ -12,52 +19,26 @@ const normalize = (value) => {
   return value;
 };
 
-const getDoc = (() => {
-  let doc;
-  return async () => {
-    if (doc === undefined) {
-      doc = new GoogleSpreadsheet(
-        '1Zym-l_NoWmi-u45UVUJjzLrU-36AKBjteTTaEC9UWk8'
-      );
-      await doc.useServiceAccountAuth({
-        client_email: process.env.GSUITE_EMAIL,
-        private_key: process.env.GSUITE_TOKEN,
-      });
-      await doc.loadInfo();
-    }
-    return doc;
-  };
-})();
-
-const fetchRawData = async () => {
-  const doc = await getDoc();
-  return Promise.all(
-    doc.sheetsByIndex.map((sheet) =>
-      sheet.getRows().then((rows) => ({ [sheet.title]: rows }))
+exports.fetchData = async () =>
+  Object.fromEntries(
+    await Promise.all(
+      Object.entries(urls).map(async ([key, url]) => {
+        const { data: csv } = await axios.get(url);
+        const rawRows = await parse(csv);
+        const rows = rawRows
+          .filter(
+            (row) => row.name && Object.values(row).some((value) => value)
+          )
+          .map((row) =>
+            Object.entries(row).reduce(
+              (obj, [key, value]) => ({ ...obj, [key]: normalize(value) }),
+              { slug: slugify(row.name.toLowerCase()) }
+            )
+          );
+        return [key, camelcaseKeys(rows, { deep: true })];
+      })
     )
-  ).then((partials) =>
-    partials.reduce((result, partial) => ({ ...result, ...partial }), {})
   );
-};
-
-exports.fetchData = async () => {
-  const rawData = await fetchRawData();
-  const data = Object.fromEntries(
-    Object.entries(rawData).map(([key, rawRows]) => {
-      const rows = rawRows
-        .map((row) =>
-          Object.keys(row)
-            .filter((key) => !key.startsWith('_'))
-            .reduce((obj, key) => ({ ...obj, [key]: normalize(row[key]) }), {
-              slug: row.name ? slugify(row.name.toLowerCase()) : null,
-            })
-        )
-        .filter((row) => Object.values(row).some((value) => value));
-      return [key, rows];
-    })
-  );
-  return camelcaseKeys(data, { deep: true });
-};
 
 exports.getData = async (preview) => (preview ? exports.fetchData() : data);
 
