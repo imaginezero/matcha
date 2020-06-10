@@ -9,7 +9,6 @@ module.exports = {
       features: {
         'custom-properties': true,
       },
-      preserve: false,
       importFrom: ['./tokens.css'],
     },
     'postcss-normalize': {},

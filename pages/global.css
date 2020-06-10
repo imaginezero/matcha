@@ -1,6 +1,8 @@
 @import 'sanitize';
 @import 'sanitize/typography';
 
+@import '../tokens.css';
+
 body {
   color: var(--body-color);
 }
