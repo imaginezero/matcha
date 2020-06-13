@@ -6,9 +6,9 @@ const camelcaseKeys = require('camelcase-keys');
 const data = require('../data/activities.json');
 
 const urls = {
-  activities: `https://docs.google.com/spreadsheets/d/e/2PACX-1vSSeVFjS2xuAjwBULrHXhp1stM2Cz_uFfdeV_Qgjx5aahw1bze3AhgD5Ds3LA5FC-EkXjiMJ2-peeAM/pub?gid=561168914&single=true&output=csv`,
-  organizations: `https://docs.google.com/spreadsheets/d/e/2PACX-1vSSeVFjS2xuAjwBULrHXhp1stM2Cz_uFfdeV_Qgjx5aahw1bze3AhgD5Ds3LA5FC-EkXjiMJ2-peeAM/pub?gid=808798055&single=true&output=csv`,
-  activityTypes: `https://docs.google.com/spreadsheets/d/e/2PACX-1vSSeVFjS2xuAjwBULrHXhp1stM2Cz_uFfdeV_Qgjx5aahw1bze3AhgD5Ds3LA5FC-EkXjiMJ2-peeAM/pub?gid=514925567&single=true&output=csv`,
+  activities: `https://docs.google.com/spreadsheets/d/e/2PACX-1vTUngdAx7n9WUQddwK-82FpSMHtEUrsQX_LOI150YIhNA-VLEEaAlFdNXPNpcAFLU3Jt9pw-IXyX2Rp/pub?gid=561168914&single=true&output=csv`,
+  organizations: `https://docs.google.com/spreadsheets/d/e/2PACX-1vTUngdAx7n9WUQddwK-82FpSMHtEUrsQX_LOI150YIhNA-VLEEaAlFdNXPNpcAFLU3Jt9pw-IXyX2Rp/pub?gid=808798055&single=true&output=csv`,
+  activityTypes: `https://docs.google.com/spreadsheets/d/e/2PACX-1vTUngdAx7n9WUQddwK-82FpSMHtEUrsQX_LOI150YIhNA-VLEEaAlFdNXPNpcAFLU3Jt9pw-IXyX2Rp/pub?gid=514925567&single=true&output=csv`,
 };
 
 const normalize = (value) => {
