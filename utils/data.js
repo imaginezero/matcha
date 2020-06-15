@@ -19,27 +19,27 @@ const normalize = (value) => {
   return value;
 };
 
-exports.fetchData = async () =>
-  Object.fromEntries(
-    await Promise.all(
-      Object.entries(urls).map(async ([key, url]) => {
-        const { data: csv } = await axios.get(url);
-        const rawRows = await parse(csv);
-        const rows = rawRows
-          .filter(
-            (row) => row.name && Object.values(row).some((value) => value)
-          )
-          .map((row) =>
-            Object.entries(row).reduce(
-              (obj, [key, value]) => ({ ...obj, [key]: normalize(value) }),
-              { slug: slugify(row.name.toLowerCase()) }
-            )
-          );
-        return [key, camelcaseKeys(rows, { deep: true })];
-      })
-    )
-  );
-
-exports.getData = async (preview) => (preview ? exports.fetchData() : data);
+exports.getData = async (preview) =>
+  preview
+    ? Object.fromEntries(
+        await Promise.all(
+          Object.entries(urls).map(async ([key, url]) => {
+            const { data: csv } = await axios.get(url);
+            const rawRows = await parse(csv);
+            const rows = rawRows
+              .filter(
+                (row) => row.name && Object.values(row).some((value) => value)
+              )
+              .map((row) =>
+                Object.entries(row).reduce(
+                  (obj, [key, value]) => ({ ...obj, [key]: normalize(value) }),
+                  { slug: slugify(row.name.toLowerCase()) }
+                )
+              );
+            return [key, camelcaseKeys(rows, { deep: true })];
+          })
+        )
+      )
+    : data;
 
 exports.dataFile = require.resolve('../data/activities.json');

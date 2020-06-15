@@ -7,7 +7,7 @@ export function Slider() {
       type="range"
       min="10"
       max="100"
-      step="1"
+      step="10"
       value={effort}
       onChange={({ target: { value } }) => setEffort(value)}
     />

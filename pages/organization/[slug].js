@@ -3,30 +3,14 @@ export default function Organization({ organization }) {
 }
 
 export async function getStaticProps({ params: { slug }, preview }) {
-  const { getData } = require('../../services/data');
-  const { activities, activityTypes, organizations } = await getData(preview);
-  const organization = organizations.find(
-    (organization) => organization.slug === slug
-  );
-  return {
-    props: {
-      organization: {
-        ...organization,
-        activities: activities
-          .filter((activity) => activity.organization === organization.name)
-          .map((activity) => ({
-            ...activity,
-            type:
-              activityTypes.find(({ type }) => activity.type === type) || null,
-          })),
-      },
-    },
-  };
+  const { getOrganization } = require('../../services/organization');
+  const organization = await getOrganization({ slug }, preview);
+  return { props: { organization } };
 }
 
 export async function getStaticPaths() {
-  const { getData } = require('../../services/data');
-  const { organizations } = await getData();
+  const { getOrganizations } = require('../../services/organization');
+  const organizations = await getOrganizations();
   return {
     paths: organizations.map(({ slug }) => ({ params: { slug } })),
     fallback: false,

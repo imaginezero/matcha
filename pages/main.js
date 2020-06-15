@@ -26,39 +26,19 @@ export default function Home({ activities }) {
 }
 
 export async function getServerSideProps({ req, query, preview }) {
-  const { getData } = require('../services/data');
-  const { getPrefsFilter } = require('../utils/prefs');
+  const { getPrefs } = require('../utils/prefs');
+  const { recommendActivities } = require('../services/activity');
 
   const { e: effort = 10, p: page = 1 } = query;
-  const minEffort = Math.max(Number(effort) - 10, 0);
-  const maxEffort = Math.min(Number(effort), 100);
-  const maxNum = Number(page) * 3;
+  const num = Number(page) * 3;
+  const prefs = getPrefs(req);
 
-  const { activities, activityTypes, organizations } = await getData(preview);
-
-  const allActivities = activities
-    .filter(
-      ({ effortScore }) => effortScore > minEffort && effortScore <= maxEffort
-    )
-    .filter(getPrefsFilter(req));
+  const activities = await recommendActivities(effort, prefs, preview);
 
   return {
     props: {
-      activities: allActivities
-        .sort((a, b) => b.impactScore - a.impactScore)
-        .slice(0, maxNum)
-        .map((activity) => ({
-          ...activity,
-          organization:
-            organizations.find(
-              (organization) => organization.name === activity.organization
-            ) || null,
-          type:
-            activityTypes.find(
-              (activityType) => activityType.name === activity.type
-            ) || null,
-        })),
-      moreActivities: maxNum > allActivities.length,
+      activities: activities.slice(0, num),
+      moreActivities: num > activities.length,
     },
   };
 }
