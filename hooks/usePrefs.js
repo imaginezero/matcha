@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const fetchPrefs = async (prefs) => {
   const response = await fetch(
@@ -20,14 +20,13 @@ const fetchPrefs = async (prefs) => {
 
 export function usePrefs() {
   const [prefs, setPrefs] = useState(null);
+  useEffect(() => {
+    (async () => setPrefs(await fetchPrefs()))();
+  }, []);
   return {
     prefs,
-    async loadPrefs() {
-      const prefs = await fetchPrefs();
-      setPrefs(prefs);
-      return prefs;
-    },
-    async updatePrefs(prefs) {
+    setPrefs,
+    async savePrefs() {
       setPrefs(await fetchPrefs(prefs));
       return prefs;
     },

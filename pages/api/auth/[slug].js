@@ -8,6 +8,8 @@ export default async function handleAuth(req, res) {
         return await auth.handleLogin(req, res);
       case 'logout':
         return await auth.handleLogout(req, res);
+      case 'profile':
+        return await auth.handleProfile(req, res);
       case 'callback':
         return await auth.handleCallback(req, res, {
           redirectTo: '/api/prefs/restore',

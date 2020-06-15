@@ -1,34 +1,26 @@
-import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 
 import { usePrefs } from '../../hooks';
 
 export function PreferenceForm() {
-  const [localPrefs, setlocalPrefs] = useState(null);
-  const { prefs, loadPrefs, updatePrefs } = usePrefs();
+  const { prefs, setPrefs, savePrefs } = usePrefs();
   const router = useRouter();
   const handleSubmit = async (event) => {
     event.preventDefault();
-    await updatePrefs(localPrefs);
+    await savePrefs();
     router.back();
   };
-  useEffect(() => {
-    if (!prefs) loadPrefs();
-    if (prefs && !localPrefs) setlocalPrefs(prefs);
-  });
   return (
     <form onSubmit={handleSubmit}>
-      {localPrefs
-        ? Object.entries(localPrefs)
+      {prefs
+        ? Object.entries(prefs)
             .map(([key, value], index) => (
               <div key={index}>
                 <input
                   type="checkbox"
                   id={key}
                   checked={value}
-                  onChange={() =>
-                    setlocalPrefs({ ...localPrefs, [key]: !value })
-                  }
+                  onChange={() => setPrefs({ ...prefs, [key]: !value })}
                 />{' '}
                 <label htmlFor={key}>{key}</label>
               </div>

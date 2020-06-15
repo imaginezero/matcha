@@ -1,7 +1,7 @@
 import { Fragment } from 'react';
 import Link from 'next/link';
 
-import { Slider } from '../components';
+import { Slider, Login } from '../components';
 
 export default function Home({ activities }) {
   return (
@@ -10,6 +10,7 @@ export default function Home({ activities }) {
       <Link href="preferences">
         <a>Einstellungen</a>
       </Link>
+      <Login />
       <ul>
         {activities.map(({ name, slug, organization: org }, index) => (
           <li key={index}>
