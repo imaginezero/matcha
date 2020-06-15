@@ -3,14 +3,14 @@ import { useRouter } from 'next/router';
 
 import { usePrefs } from '../../hooks';
 
-const PreferencesForm = () => {
+export function PreferenceForm() {
   const [localPrefs, setlocalPrefs] = useState(null);
   const { prefs, loadPrefs, updatePrefs } = usePrefs();
   const router = useRouter();
   const handleSubmit = async (event) => {
     event.preventDefault();
     await updatePrefs(localPrefs);
-    router.reload();
+    router.back();
   };
   useEffect(() => {
     if (!prefs) loadPrefs();
@@ -38,15 +38,5 @@ const PreferencesForm = () => {
             ])
         : null}
     </form>
-  );
-};
-
-export function Preferences() {
-  const [open, setOpen] = useState(false);
-  return (
-    <details open={open} onToggle={() => setOpen(!open)}>
-      <summary>Einstellungen</summary>
-      {open ? <PreferencesForm /> : null}
-    </details>
   );
 }

@@ -1,13 +1,15 @@
 import { Fragment } from 'react';
 import Link from 'next/link';
 
-import { Slider, Preferences } from '../components';
+import { Slider } from '../components';
 
 export default function Home({ activities }) {
   return (
     <Fragment>
       <Slider />
-      <Preferences />
+      <Link href="preferences">
+        <a>Einstellungen</a>
+      </Link>
       <ul>
         {activities.map(({ name, slug, organization: org }, index) => (
           <li key={index}>

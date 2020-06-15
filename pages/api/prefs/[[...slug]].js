@@ -20,7 +20,7 @@ const updatePrefs = async (req, res) => {
   const client = await auth.getManagementClient();
   const prefs = { ...req.getPrefs(), ...(req.body || {}) };
   try {
-    const { id } = await getUser(req);
+    const { user_id: id } = await getUser(req);
     await client.updateUserMetadata({ id }, prefs);
   } catch (error) {
     if (!(error instanceof NotLoggedInError)) throw error;
