@@ -10,11 +10,12 @@ const defaultPrefs = {
 };
 
 export function getPrefs(req) {
+  console.log(req.headers.cookie);
   const { prefs = '{}' } = cookie.parse(req.headers.cookie || '');
   return { ...defaultPrefs, ...JSON.parse(prefs) };
 }
 
-export function setPrefs(res, prefs) {
+export function setPrefs(res, prefs = {}) {
   res.setHeader(
     'Set-Cookie',
     cookie.serialize('prefs', JSON.stringify(prefs), {
