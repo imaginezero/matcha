@@ -1,22 +1,12 @@
-import Link from 'next/link';
-
 import { useLogin } from '../hooks';
 
 export function Login() {
   const { isLoggedIn } = useLogin();
   switch (isLoggedIn) {
     case true:
-      return (
-        <Link href="/api/auth/logout">
-          <a>Logout</a>
-        </Link>
-      );
+      return <a href="/api/auth/logout">Logout</a>;
     case false:
-      return (
-        <Link href="/api/auth/login">
-          <a>Login</a>
-        </Link>
-      );
+      return <a href="/api/auth/login">Login</a>;
     case null:
       return <span>...</span>;
   }

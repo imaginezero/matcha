@@ -2,12 +2,17 @@ import { initAuth0 } from '@auth0/nextjs-auth0';
 import { ManagementClient } from 'auth0';
 import axios from 'axios';
 
+const baseUrl =
+  process.env.NODE_ENV === 'production'
+    ? 'https://gomatcha.org'
+    : process.env.VERCEL_URL;
+
 const auth = initAuth0({
   domain: process.env.AUTH0_DOMAIN,
   clientId: process.env.AUTH0_CLIENT_ID,
   clientSecret: process.env.AUTH0_CLIENT_SECRET,
-  redirectUri: `${process.env.VERCEL_URL}/api/auth/callback`,
-  postLogoutRedirectUri: `${process.env.VERCEL_URL}/api/prefs/reset`,
+  redirectUri: `${baseUrl}/api/auth/callback`,
+  postLogoutRedirectUri: `${baseUrl}/api/prefs/reset`,
   session: {
     cookieSecret: process.env.AUTH0_COOKIE_SECRET,
     cookieLifetime: 60 * 60 * 24 * 7,
