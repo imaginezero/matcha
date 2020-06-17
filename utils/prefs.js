@@ -10,7 +10,6 @@ const defaultPrefs = {
 };
 
 export function getPrefs(req) {
-  console.log(req.headers.cookie);
   const { prefs = '{}' } = cookie.parse(req.headers.cookie || '');
   return { ...defaultPrefs, ...JSON.parse(prefs) };
 }

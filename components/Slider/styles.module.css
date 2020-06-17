@@ -1,0 +1,126 @@
+/* bootstrapped using http://danielstern.ca/range.css/ */
+
+.slider {
+  width: 100%;
+  height: 24px;
+  background-color: transparent;
+  border: 0.5px solid var(--gray-300);
+  border-radius: 25px;
+  overflow: hidden;
+  padding: 0;
+  box-shadow: var(--box-shadow-medium);
+  appearance: none;
+}
+
+.slider:focus,
+.slider:focus-within {
+  outline: none;
+  box-shadow: var(--box-shadow-heavy);
+}
+
+/* Chrome/Safari/Opera/ModernEdge styles */
+
+.slider::-webkit-slider-runnable-track {
+  background: var(--gray-100);
+  border-radius: 25px;
+  width: 100%;
+  height: 24px;
+  cursor: pointer;
+}
+
+.slider::-webkit-slider-thumb {
+  width: 24px;
+  height: 24px;
+  background: var(--purple-800);
+  border: 2px solid var(--white);
+  border-radius: 50px;
+  box-shadow: -100vw 0 0 99vw var(--purple-200);
+  cursor: pointer;
+  -webkit-appearance: none;
+}
+
+.slider:focus::-webkit-slider-runnable-track {
+  background: var(--gray-100);
+}
+
+/* Firefox styles */
+
+.slider::-moz-focus-outer {
+  border: 0;
+}
+
+.slider::-moz-range-track {
+  background: var(--gray-100);
+  width: 100%;
+  height: 24px;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background: var(--purple-800);
+  border: 2px solid var(--white);
+  border-radius: 50px;
+  box-shadow: -100vw 0 0 99vw var(--purple-200);
+  cursor: pointer;
+}
+
+/* Legacy Edge styles */
+
+.slider::-ms-track {
+  background: transparent;
+  border-color: transparent;
+  border-width: 0px 0;
+  color: transparent;
+  width: 100%;
+  height: 24px;
+  cursor: pointer;
+}
+
+.slider::-ms-fill-lower {
+  background: var(--purple-200);
+  /* border: 1px solid var(--purple-200); */
+}
+
+.slider::-ms-fill-upper {
+  background: var(--gray-100);
+  /* border: 1px solid var(--purple-200); */
+}
+
+.slider::-ms-thumb {
+  width: 24px;
+  height: 24px;
+  background: var(--purple-800);
+  border: 2px solid var(--white);
+  border-radius: 50px;
+  cursor: pointer;
+  margin-top: 0px;
+}
+
+.slider:focus::-ms-fill-lower {
+  background: var(--purple-200);
+}
+
+.slider:focus::-ms-fill-upper {
+  background: var(--gray-100);
+}
+
+@supports (-ms-ime-align: auto) {
+  .slider {
+    margin: 0;
+  }
+}
+
+.slider::-ms-track {
+  background: var(--gray-100);
+  color: transparent;
+  height: 24px;
+  border: none;
+}
+
+.slider::-ms-ticks-after,
+.slider::-ms-ticks-before,
+.slider::-ms-tooltip {
+  display: none;
+}

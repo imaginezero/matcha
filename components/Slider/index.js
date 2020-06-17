@@ -1,5 +1,7 @@
 import { useEffort } from '../../hooks';
 
+import { slider } from './styles.module.css';
+
 export function Slider() {
   const { effort, setEffort } = useEffort();
   return (
@@ -10,6 +12,7 @@ export function Slider() {
       step="10"
       value={effort}
       onChange={({ target: { value } }) => setEffort(value)}
+      className={slider}
     />
   );
 }

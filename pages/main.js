@@ -1,11 +1,10 @@
-import { Fragment } from 'react';
 import Link from 'next/link';
 
-import { Slider, Login } from '../components';
+import { Page, Slider, Login } from '../components';
 
 export default function Home({ activities }) {
   return (
-    <Fragment>
+    <Page>
       <Slider />
       <Link href="preferences">
         <a>Einstellungen</a>
@@ -24,7 +23,7 @@ export default function Home({ activities }) {
           </li>
         ))}
       </ul>
-    </Fragment>
+    </Page>
   );
 }
 

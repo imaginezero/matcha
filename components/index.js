@@ -1,4 +1,6 @@
-export { Logo } from './Logo';
+export { Page } from './Page';
+
+export { Combomark, Logomark, Typemark } from './Logo';
 
 export { Slider } from './Slider';
 

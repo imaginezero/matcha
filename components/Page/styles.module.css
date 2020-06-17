@@ -1,0 +1,38 @@
+.headerWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem;
+}
+
+.mainWrapper {
+  padding: 0.5rem;
+}
+
+.footerWrapper {
+  padding: 0.5rem;
+}
+
+.logo {
+  display: block;
+  flex-grow: 0;
+  flex-shrink: 0;
+}
+
+.typemark {
+  height: 1.5rem;
+}
+
+.logomark {
+  height: 3rem;
+}
+
+@media (min-width: 480px) {
+  .headerWrapper,
+  .mainWrapper,
+  .footerWrapper {
+    padding: 1rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+}

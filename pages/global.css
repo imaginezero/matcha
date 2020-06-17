@@ -1,4 +1,5 @@
 @import 'sanitize';
+@import 'sanitize/forms';
 @import 'sanitize/typography';
 
 @import '../tokens.css';
