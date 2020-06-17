@@ -14,8 +14,6 @@ const getUser = async (req) => {
   return user;
 };
 
-const getPrefs = (req, res) => res.json(req.getPrefs());
-
 const updatePrefs = async (req, res) => {
   const client = await auth.getManagementClient();
   const prefs = { ...req.getPrefs(), ...(req.body || {}) };
@@ -26,7 +24,12 @@ const updatePrefs = async (req, res) => {
     if (!(error instanceof NotLoggedInError)) throw error;
   }
   res.setPrefs(prefs);
-  res.json(prefs);
+  if (req.method === 'PUT') {
+    res.json(prefs);
+  } else {
+    res.writeHead(307, { Location: '/' });
+    res.end();
+  }
 };
 
 const restorePrefs = async (req, res) => {
@@ -48,17 +51,16 @@ const resetPrefs = async (req, res) => {
 
 export default prefs(async function handlePrefs(req, res) {
   try {
-    const { slug } = req.query;
-    if (slug) {
-      const [action] = slug;
-      if (action === 'reset') return resetPrefs(req, res);
-      if (action === 'restore') return restorePrefs(req, res);
-      throw new Error(`invalid action: ${action}`);
-    } else {
-      const { method } = req;
-      if (method === 'POST') return updatePrefs(req, res);
-      if (method === 'GET') return getPrefs(req, res);
-      throw new Error(`invalid method: ${method}`);
+    const { slug: action } = req.query;
+    switch (action) {
+      case 'reset':
+        return await resetPrefs(req, res);
+      case 'restore':
+        return await restorePrefs(req, res);
+      case 'update':
+        return await updatePrefs(req, res);
+      default:
+        throw new Error(`invalid action: ${action}`);
     }
   } catch (error) {
     console.error(error);

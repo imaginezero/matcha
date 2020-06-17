@@ -2,8 +2,8 @@ import { useRouter } from 'next/router';
 
 import { usePrefs } from '../../hooks';
 
-export function PreferenceForm() {
-  const { prefs, setPrefs, savePrefs } = usePrefs();
+export function PreferenceForm({ preferences }) {
+  const { prefs, setPrefs, savePrefs } = usePrefs(preferences);
   const router = useRouter();
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -11,7 +11,7 @@ export function PreferenceForm() {
     router.back();
   };
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} action="/api/prefs/update" method="POST">
       {prefs
         ? Object.entries(prefs)
             .map(([key, value], index) => (

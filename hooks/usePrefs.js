@@ -1,16 +1,13 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
-const fetchPrefs = async (prefs) => {
-  const response = await fetch(
-    '/api/prefs',
-    prefs && {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(prefs),
-    }
-  );
+const savePrefs = async (prefs) => {
+  const response = await fetch('/api/prefs/update', {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(prefs),
+  });
   if (response.ok && response.status === 200) {
     return await response.json();
   } else {
@@ -18,16 +15,13 @@ const fetchPrefs = async (prefs) => {
   }
 };
 
-export function usePrefs() {
-  const [prefs, setPrefs] = useState(null);
-  useEffect(() => {
-    (async () => setPrefs(await fetchPrefs()))();
-  }, []);
+export function usePrefs(currentPrefs) {
+  const [prefs, setPrefs] = useState(currentPrefs);
   return {
     prefs,
     setPrefs,
     async savePrefs() {
-      setPrefs(await fetchPrefs(prefs));
+      setPrefs(await savePrefs(prefs));
       return prefs;
     },
   };
