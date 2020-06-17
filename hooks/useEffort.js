@@ -1,13 +1,21 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 
 export const useEffort = (delay = 250) => {
   const router = useRouter();
-  const { e = 1, p = 1 } = router.query;
-  const [effort, setEffort] = useState(e);
+  const { pathname, query } = router;
+
+  const queryEffort = Number(query.e || 10);
+  const queryPage = Number(query.p || 1);
 
   const [timeoutId, setTimeoutId] = useState(null);
-  const { pathname } = router;
+  const [effort, setEffort] = useState(queryEffort);
+
+  useEffect(() => {
+    if (queryEffort !== effort) {
+      setEffort(queryEffort);
+    }
+  }, [queryEffort]);
 
   return {
     effort,
@@ -16,10 +24,10 @@ export const useEffort = (delay = 250) => {
       setTimeoutId(
         setTimeout(() => router.push({ pathname, query: { e } }), delay)
       );
-      setEffort(e);
+      setEffort(Number(e));
     },
     fetchMore() {
-      router.push({ pathname, query: { e, p: p + 1 } });
+      router.push({ pathname, query: { e: queryEffort, p: queryPage + 1 } });
     },
   };
 };
