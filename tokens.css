@@ -33,4 +33,7 @@
   --button-border: var(--border-width-default) solid var(--purple-800);
   --button-border-radius: var(--border-radius-pill);
   --button-background: var(--purple-800);
+
+  /* dynamic token */
+  --effort-background: hsl(122.4, 0%, 70%);
 }

@@ -1,6 +1,19 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 
+const setBackgroundColor = (effort) => {
+  const property = '--effort-background';
+  const regExp = /(hsl\([\d.]+, )(?:\d+)(%, \d+%\))/;
+
+  const root = document.documentElement;
+  const currentValue = getComputedStyle(root).getPropertyValue(property);
+
+  if (regExp.test(currentValue)) {
+    const nextValue = currentValue.replace(regExp, `$1${effort / 2}$2`);
+    root.style.setProperty(property, nextValue.trim());
+  }
+};
+
 export const useEffort = (delay = 250) => {
   const router = useRouter();
   const { pathname, query } = router;
@@ -16,6 +29,10 @@ export const useEffort = (delay = 250) => {
       setEffort(queryEffort);
     }
   }, [queryEffort]);
+
+  useEffect(() => {
+    setBackgroundColor(effort);
+  }, [effort]);
 
   return {
     effort,
