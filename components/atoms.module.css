@@ -19,7 +19,6 @@
   border-radius: var(--button-border-radius);
   padding: 0.25em 1em;
   background-color: var(--button-background);
-  font-weight: bold;
   color: white;
 }
 
@@ -30,6 +29,7 @@
 .ctaButton {
   composes: button;
   border: var(--button-border-cta);
+  font-weight: bold;
 }
 
 .wrapper {

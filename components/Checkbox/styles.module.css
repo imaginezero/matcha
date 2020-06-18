@@ -1,4 +1,5 @@
 .checkboxWrapper {
+  display: inline-block;
   width: 3em;
   height: 1.5em;
   /* border: var(--border-width-thin) solid var(--gray-300); */
