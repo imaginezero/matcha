@@ -15,7 +15,7 @@ const auth = initAuth0({
     storeAccessToken: true,
     storeRefreshToken: true,
   },
-  // scope: 'openid profile',
+  scope: 'email openid profile',
 });
 
 const managementClient = (async () =>
