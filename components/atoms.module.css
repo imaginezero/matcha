@@ -4,7 +4,8 @@
   outline: 0;
   border: var(--input-border);
   border-radius: var(--input-border-radius);
-  padding: 0.5em 1em;
+  padding: 0.25em 0.5em;
+  background-color: var(--white);
 }
 
 .input:focus {
@@ -16,7 +17,7 @@
   outline: 0;
   border: var(--button-border);
   border-radius: var(--button-border-radius);
-  padding: 0.5em 1em;
+  padding: 0.25em 1em;
   background-color: var(--button-background);
   font-weight: bold;
   color: white;
@@ -24,4 +25,13 @@
 
 .button:focus {
   box-shadow: var(--box-shadow-medium);
+}
+
+.ctaButton {
+  composes: button;
+  border: var(--button-border-cta);
+}
+
+.wrapper {
+  padding: 1rem 0.5rem;
 }

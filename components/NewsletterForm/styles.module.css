@@ -2,7 +2,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 1em 0 5em;
 }
 
 .inputWrapper {
@@ -11,8 +10,9 @@
 }
 
 .paragraph {
-  margin: 2em 0 1.5em;
+  margin-top: 0;
   text-align: center;
+  color: var(--headline-color);
 }
 
 .emailInput {
@@ -20,7 +20,7 @@
 }
 
 .submitButton {
-  composes: button from '../atoms.module.css';
+  composes: ctaButton from '../atoms.module.css';
 }
 
 .hiddenField {

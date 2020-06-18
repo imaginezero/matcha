@@ -1,6 +1,7 @@
 import Link from 'next/link';
 
 import { Typemark, Logomark } from '../Logo';
+import { Footer } from './Footer';
 
 import {
   headerWrapper,
@@ -31,7 +32,9 @@ export function Page({ children }) {
         </div>
       </header>
       <main className={mainWrapper}>{children}</main>
-      <footer className={footerWrapper}></footer>
+      <footer className={footerWrapper}>
+        <Footer />
+      </footer>
     </>
   );
 }

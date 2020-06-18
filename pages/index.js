@@ -11,7 +11,7 @@ export default function HomePage() {
       </Head>
       <div>
         <Combomark
-          style={{ display: 'block', margin: '5em auto 0' }}
+          style={{ display: 'block', margin: '5em auto 2.5em' }}
           width="250"
         />
       </div>

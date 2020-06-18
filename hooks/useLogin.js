@@ -1,4 +1,12 @@
-import { useState, useEffect } from 'react';
+import {
+  createElement,
+  createContext,
+  useState,
+  useEffect,
+  useContext,
+} from 'react';
+
+const LoginContext = createContext(null);
 
 const fetchProfile = async () => {
   const response = await fetch('/api/auth/profile');
@@ -9,14 +17,29 @@ const fetchProfile = async () => {
   }
 };
 
-export function useLogin() {
-  const [profile, setProfile] = useState(null);
-  useEffect(() => {
-    (async () => setProfile(await fetchProfile()))();
-  }, []);
-  const isLoggedIn = !profile ? null : !profile.error;
-  return {
-    isLoggedIn,
-    profile: isLoggedIn ? profile : null,
+export function withLogin(Component) {
+  const WrappedComponent = (props) => {
+    const [profile, setProfile] = useState(null);
+    const isLoggedIn = !profile ? null : !profile.error;
+    const value = {
+      isLoggedIn,
+      profile: isLoggedIn ? profile : null,
+    };
+    useEffect(() => {
+      (async () => setProfile(await fetchProfile()))();
+    }, []);
+    return createElement(
+      LoginContext.Provider,
+      { value },
+      createElement(Component, props)
+    );
   };
+  WrappedComponent.displayName = `WithLogin(${
+    Component.displayName || Component.name || 'Component'
+  })`;
+  return WrappedComponent;
+}
+
+export function useLogin() {
+  return useContext(LoginContext);
 }

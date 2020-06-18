@@ -6,11 +6,23 @@
 }
 
 .mainWrapper {
-  padding: 0.5rem;
+  composes: wrapper from '../atoms.module.css';
 }
 
 .footerWrapper {
-  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 0.5rem;
+}
+
+@media (min-width: 480px) {
+  .headerWrapper,
+  .mainWrapper,
+  .footerWrapper {
+    padding: 1rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
 }
 
 .logo {
@@ -27,12 +39,11 @@
   height: 3rem;
 }
 
-@media (min-width: 480px) {
-  .headerWrapper,
-  .mainWrapper,
-  .footerWrapper {
-    padding: 1rem;
-    max-width: 900px;
-    margin: 0 auto;
-  }
+.newsletter {
+  background-color: var(--purple-200);
+}
+
+.footer {
+  composes: wrapper from '../atoms.module.css';
+  background-color: var(--purple-200);
 }
