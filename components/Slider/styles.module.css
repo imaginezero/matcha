@@ -3,18 +3,18 @@
 .slider {
   width: 100%;
   height: 1.5em;
-  border: var(--border-width-thin) solid var(--gray-300);
+  border: 0;
   border-radius: var(--border-radius-pill);
   overflow: hidden;
   padding: 0;
-  box-shadow: var(--box-shadow-medium);
+  box-shadow: var(--box-shadow-light);
   appearance: none;
 }
 
 .slider:focus,
 .slider:focus-within {
   outline: none;
-  box-shadow: var(--box-shadow-heavy);
+  box-shadow: var(--box-shadow-medium);
 }
 
 /* Chrome/Safari/Opera/ModernEdge styles */
@@ -32,7 +32,7 @@
   background: var(--purple-800);
   border: var(--border-width-wide) solid var(--white);
   border-radius: var(--border-radius-pill);
-  box-shadow: -1000em 0 0 999em var(--effort-background);
+  box-shadow: -1000em 0 0 999.25em var(--effort-background);
   cursor: pointer;
   -webkit-appearance: none;
 }

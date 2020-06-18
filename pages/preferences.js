@@ -1,7 +1,11 @@
-import { PreferenceForm } from '../components';
+import { Page, PreferenceForm } from '../components';
 
 export default function Prefs({ preferences }) {
-  return <PreferenceForm preferences={preferences} />;
+  return (
+    <Page>
+      <PreferenceForm preferences={preferences} />
+    </Page>
+  );
 }
 
 export async function getServerSideProps({ req }) {
