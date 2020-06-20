@@ -1,13 +1,15 @@
 import Link from 'next/link';
 
 import { Page, Slider, Login } from '../components';
+import { useTranslation } from '../hooks';
 
 export default function Home({ activities }) {
+  const { t } = useTranslation();
   return (
     <Page>
       <Slider />
       <Link href="preferences">
-        <a>Einstellungen</a>
+        <a>{t('prefLink')}</a>
       </Link>
       <Login />
       <ul>
@@ -31,7 +33,7 @@ export async function getServerSideProps({ req, query, preview }) {
   const { getPrefs } = require('../utils/prefs');
   const { recommendActivities } = require('../services/activity');
 
-  const { e: effort = 10, p: page = 1 } = query;
+  const { e: effort = 40, p: page = 1 } = query;
   const num = Number(page) * 3;
   const prefs = getPrefs(req);
 

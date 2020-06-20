@@ -1,4 +1,4 @@
-import { useLogin } from '../../hooks';
+import { useLogin, useTranslation } from '../../hooks';
 
 import {
   formWrapper,
@@ -14,13 +14,11 @@ const mailchimpUrl =
 
 export function NewsletterForm() {
   const { profile } = useLogin();
+  const { t } = useTranslation();
   return (
     <form action={mailchimpUrl} method="post" target="_blank">
       <div className={formWrapper}>
-        <p className={paragraph}>
-          Trag dich ein und erfahr per E-Mail, was du gegen die Klimakrise tun
-          kannst:
-        </p>
+        <p className={paragraph}>{t('nlSubscriptionDescription')}</p>
         <div className={inputWrapper}>
           <input
             type="email"
@@ -42,7 +40,7 @@ export function NewsletterForm() {
           />
           <input
             type="submit"
-            value="Eintragen"
+            value={t('nlSubscriptionButton')}
             name="subscribe"
             className={submitButton}
           />

@@ -1,9 +1,12 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 
+import { withTranslation } from '../hooks';
+
 class CustomDocument extends Document {
   render() {
+    const { t } = this.props;
     return (
-      <Html lang="de">
+      <Html lang={t('locale')}>
         <Head>
           <link
             rel="apple-touch-icon"
@@ -36,4 +39,4 @@ class CustomDocument extends Document {
   }
 }
 
-export default CustomDocument;
+export default withTranslation(CustomDocument);

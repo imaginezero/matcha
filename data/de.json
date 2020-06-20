@@ -1,0 +1,15 @@
+{
+  "locale": "de",
+  "login": "Anmelden",
+  "logout": "Abmelden",
+  "nlSubscriptionDescription": "Trag dich ein und erfahr per E-Mail, was du gegen die Klimakrise tun kannst:",
+  "nlSubscriptionButton": "Eintragen",
+  "prefLink": "Möchtest Du individuellere Empfehlungen?",
+  "prefQuestion.isParent": "Bist du Mutter oder Vater?",
+  "prefQuestion.isStudent": "Gehst du zur Schule oder zur Uni?",
+  "prefQuestion.isScientist": "Bist du Wissenschaftlerin oder Wissenschaftler?",
+  "prefQuestion.isOfficial": "Repräsentierst du eine Behörde oder Kommune?",
+  "prefQuestion.isNgoExec": "Repräsentierst du eine NGO oder eine aktivistische Gruppe?",
+  "prefQuestion.isCompanyExec": "Repräsentierst du ein Unternehmen?",
+  "prefSubmitButton": "Antworten Speichern"
+}

@@ -8,11 +8,11 @@ const setBackgroundColor = (effort) => {
   root.style.setProperty(property, `hsl(80, ${effort / 2 + 10}%, 70%)`);
 };
 
-export const useEffort = (delay = 250) => {
+export function useEffort(delay = 250) {
   const router = useRouter();
   const { pathname, query } = router;
 
-  const queryEffort = Number(query.e || 10);
+  const queryEffort = Number(query.e || 40);
   const queryPage = Number(query.p || 1);
 
   const [timeoutId, setTimeoutId] = useState(null);
@@ -41,4 +41,4 @@ export const useEffort = (delay = 250) => {
       router.push({ pathname, query: { e: queryEffort, p: queryPage + 1 } });
     },
   };
-};
+}

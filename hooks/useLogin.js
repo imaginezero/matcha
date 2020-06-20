@@ -5,6 +5,7 @@ import {
   useEffect,
   useContext,
 } from 'react';
+import hoistNonReactStatics from 'hoist-non-react-statics';
 
 const LoginContext = createContext(null);
 
@@ -34,6 +35,7 @@ export function withLogin(Component) {
       createElement(Component, props)
     );
   };
+  hoistNonReactStatics(WrappedComponent, Component);
   WrappedComponent.displayName = `WithLogin(${
     Component.displayName || Component.name || 'Component'
   })`;
