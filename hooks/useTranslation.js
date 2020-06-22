@@ -14,7 +14,7 @@ const t = (key, data) => {
   if (data) {
     const flattenedData = flatten(data);
     return translation.replace(
-      /{{(- )?(.+?)}}/g,
+      /{{(- )?\s*(.+?)\s*}}/g,
       (_, shouldEscape, dataPath) => {
         const value = flattenedData[dataPath];
         if (!value) {

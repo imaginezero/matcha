@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-import { Page, Slider, Login } from '../components';
+import { Page, Slider } from '../components';
 import { useTranslation } from '../hooks';
 
 export default function Home({ activities }) {
@@ -11,7 +11,6 @@ export default function Home({ activities }) {
       <Link href="preferences">
         <a>{t('prefLink')}</a>
       </Link>
-      <Login />
       <ul>
         {activities.map(({ name, slug, organization: org }, index) => (
           <li key={index}>

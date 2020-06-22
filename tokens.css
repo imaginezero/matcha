@@ -27,6 +27,8 @@
   /* alias tokens */
 
   --body-color: var(--gray-800);
+  --link-color: var(--purple-800);
+  --link-hover-color: var(--purple-600);
   --headline-color: var(--purple-800);
 
   --input-border: var(--border-width-default) solid var(--purple-800);

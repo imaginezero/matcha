@@ -2,6 +2,8 @@
   "locale": "de",
   "login": "Anmelden",
   "logout": "Abmelden",
+  "loginInfo": "Du bist momentan als {{ email }} angemeldet. Deine Antworten werden dauerhaft gespeichert.",
+  "loggedoutInfo": "Du bist momentan nicht eingeloggt. Deine Antworten werden nicht dauerhaft gespeichert.",
   "nlSubscriptionDescription": "Trag dich ein und erfahr per E-Mail, was du gegen die Klimakrise tun kannst:",
   "nlSubscriptionButton": "Eintragen",
   "prefLink": "Möchtest Du individuellere Empfehlungen?",

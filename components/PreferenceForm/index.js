@@ -5,6 +5,8 @@ import { usePrefs, useTranslation } from '../../hooks';
 
 import { Checkbox } from '../Checkbox';
 
+import { Login } from './Login';
+
 import {
   columns,
   questionColumn,
@@ -24,6 +26,7 @@ export function PreferenceForm({ preferences }) {
   };
   return (
     <form onSubmit={handleSubmit} action="/api/prefs/update" method="POST">
+      <Login />
       {keys.map((key) => {
         const value = prefs[key];
         return (
