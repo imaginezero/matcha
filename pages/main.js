@@ -31,8 +31,9 @@ export default function Home({ activities }) {
 export async function getServerSideProps({ req, query, preview }) {
   const { getPrefs } = require('../utils/prefs');
   const { recommendActivities } = require('../services/activity');
+  const { defaultEffort } = require('../hooks');
 
-  const { e: effort = 40, p: page = 1 } = query;
+  const { e: effort = defaultEffort, p: page = 1 } = query;
   const num = Number(page) * 3;
   const prefs = getPrefs(req);
 
