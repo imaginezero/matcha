@@ -1,12 +1,14 @@
 import Link from 'next/link';
 
-import { Page, Slider } from '../components';
+import { Page, Slider, Headline, Subline } from '../components';
 import { useTranslation } from '../hooks';
 
 export default function Home({ activities }) {
   const { t } = useTranslation();
   return (
     <Page>
+      <Headline>{t('mainHeadline')}</Headline>
+      <Subline>{t('mainSubline')}</Subline>
       <Slider />
       <Link href="preferences">
         <a>{t('prefLink')}</a>

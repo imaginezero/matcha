@@ -7,19 +7,19 @@ export function Login() {
     case true:
       return (
         <>
-          <p>
+          <span>
             {`${t('loginInfo', profile)} `}
             <a href="/api/auth/logout">{t('logout')}</a>
-          </p>
+          </span>
         </>
       );
     case false:
       return (
         <>
-          <p>
+          <span>
             {`${t('loggedoutInfo')} `}
             <a href="/api/auth/login">{t('login')}</a>
-          </p>
+          </span>
         </>
       );
     case null:

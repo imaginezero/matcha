@@ -38,7 +38,7 @@
 }
 
 .checkbox:checked + .label {
-  background: var(--active-background);
+  background: var(--effort-background);
 }
 
 .checkbox:checked + .label:after {

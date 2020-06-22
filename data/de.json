@@ -1,11 +1,14 @@
 {
   "locale": "de",
   "login": "Anmelden",
-  "logout": "Abmelden",
   "loginInfo": "Du bist momentan als {{ email }} angemeldet. Deine Antworten werden dauerhaft gespeichert.",
+  "logout": "Abmelden",
   "loggedoutInfo": "Du bist momentan nicht eingeloggt. Deine Antworten werden nicht dauerhaft gespeichert.",
-  "nlSubscriptionDescription": "Trag dich ein und erfahr per E-Mail, was du gegen die Klimakrise tun kannst:",
+  "mainHeadline": "Wieviel kannst Du tun, um unser Klima zu retten?",
+  "mainSubline": "Benutz diesen Regler, um einzustellen wieviel Zeit du investieren willst",
   "nlSubscriptionButton": "Eintragen",
+  "nlSubscriptionDescription": "Trag dich ein und erfahr per E-Mail, was du gegen die Klimakrise tun kannst:",
+  "prefHeadline": "Beantworte diese Fragen damit wir dir bessere Empfehlungen geben können",
   "prefLink": "Möchtest Du individuellere Empfehlungen?",
   "prefQuestion.isParent": "Bist du Mutter oder Vater?",
   "prefQuestion.isStudent": "Gehst du zur Schule oder zur Uni?",
@@ -13,5 +16,6 @@
   "prefQuestion.isOfficial": "Repräsentierst du eine Behörde oder Kommune?",
   "prefQuestion.isNgoExec": "Repräsentierst du eine NGO oder eine aktivistische Gruppe?",
   "prefQuestion.isCompanyExec": "Repräsentierst du ein Unternehmen?",
+  "prefSubline": "Wir haben einige Angebote in userem Datensatz, die nur für bestimmte Gruppen relevant sind. Wenn du zu diesen Gruppen gehörst, mach die entsprechenden Häkchen.",
   "prefSubmitButton": "Antworten Speichern"
 }

@@ -1,25 +1,27 @@
 .headerWrapper {
+  composes: wrapper from '../atoms.module.css';
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.5rem;
+  padding-bottom: 0;
 }
 
 .mainWrapper {
   composes: wrapper from '../atoms.module.css';
+  padding-top: 0.5em;
 }
 
 .footerWrapper {
+  composes: wrapper from '../atoms.module.css';
   display: flex;
   flex-direction: column;
-  padding: 1rem 0.5rem;
+  padding-bottom: 0;
 }
 
 @media (min-width: 480px) {
   .headerWrapper,
   .mainWrapper,
   .footerWrapper {
-    padding: 1rem;
     max-width: 900px;
     margin: 0 auto;
   }

@@ -1,0 +1,32 @@
+.headline {
+  display: block;
+  line-height: 1.625em;
+  font-size: 1.25em;
+  margin: 0 0 0.5em;
+}
+.headline span {
+  background-color: var(--effort-background);
+  padding: 0.125em 0.25em;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+.subline {
+  font-size: 1em;
+  font-weight: bold;
+  color: var(--purple-800);
+  margin: 0.75em 0 1.5em;
+}
+
+.explanation {
+  margin: 0 0 1em;
+  color: var(--gray-700);
+}
+
+.explanation a {
+  color: var(--purple-600);
+}
+
+.explanation a:hover {
+  color: var(--purple-400);
+}

@@ -8,6 +8,8 @@
   --gray-100: #f0f0f0;
   --gray-200: #efefef;
   --gray-300: #e3e3e3;
+  --gray-600: #afafaf;
+  --gray-700: #808080;
   --gray-800: #404040;
   --white: #ffffff;
 
@@ -40,7 +42,5 @@
   --button-background: var(--purple-800);
 
   /* dynamic tokens */
-  --inactive-background: hsl(80, 0%, 70%);
-  --active-background: hsl(80, 60%, 70%);
-  --effort-background: var(--inactive-background);
+  --effort-background: hsl(80, 10%, 70%);
 }

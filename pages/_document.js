@@ -3,6 +3,10 @@ import Document, { Html, Head, Main, NextScript } from 'next/document';
 import { withTranslation } from '../hooks';
 
 class CustomDocument extends Document {
+  // static async getInitialProps(ctx) {
+  //   const initialProps = await Document.getInitialProps(ctx);
+  //   return { ...initialProps };
+  // }
   render() {
     const { t } = this.props;
     return (
