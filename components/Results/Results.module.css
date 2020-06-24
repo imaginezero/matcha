@@ -9,6 +9,6 @@
   margin-bottom: var(--space-xl);
 }
 
-.card:first-of-type {
+/* .card:last-of-type {
   margin-bottom: var(--space-0);
-}
+} */

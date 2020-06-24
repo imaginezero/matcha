@@ -1,12 +1,14 @@
 import { ActivityCard } from '../ActivityCard';
 
-import { wrapper } from './Results.module.css';
+import { wrapper, card } from './Results.module.css';
 
 export default function Results({ activities }) {
   return (
     <div className={wrapper}>
       {activities.map((activity) => (
-        <ActivityCard key={activity.slug} activity={activity} />
+        <div key={activity.slug} className={card}>
+          <ActivityCard activity={activity} />
+        </div>
       ))}
     </div>
   );
