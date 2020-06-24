@@ -1,17 +1,22 @@
-import { headline, subline, explanation } from './styles.module.css';
+import { concatClassnames } from '../utilities';
 
-export function Headline({ children, ...props }) {
+import { headline, subline, explanation } from './Typo.module.css';
+
+export function Headline({ children, className, ...props }) {
+  const classNames = concatClassnames(headline, className);
   return (
-    <h1 {...props} className={headline}>
+    <h1 className={classNames} {...props}>
       <span>{children}</span>
     </h1>
   );
 }
 
-export function Subline(props) {
-  return <p className={subline} {...props} />;
+export function Subline({ className, ...props }) {
+  const classNames = concatClassnames(subline, className);
+  return <p className={classNames} {...props} />;
 }
 
-export function Explanation(props) {
-  return <p className={explanation} {...props} />;
+export function Explanation({ className, ...props }) {
+  const classNames = concatClassnames(explanation, className);
+  return <p className={classNames} {...props} />;
 }

@@ -1,10 +1,10 @@
 .input {
-  margin-right: 0.5em;
+  margin-right: var(--space-s);
   appearance: none;
   outline: 0;
   border: var(--input-border);
   border-radius: var(--input-border-radius);
-  padding: 0.25em 0.5em;
+  padding: var(--space-xs) var(--space-s);
   background-color: var(--white);
 }
 
@@ -17,7 +17,7 @@
   outline: 0;
   border: var(--button-border);
   border-radius: var(--button-border-radius);
-  padding: 0.25em 1em;
+  padding: var(--space-xs) var(--space-m);
   background-color: var(--button-background);
   color: white;
 }
@@ -33,5 +33,5 @@
 }
 
 .wrapper {
-  padding: 1rem 0.5rem;
+  padding: var(--space-m);
 }

@@ -10,7 +10,7 @@
 }
 
 .paragraph {
-  margin-top: 0;
+  margin-top: var(--space-0);
   text-align: center;
   color: var(--headline-color);
 }
@@ -25,5 +25,5 @@
 
 .hiddenField {
   position: absolute;
-  left: -5000px;
+  left: -9999px;
 }

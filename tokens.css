@@ -13,6 +13,20 @@
   --gray-800: #404040;
   --white: #ffffff;
 
+  --space-0: 0;
+  --space-xxs: 0.125em;
+  --space-xs: 0.25em;
+  --space-s: 0.5em;
+  --space-m: 1em;
+  --space-l: 1.5em;
+  --space-xl: 2em;
+  --space-xxl: 2.5em;
+  --space-xxxl: 3em;
+
+  --size-s: 0.9em;
+  --size-m: 1em;
+  --size-l: 1.25em;
+
   --border-width-thin: 0.03125em;
   --border-width-default: 0.0625em; /* 1px */
   --border-width-wide: 0.125em;

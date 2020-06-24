@@ -1,7 +1,7 @@
 .checkboxWrapper {
   display: inline-block;
-  width: 3em;
-  height: 1.5em;
+  width: var(--space-xxxl);
+  height: var(--space-l);
   /* border: var(--border-width-thin) solid var(--gray-300); */
   border-radius: var(--border-radius-pill);
   background: var(--gray-100);
@@ -17,8 +17,8 @@
   position: relative;
   display: block;
   /* top: calc(-1 * var(--border-width-thin)); */
-  width: 3em;
-  height: 1.5em;
+  width: var(--space-xxxl);
+  height: var(--space-l);
   text-indent: -9999px;
   border-radius: var(--border-radius-pill);
   cursor: pointer;
@@ -29,8 +29,8 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 1.5em;
-  height: 1.5em;
+  width: var(--space-l);
+  height: var(--space-l);
   background: var(--purple-800);
   border: var(--border-width-wide) solid var(--white);
   border-radius: var(--border-radius-pill);
@@ -43,6 +43,6 @@
 
 .checkbox:checked + .label:after {
   /* left: calc(3em - calc(2 * var(--border-width-thin))); */
-  left: 3em;
+  left: var(--space-xxxl);
   transform: translateX(-100%);
 }

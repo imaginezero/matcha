@@ -1,0 +1,14 @@
+.wrapper {
+  composes: wrapper from '../atoms.module.css';
+  margin-top: var(--space-m);
+  background-color: var(--effort-background);
+  font-size: var(--size-s);
+}
+
+.card {
+  margin-bottom: var(--space-xl);
+}
+
+.card:first-of-type {
+  margin-bottom: var(--space-0);
+}

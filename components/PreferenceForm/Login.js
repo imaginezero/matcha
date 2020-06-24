@@ -1,6 +1,6 @@
 import { useLogin, useTranslation } from '../../hooks';
 
-export function Login() {
+export default function Login() {
   const { isLoggedIn, profile } = useLogin();
   const { t } = useTranslation();
   switch (isLoggedIn) {

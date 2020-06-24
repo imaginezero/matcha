@@ -1,11 +1,13 @@
 import { NewsletterForm } from '../NewsletterForm';
 
-import { footer } from './styles.module.css';
+import { footerWrapper, footer } from './Page.module.css';
 
-export function Footer() {
+export default function Footer() {
   return (
-    <div className={footer}>
-      <NewsletterForm />
-    </div>
+    <footer className={footerWrapper}>
+      <div className={footer}>
+        <NewsletterForm />
+      </div>
+    </footer>
   );
 }

@@ -1,31 +1,21 @@
 import Link from 'next/link';
 
-import { Page, Slider, Headline, Subline } from '../components';
+import { Page, Slider, Headline, Subline, Results } from '../components';
 import { useTranslation } from '../hooks';
+
+import { subline } from './common.module.css';
 
 export default function Home({ activities }) {
   const { t } = useTranslation();
   return (
     <Page>
       <Headline>{t('mainHeadline')}</Headline>
-      <Subline>{t('mainSubline')}</Subline>
+      <Subline className={subline}>{t('mainSubline')}</Subline>
       <Slider />
       <Link href="preferences">
         <a>{t('prefLink')}</a>
       </Link>
-      <ul>
-        {activities.map(({ name, slug, organization: org }, index) => (
-          <li key={index}>
-            <Link href="organization/[slug]" as={`organization/${org.slug}`}>
-              <a>{org.name}</a>
-            </Link>
-            :{' '}
-            <Link href="activity/[slug]" as={`activity/${slug}`}>
-              <a>{name}</a>
-            </Link>
-          </li>
-        ))}
-      </ul>
+      <Results activities={activities} />
     </Page>
   );
 }
