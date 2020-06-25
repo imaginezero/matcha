@@ -39,5 +39,13 @@
 }
 
 .wrapper {
+  width: 100%;
   padding: var(--space-m);
+}
+
+@media (min-width: 480px) {
+  .wrapper {
+    max-width: 900px;
+    margin: var(--space-0) auto;
+  }
 }

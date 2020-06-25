@@ -5,6 +5,7 @@ import {
   contentWrapper,
   actionWrapper,
   headline,
+  subline,
   button,
 } from './ActivityCard.module.css';
 
@@ -19,7 +20,7 @@ export default function ActivityCard({ activity }) {
   return (
     <div className={wrapper} key={slug}>
       <div className={contentWrapper}>
-        <Subline>{org.name}</Subline>
+        <Subline className={subline}>{org.name}</Subline>
         <Headline className={headline}>{name}</Headline>
         <p>{description}</p>
       </div>

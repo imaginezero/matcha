@@ -3,18 +3,18 @@
   margin: calc(-1 * var(--space-xxs)) var(--space-0);
   line-height: calc(var(--space-l) + var(--space-xxs));
   font-size: var(--size-l);
-  max-width: 90%;
+  max-width: 80%;
 }
 
 @media (min-width: 480px) {
   .headline {
-    max-width: 66%;
+    max-width: 60%;
   }
 }
 
 @media (min-width: 720px) {
   .headline {
-    max-width: 33%;
+    max-width: 40%;
   }
 }
 

@@ -1,4 +1,5 @@
 export { Page } from './Page';
+export { Content } from './Content';
 
 export { ComboMark, LogoMark, TypeMark } from './Logo';
 

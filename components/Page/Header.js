@@ -1,26 +1,35 @@
 import Link from 'next/link';
 
+import { Content } from '../Content';
 import { TypeMark, LogoMark } from '../Logo';
 
-import { headerWrapper, logo, typemark, logomark } from './Page.module.css';
+import {
+  headerWrapper,
+  headerContent,
+  logo,
+  typemark,
+  logomark,
+} from './Page.module.css';
 
 export default function Header() {
   return (
-    <header className={headerWrapper}>
-      <div className={logo}>
-        <Link href="/main">
-          <a>
-            <TypeMark className={typemark} />
-          </a>
-        </Link>
-      </div>
-      <div className={logo}>
-        <Link href="/main">
-          <a>
-            <LogoMark className={logomark} />
-          </a>
-        </Link>
-      </div>
-    </header>
+    <Content className={headerContent}>
+      <header className={headerWrapper}>
+        <div className={logo}>
+          <Link href="/main">
+            <a>
+              <TypeMark className={typemark} />
+            </a>
+          </Link>
+        </div>
+        <div className={logo}>
+          <Link href="/main">
+            <a>
+              <LogoMark className={logomark} />
+            </a>
+          </Link>
+        </div>
+      </header>
+    </Content>
   );
 }

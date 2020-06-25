@@ -1,6 +1,12 @@
 import { useTranslation } from '../hooks';
 
-import { Page, Headline, Subline, PreferenceForm } from '../components';
+import {
+  Page,
+  Content,
+  Headline,
+  Subline,
+  PreferenceForm,
+} from '../components';
 
 import { subline } from './common.module.css';
 
@@ -8,9 +14,11 @@ export default function Preferences({ preferences }) {
   const { t } = useTranslation();
   return (
     <Page>
-      <Headline>{t('prefHeadline')}</Headline>
-      <Subline className={subline}>{t('prefSubline')}</Subline>
-      <PreferenceForm preferences={preferences} />
+      <Content>
+        <Headline>{t('prefHeadline')}</Headline>
+        <Subline className={subline}>{t('prefSubline')}</Subline>
+        <PreferenceForm preferences={preferences} />
+      </Content>
     </Page>
   );
 }

@@ -1,7 +1,3 @@
-.actionWrapper {
-  margin-top: var(--space-l);
-}
-
 @media (min-width: 720px) {
   .wrapper {
     display: flex;
@@ -25,6 +21,10 @@
 
 .headline span {
   background-color: var(--white);
+}
+
+.subline {
+  margin-bottom: var(--space-xxs);
 }
 
 .button {

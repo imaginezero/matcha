@@ -1,0 +1,3 @@
+.wrapper {
+  composes: wrapper from '../atoms.module.css';
+}
