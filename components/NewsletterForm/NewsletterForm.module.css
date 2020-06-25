@@ -20,7 +20,7 @@
 }
 
 .submitButton {
-  composes: ctaButton from '../atoms.module.css';
+  composes: actionButton from '../atoms.module.css';
 }
 
 .hiddenField {

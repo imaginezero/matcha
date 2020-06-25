@@ -1,3 +1,8 @@
 .subline {
   margin: var(--space-m) var(--space-0);
 }
+
+.prefLink {
+  display: block;
+  margin-top: var(--space-s);
+}

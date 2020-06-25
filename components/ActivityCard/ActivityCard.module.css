@@ -1,3 +1,34 @@
+.actionWrapper {
+  margin-top: var(--space-l);
+}
+
+@media (min-width: 720px) {
+  .wrapper {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+
+  .contentWrapper {
+    flex-grow: 1;
+    flex-shrink: 1;
+  }
+
+  .actionWrapper {
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: 33%;
+    text-align: right;
+    margin-top: var(--space-0);
+  }
+}
+
 .headline span {
   background-color: var(--white);
+}
+
+.button {
+  composes: actionButton from '../atoms.module.css';
+  display: inline-block;
+  font-size: var(--size-l);
 }

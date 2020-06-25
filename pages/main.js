@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { Page, Slider, Headline, Subline, Results } from '../components';
 import { useTranslation } from '../hooks';
 
-import { subline } from './common.module.css';
+import { subline, prefLink } from './common.module.css';
 
 export default function Home({ activities }) {
   const { t } = useTranslation();
@@ -13,7 +13,7 @@ export default function Home({ activities }) {
       <Subline className={subline}>{t('mainSubline')}</Subline>
       <Slider />
       <Link href="preferences">
-        <a>{t('prefLink')}</a>
+        <a className={prefLink}>{t('prefLink')}</a>
       </Link>
       <Results activities={activities} />
     </Page>

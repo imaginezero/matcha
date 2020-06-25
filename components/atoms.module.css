@@ -19,14 +19,20 @@
   border-radius: var(--button-border-radius);
   padding: var(--space-xs) var(--space-m);
   background-color: var(--button-background);
-  color: white;
+  color: var(--white);
+  cursor: default;
 }
 
 .button:focus {
   box-shadow: var(--box-shadow-medium);
 }
 
-.ctaButton {
+.button:hover {
+  text-decoration: none;
+  color: var(--white);
+}
+
+.actionButton {
   composes: button;
   border: var(--button-border-cta);
   font-weight: bold;
