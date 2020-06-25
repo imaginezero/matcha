@@ -13,7 +13,7 @@
   .actionWrapper {
     flex-grow: 0;
     flex-shrink: 0;
-    flex-basis: 33%;
+    flex-basis: 20%;
     text-align: right;
     margin-top: var(--space-0);
   }
@@ -30,5 +30,4 @@
 .button {
   composes: actionButton from '../atoms.module.css';
   display: inline-block;
-  font-size: var(--size-l);
 }

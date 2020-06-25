@@ -16,7 +16,14 @@ const Button = ({ link, label }) => (
 );
 
 export default function ActivityCard({ activity }) {
-  const { name, slug, description, action, link, organization: org } = activity;
+  const {
+    name,
+    slug,
+    description,
+    singleWordCta,
+    link,
+    organization: org,
+  } = activity;
   return (
     <div className={wrapper} key={slug}>
       <div className={contentWrapper}>
@@ -25,7 +32,7 @@ export default function ActivityCard({ activity }) {
         <p>{description}</p>
       </div>
       <div className={actionWrapper}>
-        <Button link={link} label={action} />
+        <Button link={link} label={singleWordCta} />
       </div>
     </div>
   );
