@@ -23,9 +23,11 @@
   --space-xxl: 2.5em;
   --space-xxxl: 3em;
 
+  --size-xs: 0.8em;
   --size-s: 0.9em;
   --size-m: 1em;
   --size-l: calc(1em / 0.9);
+  --size-xl: calc(1em / 0.8);
 
   --border-width-thin: 0.03125em;
   --border-width-default: 0.0625em; /* 1px */
