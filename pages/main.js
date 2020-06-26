@@ -20,7 +20,7 @@ export default function Home({ activities }) {
         <Headline>{t('mainHeadline')}</Headline>
         <Subline className={subline}>{t('mainSubline')}</Subline>
         <Slider />
-        <Link href="preferences">
+        <Link href="/preferences">
           <a className={prefLink}>{t('prefLink')}</a>
         </Link>
       </Content>

@@ -8,6 +8,7 @@ export { ActivityCard } from './ActivityCard';
 export { Results } from './Results';
 
 export { Headline, Subline, Explanation } from './Typo';
+export { Markdown } from './Markdown';
 
 export { PreferenceForm } from './PreferenceForm';
 export { NewsletterForm } from './NewsletterForm';

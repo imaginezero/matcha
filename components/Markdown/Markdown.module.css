@@ -1,0 +1,15 @@
+.markdown p:first-child {
+  margin-top: var(--space-0);
+}
+
+.markdown p:last-child {
+  margin-bottom: var(--space-0);
+}
+
+.headline {
+  margin-bottom: calc(var(--space-s) + var(--space-xs));
+}
+
+.subline {
+  margin-bottom: var(--space-m);
+}

@@ -1,0 +1,5 @@
+[Kontakt](mailto:hi@gomatcha.org)  
+[Jobs](https://imagine-zero.org/mitmachen-2/?lang=de)  
+[Nutzungsbedingungen](/terms)  
+[Datenschutz](/privacy)  
+[Impressum](/imprint)

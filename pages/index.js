@@ -1,11 +1,10 @@
-import { Fragment } from 'react';
 import Head from 'next/head';
 
 import { ComboMark, NewsletterForm } from '../components';
 
 export default function HomePage() {
   return (
-    <Fragment>
+    <>
       <Head>
         <title>Matcha kommt!</title>
       </Head>
@@ -16,6 +15,6 @@ export default function HomePage() {
         />
       </div>
       <NewsletterForm />
-    </Fragment>
+    </>
   );
 }

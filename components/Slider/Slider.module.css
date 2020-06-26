@@ -11,6 +11,12 @@
   appearance: none;
 }
 
+@media (max-width: 480px) {
+  .slider {
+    --space-l: 1.75rem;
+  }
+}
+
 .slider:focus,
 .slider:focus-within {
   outline: none;
