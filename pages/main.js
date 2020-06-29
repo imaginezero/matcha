@@ -15,7 +15,7 @@ import { subline, prefLink } from './common.module.css';
 export default function Home({ activities }) {
   const { t } = useTranslation();
   return (
-    <Page>
+    <Page title={t('mainTitle')} description={t('mainDescription')}>
       <Content>
         <Headline>{t('mainHeadline')}</Headline>
         <Subline className={subline}>{t('mainSubline')}</Subline>

@@ -10,8 +10,9 @@ class CustomDocument extends Document {
   render() {
     const { t } = this.props;
     return (
-      <Html lang={t('locale')}>
+      <Html lang={t('lang')}>
         <Head>
+          <meta property="og:locale" content={t('locale')} />
           <link
             rel="apple-touch-icon"
             sizes="120x120"
@@ -33,6 +34,7 @@ class CustomDocument extends Document {
           <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#72286f" />
           <meta name="msapplication-TileColor" content="#9f00a7" />
           <meta name="theme-color" content="#ffffff" />
+          <meta name="robots" content="index, follow" />
         </Head>
         <body>
           <Main />

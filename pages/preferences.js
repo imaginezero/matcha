@@ -13,7 +13,7 @@ import { subline } from './common.module.css';
 export default function Preferences({ preferences }) {
   const { t } = useTranslation();
   return (
-    <Page>
+    <Page title={t('prefTitle')} description={t('prefDescription')}>
       <Content>
         <Headline>{t('prefHeadline')}</Headline>
         <Subline className={subline}>{t('prefSubline')}</Subline>

@@ -7,10 +7,10 @@ import escape from 'escape-html';
 import translations from '../data/de.json';
 
 const t = (key, data) => {
-  const translation = translations[key];
-  if (!translation) {
+  if (!(key in translations)) {
     throw new Error(`translation key not found: ${key}`);
   }
+  const translation = translations[key];
   if (data) {
     const flattenedData = flatten(data);
     return translation.replace(
