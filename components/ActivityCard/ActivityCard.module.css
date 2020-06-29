@@ -29,5 +29,6 @@
 
 .button {
   composes: actionButton from '../atoms.module.css';
+  margin-top: var(--space-xs);
   display: inline-block;
 }

@@ -1,6 +1,6 @@
 .headline {
   display: block;
-  margin: calc(-1 * var(--space-xs)) var(--space-0);
+  margin: calc(-1 * var(--space-xs)) var(--space-0) var(--space-s);
   line-height: calc(var(--space-l) + var(--space-xs));
   font-size: var(--size-l);
   max-width: 80%;
@@ -26,7 +26,7 @@
 }
 
 .subline {
-  margin: var(--size-0);
+  margin: var(--size-0) var(--size-0) var(--space-m);
   font-size: var(--size-m);
   line-height: var(--space-l);
   font-weight: bold;
