@@ -1,3 +1,5 @@
+import { useTracking } from '../../hooks';
+
 import { Headline, Subline } from '../Typo';
 
 import {
@@ -9,11 +11,20 @@ import {
   button,
 } from './ActivityCard.module.css';
 
-const Button = ({ link, label }) => (
-  <a className={button} href={link} target="_blank" rel="noreferrer">
-    {label}
-  </a>
-);
+const Button = ({ link, label }) => {
+  const { trackOutboundLink } = useTracking();
+  return (
+    <a
+      className={button}
+      href={link}
+      target="_blank"
+      rel="noreferrer"
+      onClick={() => trackOutboundLink(link)}
+    >
+      {label}
+    </a>
+  );
+};
 
 export default function ActivityCard({ activity }) {
   const {

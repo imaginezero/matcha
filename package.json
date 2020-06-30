@@ -1,5 +1,5 @@
 {
-  "name": "Rekr00ta",
+  "name": "matcha",
   "version": "0.0.1",
   "description": "",
   "main": "index.js",
@@ -52,6 +52,7 @@
     "postcss-preset-env": "^6.7.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "slugify": "^1.4.0"
+    "slugify": "^1.4.0",
+    "snakecase-keys": "^3.2.0"
   }
 }

@@ -1,4 +1,4 @@
-import { useLogin, useTranslation } from '../../hooks';
+import { useLogin, useTracking, useTranslation } from '../../hooks';
 
 import {
   formWrapper,
@@ -14,6 +14,7 @@ const mailchimpUrl =
 
 export default function NewsletterForm() {
   const { profile } = useLogin();
+  const { trackEvent } = useTracking();
   const { t } = useTranslation();
   return (
     <form action={mailchimpUrl} method="post" target="_blank">
@@ -43,6 +44,7 @@ export default function NewsletterForm() {
             value={t('nlSubscriptionButton')}
             name="subscribe"
             className={submitButton}
+            onClick={() => trackEvent('sign_up', { method: 'MailChimp' })}
           />
         </div>
       </div>

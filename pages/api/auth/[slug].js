@@ -1,3 +1,5 @@
+import { createHash } from 'crypto';
+
 import auth from '../../../utils/auth';
 
 export default async function handleAuth(req, res) {
@@ -12,6 +14,17 @@ export default async function handleAuth(req, res) {
         return await auth.handleProfile(req, res);
       case 'callback':
         return await auth.handleCallback(req, res, {
+          onUserLoaded: async (req, res, session) => {
+            const hash = createHash('sha256');
+            hash.update(session.user.sub);
+            return {
+              ...session,
+              user: {
+                ...session.user,
+                hash: hash.digest('hex'),
+              },
+            };
+          },
           redirectTo: '/api/prefs/restore',
         });
       default:

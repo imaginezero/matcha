@@ -2,13 +2,14 @@ import Document, { Html, Head, Main, NextScript } from 'next/document';
 
 import { withTranslation } from '../hooks';
 
-class CustomDocument extends Document {
-  // static async getInitialProps(ctx) {
-  //   const initialProps = await Document.getInitialProps(ctx);
-  //   return { ...initialProps };
-  // }
+class MatchaDocument extends Document {
+  static async getInitialProps(ctx) {
+    const trackingId = process.env.GA_MEASUREMENT_ID;
+    const initialProps = await Document.getInitialProps(ctx);
+    return { ...initialProps, trackingId };
+  }
   render() {
-    const { t } = this.props;
+    const { t, trackingId } = this.props;
     return (
       <Html lang={t('lang')}>
         <Head>
@@ -39,10 +40,23 @@ class CustomDocument extends Document {
         <body>
           <Main />
           <NextScript />
+          {trackingId ? (
+            <>
+              <script
+                async
+                src={`https://www.googletagmanager.com/gtag/js?id=${trackingId}`}
+              />
+              <script
+                dangerouslySetInnerHTML={{
+                  __html: `window.gaId = "${trackingId}";window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);} gtag('js', new Date());`,
+                }}
+              />
+            </>
+          ) : null}
         </body>
       </Html>
     );
   }
 }
 
-export default withTranslation(CustomDocument);
+export default withTranslation(MatchaDocument);
