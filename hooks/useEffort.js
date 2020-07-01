@@ -4,8 +4,13 @@ import { useRouter } from 'next/router';
 const setBackgroundColor = (effort) => {
   const root = document.documentElement;
   const property = '--effort-background';
-  // root.style.setProperty(property, `hsl(122.4, ${effort / 2}%, 70%)`);
-  root.style.setProperty(property, `hsl(80, ${effort / 2 + 10}%, 70%)`);
+  const hue = 200 - effort * 1.25;
+  const saturation = 30 + effort * 0.4;
+  const lightness = 75 - effort * 0.125;
+  root.style.setProperty(
+    property,
+    `hsl(${hue}, ${saturation}%, ${lightness}%)`
+  );
 };
 
 export const defaultEffort = 40;
