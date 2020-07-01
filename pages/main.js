@@ -12,7 +12,7 @@ import { useTranslation } from '../hooks';
 
 import { subline, prefLink } from './common.module.css';
 
-export default function Home({ activities }) {
+export default function Home({ activities, moreActivities }) {
   const { t } = useTranslation();
   return (
     <Page title={t('mainTitle')} description={t('mainDescription')}>
@@ -24,7 +24,7 @@ export default function Home({ activities }) {
           <a className={prefLink}>{t('prefLink')}</a>
         </Link>
       </Content>
-      <Results activities={activities} />
+      <Results activities={activities} moreActivities={moreActivities} />
     </Page>
   );
 }
@@ -43,7 +43,7 @@ export async function getServerSideProps({ req, query, preview }) {
   return {
     props: {
       activities: activities.slice(0, num),
-      moreActivities: num > activities.length,
+      moreActivities: num < activities.length,
     },
   };
 }

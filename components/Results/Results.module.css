@@ -2,10 +2,23 @@
   background-color: var(--effort-background);
 }
 
+.headline,
+.headline span {
+  padding: var(--space-0);
+  margin-bottom: var(--space-l);
+}
+
 .card {
   margin-bottom: var(--space-xl);
 }
 
 .card:last-of-type {
   margin-bottom: var(--space-l);
+}
+
+.button {
+  display: inline-block;
+  margin: var(--space-0) auto var(--space-xl);
+  font-weight: bold;
+  cursor: pointer;
 }

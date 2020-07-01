@@ -44,8 +44,8 @@ export function useEffort(delay = 250) {
       );
       setEffort(Number(e));
     },
-    fetchMore() {
-      router.push({ pathname, query: { e: queryEffort, p: queryPage + 1 } });
+    getNextUrl() {
+      return { pathname, query: { e: queryEffort, p: queryPage + 1 } };
     },
   };
 }
