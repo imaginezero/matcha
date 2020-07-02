@@ -38,15 +38,9 @@ const Overlay = () => {
   );
   useEffect(() => {
     if (loading && !open) setOpen(true);
+    if (!loading && open) setTimeout(() => setOpen(false), 500);
   });
-  return open ? (
-    <div
-      className={classNames}
-      onAnimationEnd={() => {
-        if (!loading && open) setOpen(false);
-      }}
-    />
-  ) : null;
+  return open ? <div className={classNames} /> : null;
 };
 
 export default function Results({ activities, moreActivities }) {
