@@ -22,3 +22,24 @@
   font-weight: bold;
   cursor: pointer;
 }
+
+.spinner {
+  composes: rotate from '../atoms.module.css';
+  display: block;
+  height: var(--space-xxl);
+  margin: var(--space-m) auto;
+}
+
+.spinnerWrapper {
+  position: absolute;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  background-color: var(--effort-background);
+  opacity: 0.75;
+}
+
+.transparentWrapper {
+  opacity: 0;
+  transition: opacity 500ms;
+}
