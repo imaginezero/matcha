@@ -15,7 +15,7 @@ import {
   social,
   association,
   associationMark,
-} from './Page.module.css';
+} from './Frame.module.css';
 
 export default function Footer() {
   return (

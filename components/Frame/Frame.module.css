@@ -33,6 +33,10 @@
   height: var(--space-xxxl);
 }
 
+.spinner {
+  composes: rotate from '../atoms.module.css';
+}
+
 .newsletter {
   width: 100%;
   background-color: var(--gray-300);

@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 import { useRouter } from 'next/router';
 
-import { usePrefs, useTranslation } from '../../hooks';
+import { usePrefs, useTranslation, useLoading } from '../../hooks';
 
 import { Explanation } from '../Typo';
 import { Checkbox } from '../Checkbox';
@@ -55,9 +55,11 @@ const Form = ({ prefs, setPrefs, handleSubmit }) => {
 
 export default function PreferenceForm({ preferences }) {
   const { prefs, setPrefs, savePrefs } = usePrefs(preferences);
+  const { setLoading } = useLoading();
   const router = useRouter();
   const handleSubmit = async (event) => {
     event.preventDefault();
+    setLoading(true);
     await savePrefs();
     router.back();
   };

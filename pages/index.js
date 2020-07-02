@@ -2,7 +2,7 @@ import Head from 'next/head';
 
 import { ComboMark, NewsletterForm } from '../components';
 
-export default function HomePage() {
+function HomePage() {
   return (
     <>
       <Head>
@@ -18,3 +18,7 @@ export default function HomePage() {
     </>
   );
 }
+
+HomePage.noFrame = true;
+
+export default HomePage;

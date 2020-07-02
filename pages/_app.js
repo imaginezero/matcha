@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 
+import { Frame } from '../components';
 import { withLogin, useLogin } from '../hooks';
 import { trackPageview, trackVitals } from '../utils/tracking';
 
@@ -17,15 +18,23 @@ export default withLogin(function MatchaApp({ Component, pageProps }) {
     }
   };
   useEffect(() => {
+    if (isLoggedIn !== null) trackWithUserId();
+  }, [isLoggedIn]);
+  useEffect(() => {
     router.events.on('routeChangeComplete', trackWithUserId);
     return () => {
       router.events.off('routeChangeComplete', trackWithUserId);
     };
   }, []);
-  useEffect(() => {
-    if (isLoggedIn !== null) trackWithUserId();
-  }, [isLoggedIn]);
-  return <Component {...pageProps} />;
+  if (Component.noFrame) {
+    return <Component {...pageProps} />;
+  } else {
+    return (
+      <Frame>
+        <Component {...pageProps} />
+      </Frame>
+    );
+  }
 });
 
 export function reportWebVitals(params) {

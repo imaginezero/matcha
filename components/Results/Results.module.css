@@ -24,14 +24,7 @@
   cursor: pointer;
 }
 
-.spinner {
-  composes: rotate from '../atoms.module.css';
-  display: block;
-  height: var(--space-xxl);
-  margin: var(--space-m) auto;
-}
-
-.spinnerWrapper {
+.loaderWrapper {
   position: absolute;
   top: 0;
   bottom: 0;

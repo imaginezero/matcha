@@ -1,15 +1,16 @@
 import Link from 'next/link';
 
 import { Content } from '../Content';
-import { TypeMark, LogoMark } from '../Logo';
+import { TypeMark } from '../Logo';
+
+import Spinner from './Spinner';
 
 import {
   headerWrapper,
   headerContent,
   logo,
   typemark,
-  logomark,
-} from './Page.module.css';
+} from './Frame.module.css';
 
 export default function Header() {
   return (
@@ -25,7 +26,7 @@ export default function Header() {
         <div className={logo}>
           <Link href="/main">
             <a>
-              <LogoMark className={logomark} />
+              <Spinner />
             </a>
           </Link>
         </div>

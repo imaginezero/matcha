@@ -6,7 +6,6 @@ import { useEffort, useLoading, useTranslation } from '../../hooks';
 import { Content } from '../Content';
 import { Headline } from '../Typo';
 import { ActivityCard } from '../ActivityCard';
-import { LogoMark } from '../Logo';
 
 import { concatClassnames } from '../utilities';
 
@@ -16,8 +15,7 @@ import {
   content,
   card,
   button,
-  spinner,
-  spinnerWrapper,
+  loaderWrapper,
   transparentWrapper,
 } from './Results.module.css';
 
@@ -31,21 +29,23 @@ const Button = () => {
   );
 };
 
-const Spinner = () => {
-  const loading = useLoading();
-  const [open, setOpen] = useState(true);
-  useEffect(() => {
-    if (loading && !open) setOpen(true);
-    if (!loading && open) setTimeout(() => setOpen(false), 500);
-  });
+const Overlay = () => {
+  const { loading } = useLoading();
+  const [open, setOpen] = useState(loading);
   const classNames = concatClassnames(
-    spinnerWrapper,
+    loaderWrapper,
     ...(loading ? [] : [transparentWrapper])
   );
+  useEffect(() => {
+    if (loading && !open) setOpen(true);
+  });
   return open ? (
-    <div className={classNames}>
-      <LogoMark className={spinner} />
-    </div>
+    <div
+      className={classNames}
+      onAnimationEnd={() => {
+        if (!loading && open) setOpen(false);
+      }}
+    />
   ) : null;
 };
 
@@ -53,7 +53,7 @@ export default function Results({ activities, moreActivities }) {
   const { t } = useTranslation();
   return (
     <div className={wrapper}>
-      <Spinner />
+      <Overlay />
       <Content className={content}>
         <Headline className={headline}>{t('mainResultsHeadline')}</Headline>
         {activities.map((activity) => (

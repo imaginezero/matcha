@@ -1,21 +1,6 @@
 import Head from 'next/head';
 
-import { concatClassnames } from '../utilities';
-
-import Header from './Header';
-import Footer from './Footer';
-
-import { mainWrapper } from './Page.module.css';
-
-export default function Page({
-  title,
-  description,
-  metaData,
-  className,
-  children,
-  ...props
-}) {
-  const classNames = concatClassnames(mainWrapper, className);
+export default function Page({ title, description, metaData, children }) {
   const ogData = { title, description, ...(metaData || {}) };
   return (
     <>
@@ -31,11 +16,7 @@ export default function Page({
           return <meta property={ogKey} content={value} key={ogKey} />;
         })}
       </Head>
-      <Header />
-      <main className={classNames} {...props}>
-        {children}
-      </main>
-      <Footer />
+      {children}
     </>
   );
 }

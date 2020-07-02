@@ -1,3 +1,5 @@
+export { Frame } from './Frame';
+
 export { Page } from './Page';
 export { Content } from './Content';
 
