@@ -55,6 +55,7 @@ export function withEffort(Component) {
             setTimeoutId(
               setTimeout(() => router.push({ pathname, query: { e } }), 250)
             );
+            setEffort(e);
           },
           getNextUrl() {
             return { pathname, query: { e: queryEffort, p: queryPage + 1 } };
