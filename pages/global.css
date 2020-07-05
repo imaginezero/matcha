@@ -4,6 +4,16 @@
 
 @import '../tokens.css';
 
+html {
+  font-size: 16px;
+}
+
+@media (min-width: 480px) {
+  html {
+    font-size: 18px;
+  }
+}
+
 body {
   color: var(--body-color);
 }

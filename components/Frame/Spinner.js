@@ -12,7 +12,7 @@ export default function Spinner() {
   const [spinning, setSpinning] = useState(loading);
   useEffect(() => {
     if (loading && !spinning) setSpinning(true);
-  });
+  }, [loading]);
   return (
     <LogoMark
       className={concatClassnames(logomark, ...(spinning ? [spinner] : []))}

@@ -22,8 +22,10 @@ export default function Header() {
   const [headerClassName, setHeaderClassName] = useState(headerWrapper);
   useEffect(() => {
     const handleScroll = () => {
-      setHeaderClassName(
-        window.scrollY < 1 ? headerWrapper : smallHeaderWrapper
+      window.requestAnimationFrame(() =>
+        setHeaderClassName(
+          window.scrollY < 5 ? headerWrapper : smallHeaderWrapper
+        )
       );
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
@@ -33,9 +35,9 @@ export default function Header() {
   }, []);
   const href = { pathname: '/main', query: getQuery() };
   return (
-    <div className={headerClassName}>
+    <header className={headerClassName}>
       <Content className={headerContent}>
-        <header className={headerLogos}>
+        <div className={headerLogos}>
           <div className={logo}>
             <Link href={href}>
               <a>
@@ -50,8 +52,8 @@ export default function Header() {
               </a>
             </Link>
           </div>
-        </header>
+        </div>
       </Content>
-    </div>
+    </header>
   );
 }

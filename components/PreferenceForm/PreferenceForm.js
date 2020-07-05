@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 import { useRouter } from 'next/router';
 
-import { usePrefs, useTranslation, useLoading } from '../../hooks';
+import { usePrefs, useEffort, useLoading, useTranslation } from '../../hooks';
 
 import { Explanation } from '../Typo';
 import { Checkbox } from '../Checkbox';
@@ -56,12 +56,15 @@ const Form = ({ prefs, setPrefs, handleSubmit }) => {
 export default function PreferenceForm({ preferences }) {
   const { prefs, setPrefs, savePrefs } = usePrefs(preferences);
   const { setLoading } = useLoading();
+  const { getQuery } = useEffort();
   const router = useRouter();
   const handleSubmit = async (event) => {
     event.preventDefault();
     setLoading(true);
     await savePrefs();
-    router.back();
+    router
+      .push({ pathname: '/main', query: getQuery() })
+      .then(() => window.scrollTo(0, 0));
   };
   return <Form prefs={prefs} setPrefs={setPrefs} handleSubmit={handleSubmit} />;
 }

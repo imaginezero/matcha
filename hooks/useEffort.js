@@ -16,9 +16,11 @@ const setBackgroundColor = (effort) => {
   const hue = 200 - effort * 1.25;
   const saturation = 30 + effort * 0.4;
   const lightness = 75 - effort * 0.125;
-  root.style.setProperty(
-    property,
-    `hsl(${hue}, ${saturation}%, ${lightness}%)`
+  window.requestAnimationFrame(() =>
+    root.style.setProperty(
+      property,
+      `hsl(${hue}, ${saturation}%, ${lightness}%)`
+    )
   );
 };
 

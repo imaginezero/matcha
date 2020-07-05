@@ -10,7 +10,7 @@ import {
 } from '../components';
 import { useTranslation } from '../hooks';
 
-import { subline, prefLink } from './common.module.css';
+import { prefLink } from './common.module.css';
 
 export default function Home({ activities, moreActivities }) {
   const { t } = useTranslation();
@@ -18,7 +18,7 @@ export default function Home({ activities, moreActivities }) {
     <Page title={t('mainTitle')} description={t('mainDescription')}>
       <Content>
         <Headline>{t('mainHeadline')}</Headline>
-        <Subline className={subline}>{t('mainSubline')}</Subline>
+        <Subline>{t('mainSubline')}</Subline>
         <Slider />
         <Link href="/preferences">
           <a className={prefLink}>{t('prefLink')}</a>

@@ -26,7 +26,7 @@
 }
 
 .subline {
-  margin: var(--size-0) var(--size-0) var(--space-m);
+  margin: var(--space-m) var(--space-0);
   font-size: var(--size-m);
   line-height: var(--space-l);
   font-weight: bold;
