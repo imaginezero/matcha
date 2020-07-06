@@ -1,0 +1,30 @@
+.wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: none;
+  background-color: rgba(0, 0, 0, 0.33);
+  opacity: 1;
+  transition: background-color 125ms, opacity 125ms;
+}
+
+.hiddenWrapper {
+  composes: wrapper;
+  background-color: rgba(0, 0, 0, 0);
+  opacity: 0;
+}
+
+.modal {
+  composes: wrapper from '../atoms.module.css';
+  margin: var(--space-l);
+  overflow-y: scroll;
+  background-color: var(--white);
+  border-radius: var(--border-radius-medium);
+  box-shadow: var(--box-shadow-heavy);
+}
