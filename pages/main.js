@@ -1,16 +1,12 @@
-import Link from 'next/link';
-
 import {
   Page,
   Content,
   Headline,
   Subline,
-  Slider,
+  EffortForm,
   Results,
 } from '../components';
 import { useTranslation } from '../hooks';
-
-import { prefLink } from './common.module.css';
 
 export default function Home({ activities, moreActivities }) {
   const { t } = useTranslation();
@@ -19,10 +15,7 @@ export default function Home({ activities, moreActivities }) {
       <Content>
         <Headline>{t('mainHeadline')}</Headline>
         <Subline>{t('mainSubline')}</Subline>
-        <Slider />
-        <Link href="/preferences">
-          <a className={prefLink}>{t('prefLink')}</a>
-        </Link>
+        <EffortForm />
       </Content>
       <Results activities={activities} moreActivities={moreActivities} />
     </Page>

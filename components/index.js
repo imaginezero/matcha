@@ -1,16 +1,13 @@
 export { Frame } from './Frame';
-
 export { Page } from './Page';
 export { Content } from './Content';
-
-export { ComboMark, LogoMark, TypeMark } from './Logo';
-
-export { Slider } from './Slider';
-export { ActivityCard } from './ActivityCard';
-export { Results } from './Results';
-
-export { Headline, Subline, Explanation } from './Typo';
 export { Markdown } from './Markdown';
 
-export { PreferenceForm } from './PreferenceForm';
+export { EffortForm } from './EffortForm';
+export { Results } from './Results';
+
 export { NewsletterForm } from './NewsletterForm';
+export { PreferenceForm } from './PreferenceForm';
+
+export { Headline, Subline, Explanation } from './Typo';
+export { ComboMark } from './Logo';
