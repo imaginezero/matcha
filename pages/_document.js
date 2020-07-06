@@ -42,17 +42,11 @@ class MatchaDocument extends Document {
           <div id="__next_modal" />
           <NextScript />
           {trackingId ? (
-            <>
-              <script
-                async
-                src={`https://www.googletagmanager.com/gtag/js?id=${trackingId}`}
-              />
-              <script
-                dangerouslySetInnerHTML={{
-                  __html: `window.gaId = "${trackingId}";window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);} gtag('js', new Date());`,
-                }}
-              />
-            </>
+            <script
+              dangerouslySetInnerHTML={{
+                __html: `window.gaId = "${trackingId}";window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());`,
+              }}
+            />
           ) : null}
         </body>
       </Html>

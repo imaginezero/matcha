@@ -1,42 +1,22 @@
-import { useEffect } from 'react';
-import { useRouter } from 'next/router';
-
 import { Frame } from '../components';
-import { withLogin, useLogin } from '../hooks';
-import { trackPageview, trackVitals } from '../utils/tracking';
+import { withTracking, withLogin } from '../hooks';
 
 import './global.css';
 
-export default withLogin(function MatchaApp({ Component, pageProps }) {
-  const router = useRouter();
-  const { isLoggedIn, profile } = useLogin();
-  const trackWithUserId = (url) => {
-    if (isLoggedIn) {
-      trackPageview(url, { userId: profile.hash });
+export default withLogin(
+  withTracking(function MatchaApp({ Component, pageProps }) {
+    if (Component.noFrame) {
+      return <Component {...pageProps} />;
     } else {
-      trackPageview(url);
+      return (
+        <Frame>
+          <Component {...pageProps} />
+        </Frame>
+      );
     }
-  };
-  useEffect(() => {
-    if (isLoggedIn !== null) trackWithUserId();
-  }, [isLoggedIn]);
-  useEffect(() => {
-    router.events.on('routeChangeComplete', trackWithUserId);
-    return () => {
-      router.events.off('routeChangeComplete', trackWithUserId);
-    };
-  }, []);
-  if (Component.noFrame) {
-    return <Component {...pageProps} />;
-  } else {
-    return (
-      <Frame>
-        <Component {...pageProps} />
-      </Frame>
-    );
-  }
-});
+  })
+);
 
 export function reportWebVitals(params) {
-  trackVitals(params);
+  withTracking.trackVitals(params);
 }

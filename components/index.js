@@ -8,6 +8,7 @@ export { Results } from './Results';
 
 export { NewsletterForm } from './NewsletterForm';
 export { PreferenceForm } from './PreferenceForm';
+export { CookieConsent } from './CookieConsent';
 
 export { Headline, Subline, Explanation } from './Typo';
 export { ComboMark } from './Logo';

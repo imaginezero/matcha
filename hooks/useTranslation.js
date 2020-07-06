@@ -33,7 +33,7 @@ export function withTranslation(Component) {
     return createElement(Component, { ...props, t });
   };
   hoistNonReactStatics(WrappedComponent, Component);
-  WrappedComponent.displayName = `WithTranslations(${
+  WrappedComponent.displayName = `WithTranslation(${
     Component.displayName || Component.name || 'Component'
   })`;
   return WrappedComponent;

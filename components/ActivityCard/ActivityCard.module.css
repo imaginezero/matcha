@@ -24,6 +24,7 @@
 }
 
 .subline {
+  margin-top: var(--space-0);
   margin-bottom: var(--space-xxs);
 }
 

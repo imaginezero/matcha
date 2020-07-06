@@ -8,7 +8,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: none;
+  overflow-y: scroll;
   background-color: rgba(0, 0, 0, 0.33);
   opacity: 1;
   transition: background-color 125ms, opacity 125ms;
@@ -22,9 +22,15 @@
 
 .modal {
   composes: wrapper from '../atoms.module.css';
-  margin: var(--space-l);
-  overflow-y: scroll;
+  margin: var(--space-l) auto;
+  overflow: scroll;
   background-color: var(--white);
   border-radius: var(--border-radius-medium);
   box-shadow: var(--box-shadow-heavy);
+}
+
+@media (min-width: 480px) {
+  .modal {
+    max-width: 60%;
+  }
 }

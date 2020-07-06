@@ -1,21 +1,16 @@
 {
-  "extends": [
-    "eslint:recommended",
-    "prettier",
-    "plugin:react/recommended"
-  ],
-  "plugins": [
-    "prettier",
-    "react"
-  ],
+  "extends": ["eslint:recommended", "prettier", "plugin:react/recommended"],
+  "plugins": ["prettier", "react"],
   "rules": {
     "prettier/prettier": "error",
     "react/react-in-jsx-scope": "off",
     "react/prop-types": "off"
   },
+  "parser": "babel-eslint",
   "parserOptions": {
     "ecmaVersion": 2019,
     "sourceType": "module",
+    "allowImportExportEverywhere": true,
     "ecmaFeatures": {
       "jsx": true
     }

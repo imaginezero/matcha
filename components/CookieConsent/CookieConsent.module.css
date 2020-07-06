@@ -1,0 +1,5 @@
+.button {
+  composes: button from '../atoms.module.css';
+  display: inline-block;
+  margin: var(--space-l) auto var(--space-0);
+}
