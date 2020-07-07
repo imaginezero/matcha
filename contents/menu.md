@@ -1,6 +1,6 @@
 [Was ist Matcha?](/about)  
 [Kontakt](mailto:hi@gomatcha.org)  
-[Jobs](https://imagine-zero.org/mitmachen-2/?lang=de)  
+[Jobs](https://imagine-zero.org/mitmachen/?lang=de)  
 [Nutzungsbedingungen](/terms)  
 [Datenschutz](/privacy)  
 [Impressum](/imprint)
