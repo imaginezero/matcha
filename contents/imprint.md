@@ -7,8 +7,16 @@ Seilerstraße 38a
 20359 Hamburg  
 Deutschland
 
+#### Kontakt
+
 Telefon: [+49 (0)176 / 47611161](tel:004917647611161)  
 E-Mail: [hi@gomatcha.org](mailto:hi@gomatcha.org)
 
-Geschäftsführender Vorstand: Andre Reichel  
-Registereintrag: Imagine Zero e.V. ist im Vereinsregister des Amtsgerichtes Hamburg eingetragen.
+#### Gemeinschaftlich vertretungsberechtigt
+
+Vorsitzender: Andre Reichel  
+Stellvertretender Vorsitzender: Alexander Thiel  
+
+#### Registereintrag
+
+Imagine Zero e.V. ist im Vereinsregister des Amtsgerichtes Hamburg eingetragen.
