@@ -8,7 +8,8 @@
     "build": "next build",
     "start": "next start",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "download": "node scripts/download.js"
+    "download": "node scripts/download.js",
+    "prebuild": "npm run download"
   },
   "repository": {
     "type": "git",
@@ -38,11 +39,14 @@
     "hoist-non-react-statics": "^3.3.2",
     "neat-csv": "^5.2.0",
     "next": "^9.4.1",
+    "p-limit": "^3.0.2",
     "postcss-flexbugs-fixes": "^4.2.1",
     "postcss-normalize": "^9.0.0",
     "postcss-preset-env": "^6.7.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "rimraf": "^3.0.2",
+    "sharp": "^0.25.4",
     "slugify": "^1.4.0",
     "snakecase-keys": "^3.2.0"
   },
