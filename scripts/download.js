@@ -40,15 +40,15 @@ const deleteFiles = promisify(rimraf);
             await imagemin.buffer(
               await sharp(Buffer.from(data))
                 .resize({
-                  width: 1200,
-                  height: 800,
+                  width: 900,
+                  height: 600,
                   fit: sharp.fit.cover,
                   position: sharp.strategy.attention,
                 })
-                .jpeg({ quality: 75 })
+                .jpeg({ quality: 66 })
                 .toBuffer(),
               {
-                plugins: [imageminJpegtran()],
+                plugins: [imageminJpegtran({ progressive: true })],
               }
             )
           );
