@@ -6,55 +6,59 @@ import { concatClassnames } from '../utilities';
 import { wrapper, hiddenWrapper, modal } from './Modal.module.css';
 
 function ModalPortal({ children }) {
+  const { body } = document;
   const el = useMemo(() => document.createElement('div'), []);
-  const root = document.getElementById('__next_modal');
   useEffect(() => {
-    root.appendChild(el);
-    return () => {
-      root.removeChild(el);
-    };
+    body.appendChild(el);
+    return () => body.removeChild(el);
   }, []);
   useEffect(() => {
-    document.body.style.position = 'fixed';
-    document.body.style.top = `-${window.scrollY}px`;
+    const { style } = body;
+    const scrollY = window.scrollY;
+    style.position = 'fixed';
+    style.top = `${scrollY * -1}px`;
     return () => {
-      const scrollY = document.body.style.top;
-      document.body.style.position = '';
-      document.body.style.top = '';
-      window.scrollTo(0, parseInt(scrollY || '0') * -1);
+      style.position = '';
+      style.top = '';
+      window.scrollTo(0, scrollY);
     };
   }, []);
   return createPortal(children, el);
 }
 
-function ModalWrapper({ children, isClosing, onClose, className }) {
-  const [isOpening, setIsOpening] = useState(true);
+function ModalWrapper({ children, closing, onClose, className, ...props }) {
+  const [hidden, setHidden] = useState(true);
   useEffect(() => {
-    if (isOpening) setTimeout(() => setIsOpening(false), 125);
+    setHidden(false);
   }, []);
   useEffect(() => {
-    if (isClosing) setTimeout(() => onClose(), 125);
-  }, [isClosing]);
+    if (closing) {
+      setHidden(true);
+      setTimeout(() => onClose(), 125);
+    }
+  }, [closing]);
   return (
-    <div className={isOpening || isClosing ? hiddenWrapper : wrapper}>
-      <div className={concatClassnames(modal, className)}>{children}</div>
+    <div className={hidden ? hiddenWrapper : wrapper}>
+      <div {...props} className={concatClassnames(modal, className)}>
+        {children}
+      </div>
     </div>
   );
 }
 
-export default function Modal({ children, onClose }) {
-  const [isOpen, setIsOpen] = useState(null);
-  const [isClosing, setIsClosing] = useState(false);
+export default function Modal({ children, onClose = () => {}, ...props }) {
+  const [open, setOpen] = useState(null);
+  const [closing, setClosing] = useState(false);
   useEffect(() => {
-    if (isOpen === null) setIsOpen(true);
-    else if (!isOpen && onClose) onClose();
-  }, [isOpen]);
-  return isOpen ? (
+    if (open === null) setOpen(true);
+    if (open === false) onClose();
+  }, [open]);
+  return open ? (
     <ModalPortal>
-      <ModalWrapper isClosing={isClosing} onClose={() => setIsOpen(false)}>
+      <ModalWrapper {...props} closing={closing} onClose={() => setOpen(false)}>
         {cloneElement(Children.only(children), {
           close() {
-            setIsClosing(true);
+            setClosing(true);
           },
         })}
       </ModalWrapper>
