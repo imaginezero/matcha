@@ -1,4 +1,8 @@
 const withMDX = require('@next/mdx')({
-  extension: /\.(md|mdx)$/,
+  extension: /\.mdx?$/,
 });
-module.exports = withMDX();
+
+module.exports = withMDX({
+  poweredByHeader: false,
+  target: 'serverless',
+});
