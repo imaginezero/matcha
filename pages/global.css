@@ -2,7 +2,68 @@
 @import 'sanitize/forms';
 @import 'sanitize/typography';
 
-@import '../tokens.css';
+:root {
+  /* global tokens */
+
+  --purple-200: #dfa8e4;
+  --purple-400: #c27ac0;
+  --purple-600: #9530a3;
+  --purple-800: #72286f;
+  --gray-100: #f0f0f0;
+  --gray-200: #efefef;
+  --gray-300: #e3e3e3;
+  --gray-600: #afafaf;
+  --gray-700: #808080;
+  --gray-800: #404040;
+  --white: #ffffff;
+
+  --space-0: 0;
+  --space-xxs: 0.125rem;
+  --space-xs: 0.25rem;
+  --space-s: 0.5rem;
+  --space-m: 1rem;
+  --space-l: 1.5rem;
+  --space-xl: 2rem;
+  --space-xxl: 2.5rem;
+  --space-xxxl: 3rem;
+
+  --size-xs: 0.8em;
+  --size-s: 0.9em;
+  --size-m: 1em;
+  --size-l: calc(1em / 0.9);
+  --size-xl: calc(1em / 0.8);
+
+  --border-width-thin: 0.03125em;
+  --border-width-default: 0.0625em; /* 1px */
+  --border-width-wide: 0.125em;
+  --border-radius-medium: 0.25em;
+  --border-radius-pill: 999px;
+
+  --box-shadow-light: 0 2px 2px 0 rgba(0, 0, 0, 0.1),
+    0 3px 1px -2px rgba(0, 0, 0, 0.07), 0 1px 5px 0 rgba(0, 0, 0, 0.06);
+  --box-shadow-medium: 0 3px 4px 0 rgba(0, 0, 0, 0.1),
+    0 3px 3px -2px rgba(0, 0, 0, 0.07), 0 1px 8px 0 rgba(0, 0, 0, 0.06);
+  --box-shadow-heavy: 0 4px 5px 0 rgba(0, 0, 0, 0.1),
+    0 1px 10px 0 rgba(0, 0, 0, 0.06), 0 2px 4px -1px rgba(0, 0, 0, 0.07);
+
+  /* alias tokens */
+
+  --body-color: var(--gray-800);
+  --link-color: var(--purple-800);
+  --link-hover-color: var(--purple-600);
+  --headline-color: var(--purple-800);
+
+  --input-border: var(--border-width-default) solid var(--purple-800);
+  --input-border-radius: var(--border-radius-medium);
+
+  --button-border: var(--border-width-default) solid var(--purple-800);
+  --button-border-cta: var(--border-width-wide) solid var(--white);
+  --button-border-radius: var(--border-radius-pill);
+  --button-background: var(--purple-800);
+
+  /* dynamic tokens */
+  --effort-background: hsl(151, 44%, 70%);
+}
 
 html {
   font-size: 16px;
