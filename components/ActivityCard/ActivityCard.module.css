@@ -1,3 +1,10 @@
+.wrapper {
+  background-image: var(--background-image);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 @media (min-width: 720px) {
   .wrapper {
     display: flex;
@@ -24,12 +31,49 @@
 }
 
 .subline {
-  margin-top: var(--space-0);
+  margin-top: calc(-1 * var(--space-xs));
   margin-bottom: var(--space-xxs);
+  color: var(--white);
+  text-shadow: 0 0 var(--space-s) rgba(0, 0, 0, 0.75);
+}
+
+.description {
+  position: relative;
+  margin-top: calc(var(--space-m) - var(--space-xxs));
+  margin-bottom: var(--space-m);
+  margin-left: calc(-1 * var(--space-m));
+  padding: var(--space-xs) var(--space-xs) var(--space-xs) var(--space-m);
+  z-index: 0;
+}
+
+.description p {
+  position: relative;
+  margin: var(--space-0);
+  z-index: 10;
+  color: var(--gray-900);
+  text-shadow: 0 0 var(--space-s) var(--effort-background);
+}
+
+.description:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 1;
+  opacity: 0.9;
+  background-color: var(--effort-background);
+  backdrop-filter: blur(1.5px) grayscale(50%) brightness(120%);
 }
 
 .button {
   composes: actionButton from '../atoms.module.css';
-  margin-top: var(--space-xs);
   display: inline-block;
+}
+
+@media (min-width: 720px) {
+  .button {
+    margin-top: var(--space-xxs);
+  }
 }

@@ -1,6 +1,7 @@
 import { useTracking } from '../../hooks';
 
 import { Headline, Subline } from '../Typo';
+import { Content } from '../Content';
 
 import {
   wrapper,
@@ -8,10 +9,11 @@ import {
   actionWrapper,
   headline,
   subline,
+  description,
   button,
 } from './ActivityCard.module.css';
 
-const Button = ({ link, label }) => {
+function Button({ link, label }) {
   const { trackOutboundLink } = useTracking();
   return (
     <a
@@ -24,7 +26,15 @@ const Button = ({ link, label }) => {
       {label}
     </a>
   );
-};
+}
+
+function Description({ children }) {
+  return (
+    <div className={description}>
+      <p>{children}</p>
+    </div>
+  );
+}
 
 export default function ActivityCard({ activity }) {
   const {
@@ -33,18 +43,23 @@ export default function ActivityCard({ activity }) {
     description,
     singleWordCta,
     link,
+    imgUrlPublic,
     organization: org,
   } = activity;
   return (
-    <div className={wrapper} key={slug}>
+    <Content
+      className={wrapper}
+      style={{ '--background-image': `url("${imgUrlPublic}")` }}
+      key={slug}
+    >
       <div className={contentWrapper}>
         <Subline className={subline}>{org.name}</Subline>
         <Headline className={headline}>{name}</Headline>
-        <p>{description}</p>
+        <Description>{description}</Description>
       </div>
       <div className={actionWrapper}>
         <Button link={link} label={singleWordCta} />
       </div>
-    </div>
+    </Content>
   );
 }

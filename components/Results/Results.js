@@ -50,13 +50,15 @@ export default function Results({ activities, moreActivities }) {
       <Overlay />
       <Content className={content}>
         <Headline className={headline}>{t('mainResultsHeadline')}</Headline>
+      </Content>
+      <div>
         {activities.map((activity) => (
           <div key={activity.slug} className={card}>
             <ActivityCard activity={activity} />
           </div>
         ))}
-        {moreActivities ? <Button /> : ''}
-      </Content>
+      </div>
+      <Content className={content}>{moreActivities ? <Button /> : ''}</Content>
     </div>
   );
 }

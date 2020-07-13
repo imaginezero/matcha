@@ -60,7 +60,10 @@ export function withEffort(Component) {
             setEffort(e);
           },
           getNextUrl() {
-            return { pathname, query: { e: queryEffort, p: queryPage + 1 } };
+            return {
+              pathname,
+              query: { e: queryEffort || defaultEffort, p: queryPage + 1 },
+            };
           },
           getQuery() {
             return { e: effort };

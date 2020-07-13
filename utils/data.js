@@ -11,13 +11,21 @@ const urls = {
   activityTypes: `https://docs.google.com/spreadsheets/d/e/2PACX-1vTUngdAx7n9WUQddwK-82FpSMHtEUrsQX_LOI150YIhNA-VLEEaAlFdNXPNpcAFLU3Jt9pw-IXyX2Rp/pub?gid=514925567&single=true&output=csv`,
 };
 
-const normalize = (value) => {
+function normalize(value) {
   if (value === 'TRUE') return true;
   if (value === 'FALSE') return false;
   if (value === undefined || value === '') return null;
   if (/^[\d.]+$/.test(value)) return Number(value);
   return value;
-};
+}
+
+function getDefaults(row) {
+  const { imgUrlInternal: imgUrlPublic } = row;
+  return {
+    slug: slugify(row.name.toLowerCase()),
+    ...(imgUrlPublic ? { imgUrlPublic } : {}),
+  };
+}
 
 exports.getData = async (preview) =>
   preview
@@ -30,13 +38,14 @@ exports.getData = async (preview) =>
               .filter(
                 (row) => row.name && Object.values(row).some((value) => value)
               )
+              .map(camelcaseKeys)
               .map((row) =>
                 Object.entries(row).reduce(
                   (obj, [key, value]) => ({ ...obj, [key]: normalize(value) }),
-                  { slug: slugify(row.name.toLowerCase()) }
+                  getDefaults(row)
                 )
               );
-            return [key, camelcaseKeys(rows, { deep: true })];
+            return [key, rows];
           })
         )
       )

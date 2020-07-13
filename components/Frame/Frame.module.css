@@ -9,11 +9,14 @@
   width: 100%;
   z-index: 999;
   background-color: var(--white);
-  /* disable animation on mobile due to iOS Safari bug */
-  transition: none;
   --mark-transition: none;
   --typemark-size: 1.5em;
   --logomark-size: 3em;
+}
+
+.smallHeaderWrapper {
+  composes: headerWrapper;
+  box-shadow: var(--box-shadow-light);
 }
 
 @media (min-width: 480px) {
@@ -21,15 +24,12 @@
     transition: height 125ms;
     --mark-transition: height 125ms;
   }
-}
-
-.smallHeaderWrapper {
-  composes: headerWrapper;
-  box-shadow: var(--box-shadow-light);
-  transition: height 125ms;
-  --mark-transition: height 125ms;
-  --typemark-size: 1.2em;
-  --logomark-size: 2em;
+  .smallHeaderWrapper {
+    transition: height 125ms;
+    --mark-transition: height 125ms;
+    --typemark-size: 1.2em;
+    --logomark-size: 2em;
+  }
 }
 
 .headerContent {
