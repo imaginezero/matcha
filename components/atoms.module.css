@@ -21,7 +21,7 @@
   background-color: var(--button-background);
   box-shadow: var(--box-shadow-light);
   color: var(--white);
-  cursor: default;
+  cursor: pointer;
 }
 
 .button:focus {

@@ -1,4 +1,5 @@
-public/activities/*
+data/activities.json
+public/images/*
 node_modules
 .next
 logs
