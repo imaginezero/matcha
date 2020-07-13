@@ -11,7 +11,8 @@
   align-items: center;
   overflow-y: scroll;
   padding: 1em;
-  background-color: rgba(0, 0, 0, 0.33);
+  background-color: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(1.5px) grayscale(50%);
   opacity: 1;
   transition: background-color 125ms, opacity 125ms;
 }
