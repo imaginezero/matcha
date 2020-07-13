@@ -1,3 +1,4 @@
+public/activities/*
 node_modules
 .next
 logs
