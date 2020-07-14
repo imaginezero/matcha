@@ -71,6 +71,7 @@
 .button {
   composes: actionButton from '../atoms.module.css';
   display: inline-block;
+  margin-top: calc(-1 * var(--space-m));
 }
 
 @media (min-width: 720px) {
