@@ -49,7 +49,7 @@ export default function ActivityCard({ activity }) {
   return (
     <Content
       className={wrapper}
-      style={{ '--background-image': `url("${imgUrlPublic}")` }}
+      style={{ backgroundImage: `url("${imgUrlPublic}")` }}
       key={slug}
     >
       <div className={contentWrapper}>
