@@ -1,5 +1,6 @@
 .wrapper {
   /* background-image: var(--background-image); */
+  background-color: rgba(255, 255, 255, 0.2);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -20,7 +21,7 @@
   .actionWrapper {
     flex-grow: 0;
     flex-shrink: 0;
-    flex-basis: 20%;
+    flex-basis: 25%;
     text-align: right;
     margin-top: var(--space-0);
   }
@@ -34,13 +35,13 @@
   margin-top: calc(-1 * var(--space-xs));
   margin-bottom: var(--space-xxs);
   color: var(--white);
-  text-shadow: 0 0 var(--space-s) rgba(0, 0, 0, 0.75);
+  text-shadow: 0 0 var(--space-xxs) rgba(0, 0, 0, 0.75);
 }
 
 .description {
   position: relative;
-  margin-top: calc(var(--space-m) - var(--space-xxs));
-  margin-bottom: var(--space-m);
+  margin-top: calc(var(--space-m));
+  margin-bottom: var(--space-l);
   margin-left: calc(-1 * var(--space-m));
   padding: var(--space-xs) var(--space-xs) var(--space-xs) var(--space-m);
   z-index: 0;
@@ -62,9 +63,9 @@
   bottom: 0;
   right: 0;
   z-index: 1;
-  opacity: 0.9;
+  opacity: 0.75;
   background-color: var(--effort-background);
-  backdrop-filter: blur(1.5px) grayscale(50%) brightness(120%);
+  backdrop-filter: blur(3px) contrast(33%) brightness(133%);
 }
 
 .button {

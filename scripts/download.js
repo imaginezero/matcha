@@ -12,12 +12,11 @@ const sharp = require('sharp');
 const imagemin = require('imagemin');
 const imageminJpegtran = require('imagemin-jpegtran');
 
-const limit = pLimit(2);
-
 const { getData, dataFile } = require('../utils/data');
 
 const imageFolder = join(dirname(__dirname), 'public', 'images');
 
+const limit = pLimit(2);
 const writeFile = promisify(fs.writeFile);
 const deleteFiles = promisify(rimraf);
 
@@ -38,17 +37,12 @@ const deleteFiles = promisify(rimraf);
           await writeFile(
             join(imageFolder, fileName),
             await imagemin.buffer(
-              await sharp(Buffer.from(data))
-                .resize({
-                  width: 900,
-                  height: 600,
-                  fit: sharp.fit.cover,
-                  position: sharp.strategy.attention,
-                })
-                .jpeg({ quality: 66 })
+              await sharp(data)
+                .resize({ width: 900, height: 600 })
+                .jpeg({ quality: 80 })
                 .toBuffer(),
               {
-                plugins: [imageminJpegtran()],
+                plugins: [imageminJpegtran({ progressive: true })],
               }
             )
           );
