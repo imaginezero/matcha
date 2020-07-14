@@ -48,7 +48,7 @@ const deleteFiles = promisify(rimraf);
                 .jpeg({ quality: 66 })
                 .toBuffer(),
               {
-                plugins: [imageminJpegtran({ progressive: true })],
+                plugins: [imageminJpegtran()],
               }
             )
           );
