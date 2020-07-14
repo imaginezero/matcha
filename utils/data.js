@@ -20,10 +20,17 @@ function normalize(value) {
 }
 
 function getDefaults(row) {
-  const { imgUrlInternal: imgUrlPublic } = row;
+  const { imgUrlInternal: imgUrlPublic, impactScore, effortScore } = row;
   return {
     slug: slugify(row.name.toLowerCase()),
     ...(imgUrlPublic ? { imgUrlPublic } : {}),
+    ...(impactScore && effortScore
+      ? {
+          aggregateScore: Math.round(
+            (Math.pow(impactScore, 2) / effortScore) * Math.log2(impactScore)
+          ),
+        }
+      : {}),
   };
 }
 

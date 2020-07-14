@@ -29,8 +29,8 @@ export async function getActivity(properties, preview) {
 
 export async function recommendActivities(effort, prefs, preview) {
   const { activities, activityTypes, organizations } = await getData(preview);
-  return sortActivities(
-    filterActivities(activities, effort, prefs).map((activity) => ({
+  return filterActivities(activities, effort, prefs)
+    .map((activity) => ({
       ...activity,
       organization:
         organizations.find(
@@ -41,35 +41,31 @@ export async function recommendActivities(effort, prefs, preview) {
           (activityType) => activityType.name === activity.type
         ) || null,
     }))
-  );
+    .sort((a, b) => b.aggregateScore - a.aggregateScore);
 }
 
-const sortActivities = (activities) => {
-  const getScore = ({ effortScore, impactScore }) => {
-    const relativeScore = (impactScore / effortScore) * 100;
-    return Math.round(impactScore * 5 + relativeScore);
-  };
-  return activities.sort((a, b) => getScore(b) - getScore(a));
-};
-
 const filterActivities = (activities, effort, prefs) => {
-  const maxEffort = Math.min(Number(effort), 100);
   const minEffort = Math.max(Number(effort) - 10, 0);
-  const subMinEffort = Math.max(minEffort - 20, 0);
-  const activitiesByEffort = activities.filter(
-    ({ effortScore }) => effortScore > minEffort && effortScore <= maxEffort
-  );
-  const minImpact = activitiesByEffort.reduce(
-    (result, { impactScore }) => Math.min(result, impactScore),
-    100
-  );
-  const activitiesByImpact = activities.filter(
-    ({ effortScore, impactScore }) =>
-      effortScore <= minEffort &&
-      effortScore > subMinEffort &&
-      impactScore > minImpact
-  );
-  return [...activitiesByEffort, ...activitiesByImpact].filter((activity) =>
+  const maxEffort = Math.min(Number(effort), 100);
+  const maxScores = { impact: 0, aggregate: 0 };
+  return [
+    ...activities.filter(({ effortScore, impactScore, aggregateScore }) => {
+      if (effortScore > minEffort && effortScore <= maxEffort) {
+        maxScores.impact = Math.max(maxScores.impact, impactScore);
+        maxScores.aggregate = Math.max(maxScores.aggregate, aggregateScore);
+        return true;
+      }
+      return false;
+    }),
+    ...activities.filter(({ effortScore, impactScore, aggregateScore }) => {
+      return (
+        effortScore <= minEffort &&
+        effortScore > minEffort - 5 &&
+        aggregateScore > maxScores.aggregate &&
+        impactScore > maxScores.impact
+      );
+    }),
+  ].filter((activity) =>
     Object.entries(conditions).every(
       ([condition, property]) => !activity[condition] || prefs[property]
     )
