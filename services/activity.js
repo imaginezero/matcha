@@ -47,7 +47,7 @@ export async function recommendActivities(effort, prefs, preview) {
 const sortActivities = (activities) => {
   const getScore = ({ effortScore, impactScore }) => {
     const relativeScore = (impactScore / effortScore) * 100;
-    return Math.round(impactScore * 2 + relativeScore);
+    return Math.round(impactScore * 5 + relativeScore);
   };
   return activities.sort((a, b) => getScore(b) - getScore(a));
 };
