@@ -92,3 +92,8 @@ a:hover {
   text-decoration: underline;
   color: var(--link-hover-color);
 }
+
+::selection {
+  color: var(--white);
+  background-color: var(--purple-600);
+}
