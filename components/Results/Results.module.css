@@ -11,17 +11,17 @@
 }
 
 .card {
-  margin-bottom: var(--space-xxxl);
+  margin-bottom: calc(var(--space-xxxl) + var(--space-s) + var(--space-xs));
 }
 
 .card:last-of-type {
-  margin-bottom: var(--space-m);
+  margin-bottom: calc(var(--space-l) + var(--space-xs));
 }
 
 .button {
   composes: button from '../atoms.module.css';
   display: table;
-  margin: var(--space-s) auto var(--space-l);
+  margin: calc(-1 * var(--space-xxs)) auto var(--space-l);
   font-weight: bold;
 }
 

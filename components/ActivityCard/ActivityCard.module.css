@@ -1,6 +1,6 @@
 .wrapper {
   /* background-image: var(--background-image); */
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(0, 0, 0, 0.2);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -34,6 +34,7 @@
 .subline {
   font-size: var(--size-xs);
   line-height: calc(var(--space-m) + var(--space-xs) + var(--space-xxs));
+  margin-top: calc(-1 * var(--space-xxxs));
   margin-bottom: var(--space-xs);
 }
 
@@ -56,7 +57,7 @@
   margin: var(--space-0);
   z-index: 10;
   color: var(--gray-900);
-  text-shadow: 0 0 var(--space-s) var(--effort-background);
+  text-shadow: 0 0 var(--space-xxs) var(--effort-background);
 }
 
 .description:before {
@@ -67,9 +68,9 @@
   bottom: 0;
   right: 0;
   z-index: 1;
-  opacity: 0.75;
+  opacity: 0.8;
   background-color: var(--effort-background);
-  backdrop-filter: blur(3px) contrast(33%) brightness(133%);
+  backdrop-filter: blur(3px) contrast(50%);
 }
 
 .button {
