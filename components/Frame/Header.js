@@ -33,7 +33,7 @@ export default function Header() {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
-  const href = { pathname: '/main', query: getQuery() };
+  const href = { pathname: '/', query: getQuery() };
   return (
     <header className={headerClassName}>
       <Content className={headerContent}>
