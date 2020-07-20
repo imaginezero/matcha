@@ -1,6 +1,6 @@
 import { useTracking } from '../../hooks';
 
-import { Headline, Subline } from '../Typo';
+import { Headline } from '../Typo';
 import { Content } from '../Content';
 
 import {
@@ -53,7 +53,7 @@ export default function ActivityCard({ activity }) {
       key={slug}
     >
       <div className={contentWrapper}>
-        <Subline className={subline}>{org.name}</Subline>
+        <Headline className={subline}>{org.name}</Headline>
         <Headline className={headline}>{name}</Headline>
         <Description>{description}</Description>
       </div>
