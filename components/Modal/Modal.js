@@ -10,17 +10,10 @@ function ModalPortal({ children }) {
   const el = useMemo(() => document.createElement('div'), []);
   useEffect(() => {
     body.appendChild(el);
-    return () => body.removeChild(el);
-  }, []);
-  useEffect(() => {
-    const { style } = body;
-    const scrollY = window.scrollY;
-    style.position = 'fixed';
-    style.top = `${scrollY * -1}px`;
+    body.style.overflow = 'hidden';
     return () => {
-      style.position = '';
-      style.top = '';
-      window.scrollTo(0, scrollY);
+      body.removeChild(el);
+      body.style.overflow = 'scroll';
     };
   }, []);
   return createPortal(children, el);
@@ -29,7 +22,7 @@ function ModalPortal({ children }) {
 function ModalWrapper({ children, closing, onClose, className, ...props }) {
   const [hidden, setHidden] = useState(true);
   useEffect(() => {
-    setHidden(false);
+    setTimeout(() => setHidden(false));
   }, []);
   useEffect(() => {
     if (closing) {

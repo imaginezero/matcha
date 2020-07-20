@@ -39,7 +39,6 @@ class MatchaDocument extends Document {
         </Head>
         <body>
           <Main />
-          <div id="__next_modal" />
           <NextScript />
           {trackingId ? (
             <script

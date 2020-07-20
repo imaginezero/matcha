@@ -1,5 +1,5 @@
 .wrapper {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
@@ -10,7 +10,7 @@
   justify-content: center;
   align-items: center;
   overflow-y: scroll;
-  padding: 1em;
+  padding: var(--space-m);
   background-color: rgba(0, 0, 0, 0.25);
   backdrop-filter: blur(1.5px) grayscale(50%);
   opacity: 1;
