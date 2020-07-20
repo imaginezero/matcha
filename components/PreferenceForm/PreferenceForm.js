@@ -63,7 +63,7 @@ export default function PreferenceForm({ preferences }) {
     setLoading(true);
     await savePrefs();
     router
-      .push({ pathname: '/main', query: getQuery() })
+      .push({ pathname: '/', query: getQuery() })
       .then(() => window.scrollTo(0, 0));
   };
   return <Form prefs={prefs} setPrefs={setPrefs} handleSubmit={handleSubmit} />;
