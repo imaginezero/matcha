@@ -1,24 +1,42 @@
-import Head from 'next/head';
+import {
+  Page,
+  Content,
+  Headline,
+  Subline,
+  EffortForm,
+  Results,
+} from '../components';
+import { useTranslation } from '../hooks';
 
-import { ComboMark, NewsletterForm } from '../components';
-
-function HomePage() {
+export default function Home({ activities, moreActivities }) {
+  const { t } = useTranslation();
   return (
-    <>
-      <Head>
-        <title>Matcha kommt!</title>
-      </Head>
-      <div>
-        <ComboMark
-          style={{ display: 'block', margin: '5em auto 2.5em' }}
-          width="250"
-        />
-      </div>
-      <NewsletterForm />
-    </>
+    <Page title={t('mainTitle')} description={t('mainDescription')}>
+      <Content>
+        <Headline>{t('mainHeadline')}</Headline>
+        <Subline>{t('mainSubline')}</Subline>
+        <EffortForm />
+      </Content>
+      <Results activities={activities} moreActivities={moreActivities} />
+    </Page>
   );
 }
 
-HomePage.noFrame = true;
+export async function getServerSideProps({ req, query, preview }) {
+  const { getPrefs } = require('../utils/prefs');
+  const { recommendActivities } = require('../services/activity');
+  const { defaultEffort } = require('../hooks');
 
-export default HomePage;
+  const { e: effort = defaultEffort, p: page = 1 } = query;
+  const num = Number(page) * 3;
+  const prefs = getPrefs(req);
+
+  const activities = await recommendActivities(effort, prefs, preview);
+
+  return {
+    props: {
+      activities: activities.slice(0, num),
+      moreActivities: num < activities.length,
+    },
+  };
+}

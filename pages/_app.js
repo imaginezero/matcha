@@ -5,15 +5,11 @@ import './global.css';
 
 export default withLogin(
   withTracking(function MatchaApp({ Component, pageProps }) {
-    if (Component.noFrame) {
-      return <Component {...pageProps} />;
-    } else {
-      return (
-        <Frame>
-          <Component {...pageProps} />
-        </Frame>
-      );
-    }
+    return (
+      <Frame>
+        <Component {...pageProps} />
+      </Frame>
+    );
   })
 );
 
