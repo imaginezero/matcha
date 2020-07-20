@@ -32,10 +32,14 @@
 }
 
 .subline {
-  margin-top: calc(-1 * var(--space-xs));
-  margin-bottom: var(--space-xxs);
-  color: var(--white);
-  text-shadow: 0 0 var(--space-xxs) rgba(0, 0, 0, 0.75);
+  font-size: var(--size-xs);
+  line-height: calc(var(--space-m) + var(--space-xs) + var(--space-xxs));
+  margin-bottom: var(--space-xs);
+}
+
+.subline span {
+  color: var(--effort-background);
+  background-color: var(--gray-800);
 }
 
 .description {
@@ -76,6 +80,6 @@
 
 @media (min-width: 720px) {
   .button {
-    margin-top: var(--space-xxs);
+    margin-top: var(--space-0);
   }
 }
