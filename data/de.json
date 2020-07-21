@@ -1,7 +1,7 @@
 {
   "lang": "de",
   "locale": "de_DE",
-  "aboutDescription": "",
+  "aboutDescription": "Matcha gibt dir die besten Empfehlungen, um was gegen die Klimakrise zu tun! Kostenlos, web-basiert und für dich anpassbar",
   "aboutTitle": "Was ist Matcha?",
   "cookieConsentButton": "Cookies Akzeptieren",
   "imprintTitle": "Impressum",
@@ -10,7 +10,7 @@
   "loginInfo": "Du bist momentan als {{ email }} angemeldet. Deine Antworten werden dauerhaft gespeichert.",
   "logout": "Abmelden",
   "loggedoutInfo": "Du bist momentan nicht eingeloggt. Deine Antworten werden nicht dauerhaft gespeichert.",
-  "mainDescription": "",
+  "mainDescription": "Matcha gibt dir die besten Empfehlungen, um was gegen die Klimakrise zu tun! Kostenlos, web-basiert und für dich anpassbar",
   "mainHeadline": "Wieviel bist Du bereit zu tun, um unser Klima zu retten?",
   "mainResultsHeadline": "Deine Empfehlungen:",
   "mainResultsLoadMore": "Weitere Empfehlungen",
