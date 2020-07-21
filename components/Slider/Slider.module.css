@@ -128,3 +128,19 @@
 .slider::-ms-tooltip {
   display: none;
 }
+
+/* supporting styles */
+
+.ticks {
+  height: var(--space-xs);
+  margin: calc(-1 * var(--space-xs)) var(--space-0) var(--space-0);
+  background: repeating-linear-gradient(
+    to right,
+    transparent,
+    transparent calc(var(--space-s) + var(--space-xs) - 1.5px),
+    var(--gray-600) calc(var(--space-s) + var(--space-xs) - 0.5px),
+    var(--gray-600) calc(calc(var(--space-s) + var(--space-xs)) + 0.5px),
+    transparent calc(calc(var(--space-s) + var(--space-xs)) + 1.5px),
+    transparent calc(calc(100% / 9) - calc(calc(var(--space-l) + 5px) / 10))
+  );
+}
