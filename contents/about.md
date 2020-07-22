@@ -21,7 +21,7 @@ Und wie funktioniert das?
   <tr>
     <td style={{width:'33%'}}><img src="https://storage.googleapis.com/gomatcha/icons/lens.svg" alt="lens-icon" width="75%" /></td>
     <td>
-    Als wir sahen wie viel Potential die Klimabewegung hat, haben wir angefangen, all diese Initiativen und deren Aktivitäten zu sammeln. Im Anschluss wurde selektiert und <a href="#wie-wir-empfehlen">bewertet</a>.
+    Als wir sahen wie viel Potential die Klimabewegung hat, haben wir angefangen, all diese Initiativen und deren Aktivitäten zu sammeln. Im Anschluss wurde selektiert und <a href="https://gomatcha.org/about#wie-wir-empfehlen">bewertet</a>.
     </td>
   </tr>
 </table>
