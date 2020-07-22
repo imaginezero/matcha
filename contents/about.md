@@ -10,7 +10,7 @@ Und wie funktioniert das?
   <tr>
     <td style={{width:'33%'}}><img src="https://storage.googleapis.com/gomatcha/icons/microscope.svg" alt="microscope-icon" width="75%" /></td>
     <td>
-    Angetrieben durch unser eigenes Interesse, mehr zur Klimabewegung und den verschiedenen Organisationen zu erfahren, haben wir eine Menge Initiativen selbst getestet und so eine Menge qualitativer Insights zu diesem Thema gesammelt.
+    Angetrieben durch unser eigenes Interesse, mehr zur Klimabewegung und den verschiedenen Organisationen zu erfahren, haben wir eine Menge Initiativen selbst getestet und so zahlreiche qualitative Insights zu diesem Thema gesammelt.
     </td>
   </tr>
 </table>
@@ -39,7 +39,7 @@ Und wie funktioniert das?
 
 ---
 
-Um Matcha herum hat sich der Verein Imagine Zero e.V. gebildet. Wir bauen Projekte, die skalieren und einen starken Einfluss auf die Klimakrise haben. [Neugierig? Erfahre mehr!](https://imagine-zero.org/)
+Um Matcha herum hat sich der Verein **Imagine Zero e.V.** gebildet. Wir bauen Projekte, die skalieren und einen starken Einfluss auf die Klimakrise haben. [Erfahre mehr!](https://imagine-zero.org/)
 
 ---
 
