@@ -113,11 +113,11 @@ Matcha bietet dir eine breite Auswahl interessanter Aktivitäten gegen den Klima
   <tr>
     <td style={{width:'33%'}}><img src="https://storage.googleapis.com/gomatcha/icons/phone.svg" alt="phone-icon" width="75%" /></td>
     <td>
-    Bei Matcha nutzen wir deine Angaben und unsere Forschung, um dir leicht umsetzbare und wirksame Möglichkeiten zu bieten, dich für das Klima zu engagieren. Der Rest liegt bei dir, also <a href="https://gomatcha.org/main">leg los</a>!
+    Bei Matcha nutzen wir deine Angaben und unsere Forschung, um dir leicht umsetzbare und wirksame Möglichkeiten zu bieten, dich für das Klima zu engagieren. Der Rest liegt bei dir, also <a href="https://gomatcha.org/">leg los</a>!
     </td>
   </tr>
 </table>
 
 ---
 
-Du findest Matcha toll und möchtest uns dabei helfen, unsere Empfehlungen zu verbessern? Das ist großartig! Melde dich in unserer [Insight Community](mailto:hi@gomatcha.org) an, nimm gelegentlich an Befragungen teil und teste neue Features exklusiv vorab.
+Du findest Matcha toll und möchtest uns dabei helfen, unsere Empfehlungen zu verbessern? Das ist großartig! [Kontaktiere uns](mailto:hi@gomatcha.org), um gelegentlich an Befragungen teilzunehmen und neue Features exklusiv vorab zu testen.
