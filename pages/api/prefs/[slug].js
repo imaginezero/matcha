@@ -1,51 +1,33 @@
-import auth from '../../../utils/auth';
+import { getUser, updateUserMetadata } from '../../../utils/auth';
+import { updateTags } from '../../../utils/crm';
 import { prefs } from '../../../utils/prefs';
 
-class NotLoggedInError extends Error {}
-
-const getUser = async (req) => {
-  const client = await auth.getManagementClient();
-  const session = await auth.getSession(req);
-  if (!session) {
-    throw new NotLoggedInError();
-  }
-  const { idToken } = session;
-  const [user] = await client.getUser(idToken);
-  return user;
-};
-
 const updatePrefs = async (req, res) => {
-  const client = await auth.getManagementClient();
   const prefs = { ...req.getPrefs(), ...(req.body || {}) };
-  try {
-    const { user_id: id } = await getUser(req);
-    await client.updateUserMetadata({ id }, prefs);
-  } catch (error) {
-    if (!(error instanceof NotLoggedInError)) throw error;
+  if (await updateUserMetadata(req, prefs)) {
+    await updateTags(await getUser(req));
   }
   res.setPrefs(prefs);
   if (req.method === 'PUT') {
     res.json(prefs);
   } else {
-    res.writeHead(307, { Location: '/' });
+    res.writeHead(302, { Location: '/' });
     res.end();
   }
 };
 
 const restorePrefs = async (req, res) => {
-  try {
-    const { user_metadata: prefs } = await getUser(req);
-    res.setPrefs(prefs);
-  } catch (error) {
-    if (!(error instanceof NotLoggedInError)) throw error;
-  }
-  res.writeHead(303, { Location: '/' });
+  const { redirectTo } = req.query;
+  const { userMetadata: prefs } = await getUser(req);
+  const params = new URLSearchParams({ ...(redirectTo ? { redirectTo } : {}) });
+  res.setPrefs(prefs);
+  res.writeHead(302, { Location: `/consent?${params.toString()}` });
   res.end();
 };
 
 const resetPrefs = async (req, res) => {
   res.resetPrefs();
-  res.writeHead(303, { Location: '/' });
+  res.writeHead(302, { Location: '/' });
   res.end();
 };
 

@@ -1,0 +1,25 @@
+.columns {
+  display: flex;
+  flex-direction: row;
+  justify-items: space-between;
+  align-items: flex-start;
+  margin: 0 0 var(--space-l);
+}
+
+.questionColumn {
+  flex-grow: 1;
+  padding-right: var(--space-xl);
+  cursor: pointer;
+}
+
+.checkboxColumn {
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: var(--space-xxxl);
+}
+
+.submitButton {
+  composes: button from '../atoms.module.css';
+  display: block;
+  margin: var(--space-xl) auto var(--space-l);
+}

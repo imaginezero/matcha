@@ -22,20 +22,14 @@ const Form = ({ prefs, setPrefs, handleSubmit }) => {
     <form onSubmit={handleSubmit} action="/api/prefs/update" method="POST">
       {keys.map((key) => {
         const value = prefs[key];
+        const toggleValue = () => setPrefs({ ...prefs, [key]: !value });
         return (
           <div className={columns} key={key}>
-            <div
-              className={questionColumn}
-              onClick={() => setPrefs({ ...prefs, [key]: !value })}
-            >
+            <div className={questionColumn} onClick={toggleValue}>
               <span>{t(`prefQuestion.${key}`)}</span>
             </div>
             <div className={checkboxColumn}>
-              <Checkbox
-                id={key}
-                checked={value}
-                onChange={() => setPrefs({ ...prefs, [key]: !value })}
-              />
+              <Checkbox id={key} checked={value} onChange={toggleValue} />
             </div>
           </div>
         );

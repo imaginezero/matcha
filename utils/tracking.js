@@ -32,7 +32,6 @@ export function trackEvent(action, params = {}) {
 }
 
 export function trackOutboundLink(url, navigate) {
-  console.log(url);
   trackEvent('click', {
     eventCategory: 'outbound',
     eventLabel: url,
