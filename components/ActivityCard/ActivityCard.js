@@ -1,4 +1,4 @@
-import { useTracking } from '../../hooks';
+import { useCapture, useTracking } from '../../hooks';
 
 import { Headline } from '../Typo';
 import { Content } from '../Content';
@@ -13,15 +13,19 @@ import {
   button,
 } from './ActivityCard.module.css';
 
-function Button({ link, label }) {
+function Button({ link, label, slug }) {
   const { trackOutboundLink } = useTracking();
+  const { captureOutboundLink } = useCapture();
   return (
     <a
       className={button}
       href={link}
       target="_blank"
       rel="noreferrer"
-      onClick={() => trackOutboundLink(link)}
+      onClick={() => {
+        trackOutboundLink(link);
+        captureOutboundLink(slug, link);
+      }}
     >
       {label}
     </a>
@@ -58,7 +62,7 @@ export default function ActivityCard({ activity }) {
         <Description>{description}</Description>
       </div>
       <div className={actionWrapper}>
-        <Button link={link} label={singleWordCta} />
+        <Button link={link} label={singleWordCta} slug={slug} />
       </div>
     </Content>
   );
