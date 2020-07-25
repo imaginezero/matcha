@@ -19,6 +19,7 @@ export default function Consent({ consent, redirectTo }) {
 
 export async function getServerSideProps({ req, res, query }) {
   const { redirectTo = null } = query;
+  if (redirectTo && !redirectTo.startsWith('/')) throw new Error('invalid url');
   try {
     const { appMetadata = {} } = await getUser(req);
     const { consent = null } = appMetadata;

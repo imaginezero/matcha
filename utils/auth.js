@@ -32,6 +32,15 @@ const managementClient = (async () =>
     domain: process.env.AUTH0_DOMAIN,
   }))();
 
+export async function getSessionUser(req) {
+  try {
+    const { user } = await auth.getSession(req);
+    return user;
+  } catch (error) {
+    return null;
+  }
+}
+
 export async function getUser(req) {
   try {
     const client = await managementClient;

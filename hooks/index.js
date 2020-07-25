@@ -1,3 +1,4 @@
+export { useCapture } from './useCapture';
 export { useConsent } from './useConsent';
 export { useEffort, withEffort, defaultEffort } from './useEffort';
 export { useLoading, withLoading } from './useLoading';

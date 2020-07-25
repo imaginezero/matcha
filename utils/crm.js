@@ -42,11 +42,11 @@ export async function getContact({ email }) {
   return contact;
 }
 
-export async function createContact(user, consent) {
+export async function createContact({ email, ...user }, consent) {
   return await request(getUrl(), {
     method: 'POST',
     data: {
-      email_address: user.email,
+      email_address: email,
       status: 'pending',
       merge_fields: getMergeFields(user),
       ...(consent ? { marketing_permissions: getPermissions(consent) } : {}),
@@ -54,8 +54,8 @@ export async function createContact(user, consent) {
   });
 }
 
-export async function updateContact(user, consent) {
-  return await request(getUrl(user.email), {
+export async function updateContact({ email, ...user }, consent) {
+  return await request(getUrl(email), {
     method: 'PATCH',
     data: {
       merge_fields: getMergeFields(user),
@@ -64,9 +64,16 @@ export async function updateContact(user, consent) {
   });
 }
 
-export async function updateTags(user) {
-  return await request(getUrl(user.email, 'tags'), {
+export async function updateTags({ email, ...user }) {
+  return await request(getUrl(email, 'tags'), {
     method: 'POST',
     data: { tags: getTags(user) },
+  });
+}
+
+export async function sendEvent({ email }, name, properties) {
+  return await request(getUrl(email, 'events'), {
+    method: 'POST',
+    data: { name, properties },
   });
 }
