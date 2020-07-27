@@ -32,11 +32,10 @@ const managementClient = (async () =>
     domain: process.env.AUTH0_DOMAIN,
   }))();
 
-export async function getSessionUser(req) {
+export async function isAuthenticated(req) {
   try {
-    const { user } = await auth.getSession(req);
-    return user;
-  } catch (error) {
+    return Boolean(await auth.getSession(req));
+  } catch (_) {
     return null;
   }
 }
@@ -56,8 +55,8 @@ export async function updateUserMetadata(req, data) {
   try {
     const client = await managementClient;
     const user = await getUser(req);
-    const { userId: id } = user;
-    await client.updateUserMetadata({ id }, data);
+    const { userId: id, userMetadata } = user;
+    await client.updateUserMetadata({ id }, { ...userMetadata, ...data });
     return true;
   } catch (_) {
     return false;
@@ -68,8 +67,8 @@ export async function updateAppMetadata(req, data) {
   try {
     const client = await managementClient;
     const user = await getUser(req);
-    const { userId: id } = user;
-    await client.updateAppMetadata({ id }, data);
+    const { userId: id, appMetadata } = user;
+    await client.updateAppMetadata({ id }, { ...appMetadata, ...data });
     return true;
   } catch (_) {
     return false;

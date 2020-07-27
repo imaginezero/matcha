@@ -1,5 +1,5 @@
 export { Frame } from './Frame';
-export { Page } from './Page';
+export { Page, ProtectedPage } from './Page';
 export { Content } from './Content';
 export { Markdown } from './Markdown';
 

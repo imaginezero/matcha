@@ -4,7 +4,7 @@ import { prefs } from '../../../utils/prefs';
 
 const updatePrefs = async (req, res) => {
   const prefs = { ...req.getPrefs(), ...(req.body || {}) };
-  if (await updateUserMetadata(req, prefs)) {
+  if (await updateUserMetadata(req, { prefs })) {
     await updateTags(await getUser(req));
   }
   res.setPrefs(prefs);
@@ -17,7 +17,9 @@ const updatePrefs = async (req, res) => {
 };
 
 const restorePrefs = async (req, res) => {
-  const { userMetadata: prefs } = await getUser(req);
+  const {
+    userMetadata: { prefs },
+  } = await getUser(req);
   const params = new URLSearchParams(req.query);
   res.setPrefs(prefs);
   res.writeHead(302, { Location: `/consent?${params.toString()}` });

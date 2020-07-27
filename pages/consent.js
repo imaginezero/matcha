@@ -1,26 +1,39 @@
-import { Page, Content, Headline, Subline, ConsentForm } from '../components';
+import {
+  ProtectedPage,
+  Content,
+  Headline,
+  Subline,
+  ConsentForm,
+} from '../components';
 
 import { useTranslation } from '../hooks';
 
-import { getUser } from '../utils/auth';
+import { isAuthenticated, getUser } from '../utils/auth';
 
-export default function Consent({ consent, redirectTo }) {
+export default function Consent({ isLoggedIn, consent, redirectTo }) {
   const { t } = useTranslation();
   return (
-    <Page title={t('consentTitle')} description={t('consentDescription')}>
+    <ProtectedPage
+      title={t('consentTitle')}
+      description={t('consentDescription')}
+      isLoggedIn={isLoggedIn}
+    >
       <Content>
         <Headline>{t('consentHeadline')}</Headline>
         <Subline>{t('consentSubline')}</Subline>
         <ConsentForm consent={consent} redirectTo={redirectTo} />
       </Content>
-    </Page>
+    </ProtectedPage>
   );
 }
 
 export async function getServerSideProps({ req, res, query }) {
   const { redirectTo = null } = query;
-  if (redirectTo && !redirectTo.startsWith('/')) throw new Error('invalid url');
-  try {
+  if (redirectTo && !/^[a-zA-Z0-9/][a-zA-Z0-9][^:]+$/.test(redirectTo)) {
+    throw new Error('invalid redirect url');
+  }
+  const isLoggedIn = await isAuthenticated(req);
+  if (isLoggedIn) {
     const { appMetadata = {} } = await getUser(req);
     const { consent = null } = appMetadata;
     if (consent && redirectTo) {
@@ -30,9 +43,7 @@ export async function getServerSideProps({ req, res, query }) {
     } else {
       return { props: { consent, redirectTo } };
     }
-  } catch (error) {
-    res.writeHead(302, { Location: '/api/auth/login' });
-    res.end();
-    return { props: {} };
+  } else {
+    return { props: { isLoggedIn } };
   }
 }
