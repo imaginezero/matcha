@@ -1,30 +1,37 @@
 import { useTranslation } from '../hooks';
 
+import { getPrefs } from '../utils/prefs';
+import { isAuthenticated } from '../utils/auth';
+
 import {
-  Page,
+  ProtectedPage,
   Content,
   Headline,
   Subline,
   PreferenceForm,
 } from '../components';
 
-export default function Preferences({ preferences }) {
+export default function Preferences({ preferences, isLoggedIn }) {
   const { t } = useTranslation();
   return (
-    <Page title={t('prefTitle')} description={t('prefDescription')}>
+    <ProtectedPage
+      title={t('prefTitle')}
+      description={t('prefDescription')}
+      isLoggedIn={isLoggedIn}
+    >
       <Content>
         <Headline>{t('prefHeadline')}</Headline>
         <Subline>{t('prefSubline')}</Subline>
         <PreferenceForm preferences={preferences} />
       </Content>
-    </Page>
+    </ProtectedPage>
   );
 }
 
 export async function getServerSideProps({ req }) {
-  const { getPrefs } = require('../utils/prefs');
   const preferences = getPrefs(req);
+  const isLoggedIn = await isAuthenticated(req);
   return {
-    props: { preferences },
+    props: { preferences, isLoggedIn },
   };
 }
