@@ -33,6 +33,11 @@
   color: var(--white);
 }
 
+.inactiveButton {
+  opacity: 0.66;
+  cursor: not-allowed;
+}
+
 .actionButton {
   composes: button;
   border: var(--button-border-cta);

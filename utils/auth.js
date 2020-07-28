@@ -32,12 +32,23 @@ const managementClient = (async () =>
     domain: process.env.AUTH0_DOMAIN,
   }))();
 
-export async function isAuthenticated(req) {
+export async function getProfile(req) {
   try {
-    return Boolean(await auth.getSession(req));
+    const { user } = await auth.getSession(req);
+    return user;
   } catch (_) {
     return null;
   }
+}
+
+export async function ensureProfile(req, res) {
+  const profile = await getProfile(req);
+  if (!profile && /^(?!.*\.json(?:\?.*)?)/.test(req.url)) {
+    const params = new URLSearchParams({ redirectTo: req.url });
+    res.writeHead(302, { Location: `/api/auth/login?${params.toString()}` });
+    res.end();
+  }
+  return profile;
 }
 
 export async function getUser(req) {

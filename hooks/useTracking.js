@@ -46,26 +46,21 @@ export function withTracking(Component) {
     const [hasConsented, setHasConsented] = useState(getConsent());
     const { isLoggedIn, profile } = useLogin();
     const router = useRouter();
-    const trackWithUserId = (url) => {
-      if (isLoggedIn) {
-        trackPageview(url, { userId: profile.hash });
-      } else {
-        trackPageview(url);
-      }
-    };
     useEffect(() => {
-      if (isLoggedIn !== null) trackWithUserId();
-    }, [isLoggedIn]);
-    useEffect(() => {
-      if (hasConsented) {
+      if (hasConsented && isLoggedIn !== null) {
+        const trackWithUserId = (url) => {
+          if (isLoggedIn) trackPageview(url, { userId: profile.hash });
+          else trackPageview(url);
+        };
         loadGtag();
         storeConsent();
+        trackWithUserId();
         router.events.on('routeChangeComplete', trackWithUserId);
         return () => {
           router.events.off('routeChangeComplete', trackWithUserId);
         };
       }
-    }, [hasConsented]);
+    }, [isLoggedIn, hasConsented]);
     if (hasConsented) {
       return createElement(Component, props);
     }

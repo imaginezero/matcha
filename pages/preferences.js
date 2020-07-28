@@ -1,7 +1,7 @@
-import { useTranslation } from '../hooks';
+import { useTranslation, withLogin } from '../hooks';
 
 import { getPrefs } from '../utils/prefs';
-import { isAuthenticated } from '../utils/auth';
+import { ensureProfile } from '../utils/auth';
 
 import {
   ProtectedPage,
@@ -11,14 +11,10 @@ import {
   PreferenceForm,
 } from '../components';
 
-export default function Preferences({ preferences, isLoggedIn }) {
+export default withLogin(function Preferences({ preferences }) {
   const { t } = useTranslation();
   return (
-    <ProtectedPage
-      title={t('prefTitle')}
-      description={t('prefDescription')}
-      isLoggedIn={isLoggedIn}
-    >
+    <ProtectedPage title={t('prefTitle')} description={t('prefDescription')}>
       <Content>
         <Headline>{t('prefHeadline')}</Headline>
         <Subline>{t('prefSubline')}</Subline>
@@ -26,12 +22,12 @@ export default function Preferences({ preferences, isLoggedIn }) {
       </Content>
     </ProtectedPage>
   );
-}
+});
 
-export async function getServerSideProps({ req }) {
+export async function getServerSideProps({ req, res }) {
   const preferences = getPrefs(req);
-  const isLoggedIn = await isAuthenticated(req);
+  const profile = await ensureProfile(req, res);
   return {
-    props: { preferences, isLoggedIn },
+    props: { preferences, profile },
   };
 }

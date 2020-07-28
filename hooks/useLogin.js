@@ -19,19 +19,27 @@ const fetchProfile = async () => {
 };
 
 export function withLogin(Component) {
-  const WrappedComponent = (props) => {
-    const [profile, setProfile] = useState(null);
+  const WrappedComponent = ({ profile: defaults = null, ...props }) => {
+    const parentContext = useContext(LoginContext);
+    const [profile, setProfile] = useState(defaults);
     const isLoggedIn = !profile ? null : !profile.error;
-    const value = {
-      isLoggedIn,
-      profile: isLoggedIn ? profile : null,
-    };
+    let shouldFetch = true;
     useEffect(() => {
-      (async () => setProfile(await fetchProfile()))();
+      if (parentContext) parentContext.setProfile(profile);
+      else if (shouldFetch) (async () => setProfile(await fetchProfile()))();
     }, []);
     return createElement(
       LoginContext.Provider,
-      { value },
+      {
+        value: {
+          isLoggedIn,
+          profile: isLoggedIn ? profile : null,
+          setProfile(profile) {
+            shouldFetch = false;
+            setProfile(profile);
+          },
+        },
+      },
       createElement(Component, props)
     );
   };

@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
-import Link from 'next/link';
 
-import { useEffort, useLoading, useTranslation } from '../../hooks';
+import { useLoading, useTranslation } from '../../hooks';
 
 import { Content } from '../Content';
 import { Headline } from '../Typo';
@@ -9,25 +8,16 @@ import { ActivityCard } from '../ActivityCard';
 
 import { concatClassnames } from '../utilities';
 
+import LoadMoreWidget from './LoadMoreWidget';
+
 import {
   wrapper,
   headline,
   content,
   card,
-  button,
   loaderWrapper,
   transparentWrapper,
 } from './Results.module.css';
-
-const Button = () => {
-  const { getNextUrl } = useEffort();
-  const { t } = useTranslation();
-  return (
-    <Link href={getNextUrl()} scroll={false}>
-      <a className={button}>{t('mainResultsLoadMore')}</a>
-    </Link>
-  );
-};
 
 const Overlay = () => {
   const { loading } = useLoading();
@@ -43,7 +33,7 @@ const Overlay = () => {
   return open ? <div className={classNames} /> : null;
 };
 
-export default function Results({ activities, moreActivities }) {
+export default function Results({ activities, moreActivities, isLoggedIn }) {
   const { t } = useTranslation();
   return (
     <div className={wrapper}>
@@ -58,7 +48,12 @@ export default function Results({ activities, moreActivities }) {
           </div>
         ))}
       </div>
-      <Content className={content}>{moreActivities ? <Button /> : ''}</Content>
+      <Content className={content}>
+        <LoadMoreWidget
+          moreActivities={moreActivities}
+          isLoggedIn={isLoggedIn}
+        />
+      </Content>
     </div>
   );
 }
