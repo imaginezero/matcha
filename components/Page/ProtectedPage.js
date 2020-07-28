@@ -9,7 +9,7 @@ export default function ProtectedPage({ isLoggedIn = null, ...props }) {
       <meta httpEquiv="refresh" content={`0;url=${loginUrl}`} />
       <script
         dangerouslySetInnerHTML={{
-          __html: `window.location.assign("${loginUrl}");`,
+          __html: `window.location.assign(${loginUrl})`,
         }}
       />
     </Head>

@@ -1,5 +1,4 @@
 import { Content } from '../Content';
-import { NewsletterForm } from '../NewsletterForm';
 import { Markdown } from '../Markdown';
 import { AssociationMark } from '../Logo';
 
@@ -8,7 +7,6 @@ import SocialContent from '../../contents/social.md';
 
 import {
   footerWrapper,
-  newsletter,
   compliance,
   content,
   menu,
@@ -20,11 +18,6 @@ import {
 export default function Footer() {
   return (
     <footer className={footerWrapper}>
-      <div className={newsletter}>
-        <Content>
-          <NewsletterForm />
-        </Content>
-      </div>
       <div className={compliance}>
         <Content className={content}>
           <div className={menu}>
