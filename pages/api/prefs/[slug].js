@@ -1,5 +1,6 @@
 import { getUser, updateUserMetadata } from '../../../utils/auth';
 import { updateTags } from '../../../utils/crm';
+import { getRedirectUrl } from '../../../utils/url';
 import { prefs } from '../../../utils/prefs';
 
 const updatePrefs = async (req, res) => {
@@ -20,7 +21,8 @@ const restorePrefs = async (req, res) => {
   const {
     userMetadata: { prefs },
   } = await getUser(req);
-  const params = new URLSearchParams(req.query);
+  const redirectTo = getRedirectUrl(req);
+  const params = new URLSearchParams({ redirectTo });
   res.setPrefs(prefs);
   res.writeHead(302, { Location: `/consent?${params.toString()}` });
   res.end();

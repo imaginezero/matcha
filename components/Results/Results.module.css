@@ -25,6 +25,11 @@
   font-weight: bold;
 }
 
+.inactiveButton {
+  composes: inactiveButton from '../atoms.module.css';
+  composes: button;
+}
+
 .loaderWrapper {
   position: absolute;
   top: 0;
