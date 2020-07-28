@@ -37,9 +37,13 @@ export async function getServerSideProps({ req, res, query }) {
     const { appMetadata = {} } = await getUser(req);
     const { consent = null } = appMetadata;
     if (consent && redirectTo) {
-      res.writeHead(302, { Location: redirectTo });
-      res.end();
-      return { props: {} };
+      if (redirectTo.startsWith('/consent')) {
+        return { props: { consent } };
+      } else {
+        res.writeHead(302, { Location: redirectTo });
+        res.end();
+        return { props: {} };
+      }
     } else {
       return { props: { consent, redirectTo } };
     }

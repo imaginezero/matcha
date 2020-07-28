@@ -76,13 +76,18 @@
   flex-direction: column;
 }
 
-.newsletter {
-  width: 100%;
-  background-color: var(--gray-300);
+.compliance {
+  background-color: var(--gray-800);
 }
 
-.compliance {
-  background-color: var(--gray-200);
+.compliance a,
+.compliance a:visited {
+  color: var(--gray-300);
+}
+
+.compliance a:active,
+.compliance a:hover {
+  color: var(--white);
 }
 
 .menu,
