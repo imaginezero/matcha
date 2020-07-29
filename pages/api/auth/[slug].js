@@ -1,6 +1,6 @@
 import { createHash } from 'crypto';
 
-import auth from '../../../utils/auth';
+import { auth } from '../../../utils';
 
 export default async function handleAuth(req, res) {
   const { slug: action } = req.query;

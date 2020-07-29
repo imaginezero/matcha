@@ -64,14 +64,14 @@ export async function updateContact({ email, ...user }, consent) {
   });
 }
 
-export async function updateTags({ email, ...user }) {
+export async function updateContactTags({ email, ...user }) {
   return await request(getUrl(email, 'tags'), {
     method: 'POST',
     data: { tags: getTags(user) },
   });
 }
 
-export async function sendEvent({ email }, name, properties) {
+export async function sendContactEvent({ email }, name, properties) {
   return await request(getUrl(email, 'events'), {
     method: 'POST',
     data: { name, properties },

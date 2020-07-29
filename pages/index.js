@@ -6,11 +6,9 @@ import {
   EffortForm,
   Results,
 } from '../components';
-
 import { useTranslation, defaultEffort, withLogin } from '../hooks';
-import { recommendActivities } from '../services/activity';
-import { getPrefs } from '../utils/prefs';
-import { getProfile } from '../utils/auth';
+import { recommendActivities } from '../services';
+import { getPrefs, getProfile } from '../utils';
 
 export default withLogin(function Home({ activities, moreActivities }) {
   const { t } = useTranslation();

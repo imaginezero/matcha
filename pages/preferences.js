@@ -1,8 +1,3 @@
-import { useTranslation, withLogin } from '../hooks';
-
-import { getPrefs } from '../utils/prefs';
-import { ensureProfile } from '../utils/auth';
-
 import {
   ProtectedPage,
   Content,
@@ -10,6 +5,8 @@ import {
   Subline,
   PreferenceForm,
 } from '../components';
+import { useTranslation, withLogin } from '../hooks';
+import { getPrefs, ensureProfile } from '../utils';
 
 export default withLogin(function Preferences({ preferences }) {
   const { t } = useTranslation();

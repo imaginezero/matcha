@@ -1,4 +1,4 @@
-import { Frame } from '../components';
+import { Frame, CookieConsent } from '../components';
 import { withTracking, withLogin } from '../hooks';
 
 import './global.css';
@@ -10,7 +10,7 @@ export default withLogin(
         <Component {...pageProps} />
       </Frame>
     );
-  })
+  }, CookieConsent)
 );
 
 export function reportWebVitals(params) {

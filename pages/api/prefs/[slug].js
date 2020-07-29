@@ -1,12 +1,15 @@
-import { getUser, updateUserMetadata } from '../../../utils/auth';
-import { updateTags } from '../../../utils/crm';
-import { getRedirectUrl } from '../../../utils/url';
-import { prefs } from '../../../utils/prefs';
+import {
+  getUser,
+  updateUserMetadata,
+  updateContactTags,
+  getRedirectUrl,
+  prefs,
+} from '../../../utils';
 
 const updatePrefs = async (req, res) => {
   const prefs = { ...req.getPrefs(), ...(req.body || {}) };
   if (await updateUserMetadata(req, { prefs })) {
-    await updateTags(await getUser(req));
+    await updateContactTags(await getUser(req));
   }
   res.setPrefs(prefs);
   if (req.method === 'PUT') {

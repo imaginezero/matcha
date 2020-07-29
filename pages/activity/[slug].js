@@ -1,3 +1,5 @@
+import { getActivities } from '../../services';
+
 export default function Activity({ activity }) {
   return <pre>{JSON.stringify(activity, null, 2)}</pre>;
 }
@@ -9,7 +11,6 @@ export async function getStaticProps({ params: { slug }, preview }) {
 }
 
 export async function getStaticPaths() {
-  const { getActivities } = require('../../services/activity');
   const activities = await getActivities();
   return {
     paths: activities.map(({ slug }) => ({ params: { slug } })),
