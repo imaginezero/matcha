@@ -18,18 +18,6 @@
   margin-bottom: calc(var(--space-l) + var(--space-xs));
 }
 
-.button {
-  composes: button from '../atoms.module.css';
-  display: table;
-  margin: calc(-1 * var(--space-xxs)) auto var(--space-l);
-  font-weight: bold;
-}
-
-.inactiveButton {
-  composes: inactiveButton from '../atoms.module.css';
-  composes: button;
-}
-
 .loaderWrapper {
   position: absolute;
   top: 0;
@@ -44,4 +32,39 @@
 .transparentWrapper {
   opacity: 0;
   transition: opacity 500ms;
+}
+
+.loadMoreWrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: var(--space-l);
+}
+
+.loadMoreWrapper > div {
+  flex-grow: 0;
+  flex-shrink: 0;
+  margin: var(--space-s);
+  white-space: nowrap;
+}
+
+.preferenceLink {
+  font-weight: bold;
+}
+
+.button {
+  composes: button from '../atoms.module.css';
+  display: block;
+}
+
+.inactiveButton {
+  composes: inactiveButton from '../atoms.module.css';
+  composes: button;
+}
+
+.actionButton {
+  composes: actionButton from '../atoms.module.css';
+  composes: button;
 }

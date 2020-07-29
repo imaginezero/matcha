@@ -33,7 +33,7 @@ const Overlay = () => {
   return open ? <div className={classNames} /> : null;
 };
 
-export default function Results({ activities, moreActivities, isLoggedIn }) {
+export default function Results({ activities, moreActivities }) {
   const { t } = useTranslation();
   return (
     <div className={wrapper}>
@@ -49,10 +49,7 @@ export default function Results({ activities, moreActivities, isLoggedIn }) {
         ))}
       </div>
       <Content className={content}>
-        <LoadMoreWidget
-          moreActivities={moreActivities}
-          isLoggedIn={isLoggedIn}
-        />
+        <LoadMoreWidget moreActivities={moreActivities} />
       </Content>
     </div>
   );

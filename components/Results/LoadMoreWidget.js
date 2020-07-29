@@ -1,37 +1,68 @@
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
-import { useEffort, useTranslation } from '../../hooks';
+import { useEffort, useLogin, useTranslation } from '../../hooks';
 
-import { button, inactiveButton, preferenceLink } from './Results.module.css';
+import {
+  button,
+  inactiveButton,
+  preferenceLink,
+  loadMoreWrapper,
+} from './Results.module.css';
 
-function MoreButton({ moreActivities }) {
+function LoadMoreButton({ moreActivities }) {
   const { getNextUrl } = useEffort();
   const { t } = useTranslation();
-  return moreActivities ? (
-    <Link href={getNextUrl()} scroll={false}>
-      <a className={button}>{t('mainResultsLoadMore')}</a>
-    </Link>
-  ) : (
-    <a className={inactiveButton}>{t('mainResultsLoadMore')}</a>
+  return (
+    <div>
+      {moreActivities ? (
+        <Link href={getNextUrl()} scroll={false}>
+          <a className={button}>{t('mainResultsLoadMore')}</a>
+        </Link>
+      ) : (
+        <a className={inactiveButton}>{t('mainResultsLoadMore')}</a>
+      )}
+    </div>
   );
 }
 
 function PreferenceLink() {
   const { t } = useTranslation();
   return (
-    <span className={preferenceLink}>
+    <div className={preferenceLink}>
       <Link href="/preferences">
         <a>{t('mainResultsPrefLink')}</a>
       </Link>
-    </span>
+    </div>
   );
 }
 
-export default function LoadMoreWidget({ moreActivities, isLoggedIn }) {
+function LoginButton() {
+  const { t } = useTranslation();
+  const { asPath: redirectTo } = useRouter();
+  const params = new URLSearchParams({ redirectTo });
+  const loginUrl = `/api/auth/login?${params.toString()}`;
   return (
-    <>
-      <MoreButton moreActivities={moreActivities} />
-      <PreferenceLink />
-    </>
+    <div>
+      <a href={loginUrl} className={button}>
+        {t('mainResultsLogin')}
+      </a>
+    </div>
+  );
+}
+
+export default function LoadMoreWidget({ moreActivities }) {
+  const { isLoggedIn } = useLogin();
+  return (
+    <div className={loadMoreWrapper}>
+      {isLoggedIn ? (
+        <>
+          <LoadMoreButton moreActivities={moreActivities} />
+          <PreferenceLink />
+        </>
+      ) : (
+        <LoginButton />
+      )}
+    </div>
   );
 }

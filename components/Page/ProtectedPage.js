@@ -6,10 +6,10 @@ import { useLogin } from '../../hooks';
 import Page from './Page';
 
 export default function ProtectedPage(props) {
-  const { asPath } = useRouter();
+  const { asPath: redirectTo } = useRouter();
   const { isLoggedIn } = useLogin();
   if (!isLoggedIn) {
-    const params = new URLSearchParams({ redirectTo: asPath });
+    const params = new URLSearchParams({ redirectTo });
     const loginUrl = `/api/auth/login?${params.toString()}`;
     if (typeof window !== 'undefined') {
       window.location.replace(loginUrl);
