@@ -21,12 +21,10 @@ const updatePrefs = async (req, res) => {
 };
 
 const restorePrefs = async (req, res) => {
-  const {
-    userMetadata: { prefs },
-  } = await getUser(req);
+  const { userMetadata: { prefs } = {} } = await getUser(req);
   const redirectTo = getRedirectUrl(req);
   const params = new URLSearchParams({ redirectTo });
-  res.setPrefs(prefs);
+  if (prefs) res.setPrefs(prefs);
   res.writeHead(302, { Location: `/consent?${params.toString()}` });
   res.end();
 };
