@@ -1,14 +1,13 @@
-import { getUser } from '../../utils/auth';
-import { sendEvent } from '../../utils/crm';
+import { getProfile, sendContactEvent } from '../../utils';
 
-export default async function handleConsent(req, res) {
+export default async function handleEvent(req, res) {
   if (req.method === 'POST') {
-    const user = await getUser(req);
-    if (user) {
+    const profile = await getProfile(req);
+    if (profile) {
       const { name, properties } =
         typeof req.body === 'string' ? JSON.parse(req.body) : req.body;
       if (name) {
-        await sendEvent(user, name, properties);
+        await sendContactEvent(profile, name, properties);
       }
     }
   }

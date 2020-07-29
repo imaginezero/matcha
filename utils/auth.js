@@ -74,7 +74,7 @@ export async function updateUserMetadata(req, data) {
   }
 }
 
-export async function updateAppMetadata(req, data) {
+export async function updateUserAppMetadata(req, data) {
   try {
     const client = await managementClient;
     const user = await getUser(req);

@@ -5,11 +5,8 @@ import {
   Subline,
   ConsentForm,
 } from '../components';
-
 import { useTranslation, withLogin } from '../hooks';
-
-import { ensureProfile, getUser } from '../utils/auth';
-import { getRedirectUrl } from '../utils/url';
+import { ensureProfile, getUser, getRedirectUrl } from '../utils';
 
 export default withLogin(function Consent({ consent, redirectTo }) {
   const { t } = useTranslation();

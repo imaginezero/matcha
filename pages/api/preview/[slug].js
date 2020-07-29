@@ -11,7 +11,7 @@ export default function handlePreviewMode(req, res) {
       default:
         throw new Error(`invalid action: ${action}`);
     }
-    res.writeHead(307, { Location: redirect });
+    res.writeHead(302, { Location: redirect });
     res.end();
   } catch (error) {
     console.error(error);
