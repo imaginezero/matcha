@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
-import { useEffort, useLogin, useTranslation } from '../../hooks';
+import { useEffort, useLogin, useTracking, useTranslation } from '../../hooks';
 
 import {
   button,
@@ -39,12 +39,20 @@ function PreferenceLink() {
 
 function LoginButton() {
   const { t } = useTranslation();
+  const { trackLogin } = useTracking();
   const { asPath: redirectTo } = useRouter();
   const params = new URLSearchParams({ redirectTo });
   const loginUrl = `/api/auth/login?${params.toString()}`;
   return (
     <div>
-      <a href={loginUrl} className={button}>
+      <a
+        href={loginUrl}
+        onClick={(event) => {
+          event.preventDefault();
+          trackLogin(event.target.href, true);
+        }}
+        className={button}
+      >
         {t('mainResultsLogin')}
       </a>
     </div>
