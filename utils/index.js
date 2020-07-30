@@ -8,7 +8,6 @@ export {
 } from './auth';
 
 export {
-  getContact,
   createContact,
   updateContact,
   updateContactTags,

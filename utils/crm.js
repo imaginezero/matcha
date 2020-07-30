@@ -30,13 +30,16 @@ function getPermissions(consent) {
   }));
 }
 
-export async function getContact({ email }) {
-  const { data: contact } = await request(getUrl(email));
-  return contact;
+function isNotFoundError(error) {
+  if (error.isAxiosError) {
+    const { response: { status } = {} } = error;
+    return status === 404;
+  }
+  return false;
 }
 
 export async function createContact({ email, ...user }, consent) {
-  return await request(getUrl(), {
+  await request(getUrl(), {
     method: 'POST',
     data: {
       email_address: email,
@@ -48,7 +51,7 @@ export async function createContact({ email, ...user }, consent) {
 }
 
 export async function updateContact({ email, ...user }, consent) {
-  return await request(getUrl(email), {
+  await request(getUrl(email), {
     method: 'PATCH',
     data: {
       merge_fields: getMergeFields(user),
@@ -58,20 +61,32 @@ export async function updateContact({ email, ...user }, consent) {
 }
 
 export async function updateContactTags({ email }, prefs) {
-  return await request(getUrl(email, 'tags'), {
-    method: 'POST',
-    data: {
-      tags: Object.entries(prefs).map(([name, value]) => ({
-        name,
-        status: value ? 'active' : 'inactive',
-      })),
-    },
-  });
+  try {
+    await request(getUrl(email, 'tags'), {
+      method: 'POST',
+      data: {
+        tags: Object.entries(prefs).map(([name, value]) => ({
+          name,
+          status: value ? 'active' : 'inactive',
+        })),
+      },
+    });
+  } catch (error) {
+    if (!isNotFoundError(error)) {
+      throw error;
+    }
+  }
 }
 
 export async function sendContactEvent({ email }, name, properties) {
-  return await request(getUrl(email, 'events'), {
-    method: 'POST',
-    data: { name, properties },
-  });
+  try {
+    await request(getUrl(email, 'events'), {
+      method: 'POST',
+      data: { name, properties },
+    });
+  } catch (error) {
+    if (!isNotFoundError(error)) {
+      throw error;
+    }
+  }
 }
