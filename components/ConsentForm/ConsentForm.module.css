@@ -18,8 +18,13 @@
   flex-basis: var(--space-xxxl);
 }
 
-.submitButton {
+.button {
   composes: button from '../atoms.module.css';
   display: block;
   margin: var(--space-xl) auto var(--space-l);
+}
+
+.inactiveButton {
+  composes: inactiveButton from '../atoms.module.css';
+  composes: button;
 }

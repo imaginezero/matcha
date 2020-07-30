@@ -10,7 +10,8 @@ import {
   columns,
   questionColumn,
   checkboxColumn,
-  submitButton,
+  button,
+  inactiveButton,
 } from './ConsentForm.module.css';
 
 const Form = ({ consent, setConsent, handleSubmit }) => {
@@ -51,10 +52,10 @@ const Form = ({ consent, setConsent, handleSubmit }) => {
       </div>
       <input
         key="submit"
-        type="submit"
+        type={general ? 'submit' : 'button'}
         value={t('consentSubmitButton')}
-        className={submitButton}
-      ></input>
+        className={general ? button : inactiveButton}
+      />
     </form>
   );
 };

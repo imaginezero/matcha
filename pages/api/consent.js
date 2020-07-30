@@ -13,7 +13,9 @@ export default async function handleConsent(req, res) {
     try {
       await updateContact(profile, consent);
     } catch (_) {
-      await createContact(profile, consent);
+      if (consent.updates || consent.feedback) {
+        await createContact(profile, consent);
+      }
     }
     if (req.method === 'PUT') {
       res.json(consent);
