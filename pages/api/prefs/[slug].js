@@ -1,5 +1,6 @@
 import {
   getUser,
+  getProfile,
   updateUserMetadata,
   updateContactTags,
   getRedirectUrl,
@@ -9,7 +10,7 @@ import {
 const updatePrefs = async (req, res) => {
   const prefs = { ...req.getPrefs(), ...(req.body || {}) };
   if (await updateUserMetadata(req, { prefs })) {
-    await updateContactTags(await getUser(req));
+    await updateContactTags(await getProfile(req), prefs);
   }
   res.setPrefs(prefs);
   if (req.method === 'PUT') {

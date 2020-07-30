@@ -16,13 +16,6 @@ function getUrl(email, suffix) {
   return baseUrl;
 }
 
-function getTags({ userMetadata: { prefs } }) {
-  return Object.entries(prefs).map(([name, value]) => ({
-    name,
-    status: value ? 'active' : 'inactive',
-  }));
-}
-
 function getMergeFields({ givenName }) {
   return { FNAME: givenName };
 }
@@ -64,10 +57,15 @@ export async function updateContact({ email, ...user }, consent) {
   });
 }
 
-export async function updateContactTags({ email, ...user }) {
+export async function updateContactTags({ email }, prefs) {
   return await request(getUrl(email, 'tags'), {
     method: 'POST',
-    data: { tags: getTags(user) },
+    data: {
+      tags: Object.entries(prefs).map(([name, value]) => ({
+        name,
+        status: value ? 'active' : 'inactive',
+      })),
+    },
   });
 }
 

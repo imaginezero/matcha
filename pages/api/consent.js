@@ -1,5 +1,5 @@
 import {
-  getUser,
+  getProfile,
   updateUserAppMetadata,
   createContact,
   updateContact,
@@ -7,13 +7,13 @@ import {
 
 export default async function handleConsent(req, res) {
   const consent = req.body;
-  const user = await getUser(req);
-  if (consent && user) {
+  const profile = await getProfile(req);
+  if (consent && profile) {
     await updateUserAppMetadata(req, { consent });
     try {
-      await updateContact(user, consent);
+      await updateContact(profile, consent);
     } catch (_) {
-      await createContact(user, consent);
+      await createContact(profile, consent);
     }
     if (req.method === 'PUT') {
       res.json(consent);
