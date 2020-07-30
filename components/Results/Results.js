@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
 
 import { useLoading, useTranslation } from '../../hooks';
 
@@ -35,6 +36,15 @@ const Overlay = () => {
 
 export default function Results({ activities, moreActivities }) {
   const { t } = useTranslation();
+  const { events } = useRouter();
+  useEffect(() => {
+    const handleRouteChange = () => (window._scrollY = window.scrollY);
+    events.on('routeChangeStart', handleRouteChange);
+    return () => {
+      events.off('routeChangeStart', handleRouteChange);
+    };
+  }, []);
+  useEffect(() => void window.scrollTo(0, window._scrollY || window.scrollY));
   return (
     <div className={wrapper}>
       <Overlay />
