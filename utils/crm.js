@@ -16,7 +16,7 @@ function getUrl(email, suffix) {
   return baseUrl;
 }
 
-function getTags({ userMetadata: prefs }) {
+function getTags({ userMetadata: { prefs } }) {
   return Object.entries(prefs).map(([name, value]) => ({
     name,
     status: value ? 'active' : 'inactive',
