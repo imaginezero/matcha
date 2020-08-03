@@ -4,11 +4,12 @@ import { H2, H3 } from '../Typo';
 import { Content } from '../Content';
 
 import {
-  wrapper,
+  imageWrapper,
   contentWrapper,
   actionWrapper,
   h2,
   h3,
+  descriptionWrapper,
   description,
   button,
 } from './ActivityCard.module.css';
@@ -33,11 +34,7 @@ function Button({ link, label, slug }) {
 }
 
 function Description({ children }) {
-  return (
-    <div className={description}>
-      <p>{children}</p>
-    </div>
-  );
+  return <div className={description}>{children}</div>;
 }
 
 export default function ActivityCard({ activity }) {
@@ -51,19 +48,25 @@ export default function ActivityCard({ activity }) {
     organization: org,
   } = activity;
   return (
-    <Content
-      className={wrapper}
-      style={{ backgroundImage: `url("${imgUrlPublic}")` }}
-      key={slug}
-    >
-      <div className={contentWrapper}>
-        <H3 className={h3}>{org.name}</H3>
-        <H2 className={h2}>{name}</H2>
-        <Description>{description}</Description>
+    <>
+      <Content
+        className={imageWrapper}
+        style={{ backgroundImage: `url("${imgUrlPublic}")` }}
+        key={slug}
+      >
+        <div className={contentWrapper}>
+          <H3 className={h3}>{org.name}</H3>
+          <H2 className={h2}>{name}</H2>
+        </div>
+        <div className={actionWrapper}>
+          <Button link={link} label={singleWordCta} slug={slug} />
+        </div>
+      </Content>
+      <div className={descriptionWrapper}>
+        <Description>
+          <Content>{description}</Content>
+        </Description>
       </div>
-      <div className={actionWrapper}>
-        <Button link={link} label={singleWordCta} slug={slug} />
-      </div>
-    </Content>
+    </>
   );
 }
