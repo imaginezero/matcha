@@ -1,5 +1,9 @@
-.wrapper {
-  /* background-image: var(--background-image); */
+.imageWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  min-height: calc(5 * var(--space-xxxl));
   background-color: rgba(0, 0, 0, 0.2);
   background-size: cover;
   background-position: center;
@@ -7,10 +11,8 @@
 }
 
 @media (min-width: 720px) {
-  .wrapper {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
+  .imageWrapper {
+    flex-direction: row;
   }
 
   .contentWrapper {
@@ -32,50 +34,41 @@ h3.h3 {
   margin: var(--space-0);
 }
 
+h2.h2 {
+  margin-bottom: calc(-1 * var(--space-xs));
+}
+
 h2.h2 > span {
   color: var(--gray-800);
   background-color: var(--white);
 }
 
 h3.h3 > span {
-  color: var(--effort-background);
   background-color: var(--gray-800);
+  color: var(--effort-background);
+}
+
+.descriptionWrapper {
+  composes: wrapper from '../atoms.module.css';
+  padding: var(--space-0) var(--space-m);
+  margin-top: calc(-1 * calc(var(--space-m) + var(--space-s)));
+}
+
+@media (min-width: 720px) {
+  .descriptionWrapper {
+    padding: var(--space-0) calc(var(--space-xxxl) + var(--space-m));
+  }
 }
 
 .description {
-  position: relative;
-  margin-top: calc(var(--space-m));
-  margin-bottom: var(--space-l);
-  margin-left: calc(-1 * var(--space-m));
-  padding: var(--space-xs) var(--space-xs) var(--space-xs) var(--space-m);
-  z-index: 0;
-}
-
-.description p {
-  position: relative;
-  margin: var(--space-0);
-  z-index: 10;
-  color: var(--gray-900);
-  text-shadow: 0 0 var(--space-xxs) var(--effort-background);
-}
-
-.description:before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  z-index: 1;
-  opacity: 0.8;
-  background-color: var(--effort-background);
-  backdrop-filter: blur(3px) contrast(50%);
+  background-color: var(--white);
+  box-shadow: var(--box-shadow-light);
 }
 
 .button {
   composes: actionButton from '../atoms.module.css';
   display: inline-block;
-  margin-top: calc(-1 * var(--space-m));
+  margin-bottom: calc(var(--space-l) + var(--space-xxxs));
 }
 
 @media (min-width: 720px) {

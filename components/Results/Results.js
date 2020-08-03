@@ -40,6 +40,7 @@ export default function Results({ activities, moreActivities }) {
     const handleRouteChange = () => (window._scrollY = window.scrollY);
     events.on('routeChangeStart', handleRouteChange);
     return () => {
+      delete window._scrollY;
       events.off('routeChangeStart', handleRouteChange);
     };
   }, []);

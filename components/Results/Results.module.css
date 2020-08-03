@@ -41,7 +41,7 @@
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  margin-bottom: var(--space-l);
+  margin-bottom: calc(var(--space-l) + var(--space-xxs));
 }
 
 .loadMoreWrapper > div {
