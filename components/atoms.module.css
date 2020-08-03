@@ -17,7 +17,7 @@
   outline: 0;
   border: var(--button-border);
   border-radius: var(--button-border-radius);
-  padding: var(--space-xs) var(--space-m);
+  padding: var(--space-s) var(--space-l);
   background-color: var(--button-background);
   box-shadow: var(--box-shadow-light);
   color: var(--white);

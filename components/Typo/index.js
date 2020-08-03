@@ -1,9 +1,9 @@
 import { concatClassnames } from '../utilities';
 
-import { headline, subline, explanation } from './Typo.module.css';
+import { h1, h2, h3, h4, narrow, muted } from './Typo.module.css';
 
-export function Headline({ children, className, ...props }) {
-  const classNames = concatClassnames(headline, className);
+export function H1({ children, className, narrow: isNarrow = true, ...props }) {
+  const classNames = concatClassnames(h1, isNarrow && narrow, className);
   return (
     <h1 className={classNames} {...props}>
       <span>{children}</span>
@@ -11,12 +11,34 @@ export function Headline({ children, className, ...props }) {
   );
 }
 
-export function Subline({ className, ...props }) {
-  const classNames = concatClassnames(subline, className);
-  return <p className={classNames} {...props} />;
+export function H2({ children, className, narrow: isNarrow = true, ...props }) {
+  const classNames = concatClassnames(h2, isNarrow && narrow, className);
+  return (
+    <h2 className={classNames} {...props}>
+      <span>{children}</span>
+    </h2>
+  );
 }
 
-export function Explanation({ className, ...props }) {
-  const classNames = concatClassnames(explanation, className);
+export function H3({ children, className, ...props }) {
+  const classNames = concatClassnames(h3, className);
+  return (
+    <h3 className={classNames} {...props}>
+      <span>{children}</span>
+    </h3>
+  );
+}
+
+export function H4({ children, className, ...props }) {
+  const classNames = concatClassnames(h4, className);
+  return (
+    <h4 className={classNames} {...props}>
+      {children}
+    </h4>
+  );
+}
+
+export function Muted({ className, ...props }) {
+  const classNames = concatClassnames(muted, className);
   return <p className={classNames} {...props} />;
 }

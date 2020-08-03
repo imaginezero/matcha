@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 
 import { usePrefs, useEffort, useLoading, useTranslation } from '../../hooks';
 
-import { Explanation } from '../Typo';
+import { Muted } from '../Typo';
 import { Checkbox } from '../Checkbox';
 
 import Login from './Login';
@@ -34,9 +34,9 @@ const Form = ({ prefs, setPrefs, handleSubmit }) => {
           </div>
         );
       })}
-      <Explanation>
+      <Muted>
         <Login />
-      </Explanation>
+      </Muted>
       <input
         key="submit"
         type="submit"

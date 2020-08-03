@@ -27,18 +27,17 @@
   }
 }
 
-.headline span {
+h2.h2,
+h3.h3 {
+  margin: var(--space-0);
+}
+
+h2.h2 > span {
+  color: var(--gray-800);
   background-color: var(--white);
 }
 
-.subline {
-  font-size: var(--size-xs);
-  line-height: calc(var(--space-m) + var(--space-xs) + var(--space-xxs));
-  margin-top: calc(-1 * var(--space-xxxs));
-  margin-bottom: var(--space-xs);
-}
-
-.subline span {
+h3.h3 > span {
   color: var(--effort-background);
   background-color: var(--gray-800);
 }
