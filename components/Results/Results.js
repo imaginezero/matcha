@@ -4,7 +4,6 @@ import { useRouter } from 'next/router';
 import { useLoading, useTranslation } from '../../hooks';
 
 import { Content } from '../Content';
-import { Headline } from '../Typo';
 import { ActivityCard } from '../ActivityCard';
 
 import { concatClassnames } from '../utilities';
@@ -49,7 +48,7 @@ export default function Results({ activities, moreActivities }) {
     <div className={wrapper}>
       <Overlay />
       <Content className={content}>
-        <Headline className={headline}>{t('mainResultsHeadline')}</Headline>
+        <h2 className={headline}>{t('mainResultsHeadline')}</h2>
       </Content>
       <div>
         {activities.map((activity) => (

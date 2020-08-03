@@ -34,6 +34,8 @@
   --size-m: 1em;
   --size-l: calc(1em / 0.9);
   --size-xl: calc(1em / 0.8);
+  --size-xxl: calc(1em / 0.7);
+  --size-xxxl: calc(1em / 0.6);
 
   --border-width-thin: 0.03125em;
   --border-width-default: 0.0625em; /* 1px */

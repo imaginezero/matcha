@@ -1,14 +1,14 @@
 import { useCapture, useTracking } from '../../hooks';
 
-import { Headline } from '../Typo';
+import { H2, H3 } from '../Typo';
 import { Content } from '../Content';
 
 import {
   wrapper,
   contentWrapper,
   actionWrapper,
-  headline,
-  subline,
+  h2,
+  h3,
   description,
   button,
 } from './ActivityCard.module.css';
@@ -57,8 +57,8 @@ export default function ActivityCard({ activity }) {
       key={slug}
     >
       <div className={contentWrapper}>
-        <Headline className={subline}>{org.name}</Headline>
-        <Headline className={headline}>{name}</Headline>
+        <H3 className={h3}>{org.name}</H3>
+        <H2 className={h2}>{name}</H2>
         <Description>{description}</Description>
       </div>
       <div className={actionWrapper}>

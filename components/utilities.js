@@ -1,3 +1,3 @@
 export function concatClassnames(...classNames) {
-  return classNames.join(' ');
+  return classNames.filter((cn) => cn).join(' ');
 }

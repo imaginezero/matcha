@@ -1,11 +1,4 @@
-import {
-  Page,
-  Content,
-  Headline,
-  Subline,
-  EffortForm,
-  Results,
-} from '../components';
+import { Page, Content, H1, H4, EffortForm, Results } from '../components';
 import { useTranslation, defaultEffort, withLogin } from '../hooks';
 import { recommendActivities } from '../services';
 import { getPrefs, getProfile } from '../utils';
@@ -15,8 +8,8 @@ export default withLogin(function Home({ activities, moreActivities }) {
   return (
     <Page title={t('mainTitle')} description={t('mainDescription')}>
       <Content>
-        <Headline>{t('mainHeadline')}</Headline>
-        <Subline>{t('mainSubline')}</Subline>
+        <H1>{t('mainHeadline')}</H1>
+        <H4>{t('mainSubline')}</H4>
         <EffortForm />
       </Content>
       <Results activities={activities} moreActivities={moreActivities} />

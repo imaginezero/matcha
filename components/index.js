@@ -10,4 +10,4 @@ export { PreferenceForm } from './PreferenceForm';
 export { ConsentForm } from './ConsentForm';
 export { CookieConsent } from './CookieConsent';
 
-export { Headline, Subline, Explanation } from './Typo';
+export { H1, H2, H3, H4, Muted } from './Typo';
