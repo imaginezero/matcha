@@ -1,3 +1,6 @@
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+
 import { useCapture, useTracking } from '../../hooks';
 
 import { H2, H3 } from '../Typo';
@@ -33,6 +36,21 @@ function Button({ link, label, slug }) {
   );
 }
 
+function ActivityLink({ name, slug }) {
+  const { asPath } = useRouter();
+  return (
+    <H2 className={h2}>
+      {asPath.includes(slug) ? (
+        name
+      ) : (
+        <Link href={'/activity/[slug]'} as={`/activity/${slug}`}>
+          <a>{name}</a>
+        </Link>
+      )}
+    </H2>
+  );
+}
+
 function Description({ children }) {
   return <div className={description}>{children}</div>;
 }
@@ -56,7 +74,7 @@ export default function ActivityCard({ activity }) {
       >
         <div className={contentWrapper}>
           <H3 className={h3}>{org.name}</H3>
-          <H2 className={h2}>{name}</H2>
+          <ActivityLink name={name} slug={slug} />
         </div>
         <div className={actionWrapper}>
           <Button link={link} label={singleWordCta} slug={slug} />

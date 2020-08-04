@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 
 import { usePrefs, useEffort, useLoading, useTranslation } from '../../hooks';
 
-import { Muted } from '../Typo';
+import { H4, Muted } from '../Typo';
 import { Checkbox } from '../Checkbox';
 
 import Login from './Login';
@@ -19,31 +19,34 @@ const Form = ({ prefs, setPrefs, handleSubmit }) => {
   const { t } = useTranslation();
   const keys = useMemo(() => Object.keys(prefs), []);
   return (
-    <form onSubmit={handleSubmit} action="/api/prefs/update" method="POST">
-      {keys.map((key) => {
-        const value = prefs[key];
-        const toggleValue = () => setPrefs({ ...prefs, [key]: !value });
-        return (
-          <div className={columns} key={key}>
-            <div className={questionColumn} onClick={toggleValue}>
-              <span>{t(`prefQuestion.${key}`)}</span>
+    <>
+      <H4>{t('prefSubline')}</H4>
+      <form onSubmit={handleSubmit} action="/api/prefs/update" method="POST">
+        {keys.map((key) => {
+          const value = prefs[key];
+          const toggleValue = () => setPrefs({ ...prefs, [key]: !value });
+          return (
+            <div className={columns} key={key}>
+              <div className={questionColumn} onClick={toggleValue}>
+                <span>{t(`prefQuestion.${key}`)}</span>
+              </div>
+              <div className={checkboxColumn}>
+                <Checkbox id={key} checked={value} onChange={toggleValue} />
+              </div>
             </div>
-            <div className={checkboxColumn}>
-              <Checkbox id={key} checked={value} onChange={toggleValue} />
-            </div>
-          </div>
-        );
-      })}
-      <Muted>
-        <Login />
-      </Muted>
-      <input
-        key="submit"
-        type="submit"
-        value={t('prefSubmitButton')}
-        className={submitButton}
-      ></input>
-    </form>
+          );
+        })}
+        <Muted>
+          <Login />
+        </Muted>
+        <input
+          key="submit"
+          type="submit"
+          value={t('prefSubmitButton')}
+          className={submitButton}
+        ></input>
+      </form>
+    </>
   );
 };
 

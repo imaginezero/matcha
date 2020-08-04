@@ -66,7 +66,7 @@
 }
 
 .mainWrapper {
-  margin-top: calc(var(--space-xxl) + var(--space-s) + var(--space-xs));
+  margin-top: calc(3em + var(--space-m));
   width: 100%;
 }
 

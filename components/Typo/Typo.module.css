@@ -15,7 +15,12 @@
   line-height: calc(var(--size-xxl) + var(--space-xxs));
   font-size: var(--size-xxl);
 }
-.h1 span {
+.h1 span,
+.h1 a,
+.h1 a:active,
+.h1 a:hover,
+.h1 a:visited {
+  color: var(--gray-800);
   background-color: var(--effort-background);
 }
 
@@ -24,7 +29,11 @@
   line-height: calc(var(--size-l) + var(--space-s) + var(--space-xxxs));
   font-size: var(--size-l);
 }
-.h2 span {
+.h2 span,
+.h2 a,
+.h2 a:active,
+.h2 a:hover,
+.h2 a:visited {
   background-color: var(--gray-800);
   color: var(--effort-background);
 }
@@ -34,7 +43,11 @@
   line-height: calc(var(--size-m) + var(--space-s) + var(--space-xxs));
   font-size: var(--size-m);
 }
-.h3 span {
+.h3 span,
+.h3 a,
+.h3 a:active,
+.h3 a:hover,
+.h3 a:visited {
   background-color: var(--purple-800);
   color: var(--white);
 }
@@ -44,6 +57,12 @@
   line-height: calc(var(--size-m) + var(--space-s));
   font-size: var(--size-m);
   font-weight: bold;
+  color: var(--purple-800);
+}
+.h4 a,
+.h4 a:active,
+.h4 a:hover,
+.h4 a:visited {
   color: var(--purple-800);
 }
 

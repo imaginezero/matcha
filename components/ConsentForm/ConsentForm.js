@@ -5,6 +5,7 @@ import { useRouter } from 'next/router';
 import { useConsent, useEffort, useLoading, useTranslation } from '../../hooks';
 
 import { Checkbox } from '../Checkbox';
+import { H4 } from '../Typo';
 
 import {
   columns,
@@ -21,42 +22,45 @@ const Form = ({ consent, setConsent, handleSubmit }) => {
   const toggleUpdates = () => setConsent({ ...consent, updates: !updates });
   const toggleFeedback = () => setConsent({ ...consent, feedback: !feedback });
   return (
-    <form onSubmit={handleSubmit} action="/api/consent" method="POST">
-      <div className={columns}>
-        <div className={questionColumn} onClick={toggleGeneral}>
-          <span>{t('consentQuestion.general')}</span>
+    <>
+      <H4>{t('consentSubline')}</H4>
+      <form onSubmit={handleSubmit} action="/api/consent" method="POST">
+        <div className={columns}>
+          <div className={questionColumn} onClick={toggleGeneral}>
+            <span>{t('consentQuestion.general')}</span>
+          </div>
+          <div className={checkboxColumn}>
+            <Checkbox id="general" checked={general} onChange={toggleGeneral} />
+          </div>
         </div>
-        <div className={checkboxColumn}>
-          <Checkbox id="general" checked={general} onChange={toggleGeneral} />
+        <div className={columns}>
+          <div className={questionColumn} onClick={toggleUpdates}>
+            <span>{t('consentQuestion.updates')}</span>
+          </div>
+          <div className={checkboxColumn}>
+            <Checkbox id="updates" checked={updates} onChange={toggleUpdates} />
+          </div>
         </div>
-      </div>
-      <div className={columns}>
-        <div className={questionColumn} onClick={toggleUpdates}>
-          <span>{t('consentQuestion.updates')}</span>
+        <div className={columns}>
+          <div className={questionColumn} onClick={toggleFeedback}>
+            <span>{t('consentQuestion.feedback')}</span>
+          </div>
+          <div className={checkboxColumn}>
+            <Checkbox
+              id="feedback"
+              checked={feedback}
+              onChange={toggleFeedback}
+            />
+          </div>
         </div>
-        <div className={checkboxColumn}>
-          <Checkbox id="updates" checked={updates} onChange={toggleUpdates} />
-        </div>
-      </div>
-      <div className={columns}>
-        <div className={questionColumn} onClick={toggleFeedback}>
-          <span>{t('consentQuestion.feedback')}</span>
-        </div>
-        <div className={checkboxColumn}>
-          <Checkbox
-            id="feedback"
-            checked={feedback}
-            onChange={toggleFeedback}
-          />
-        </div>
-      </div>
-      <input
-        key="submit"
-        type={general ? 'submit' : 'button'}
-        value={t('consentSubmitButton')}
-        className={general ? button : inactiveButton}
-      />
-    </form>
+        <input
+          key="submit"
+          type={general ? 'submit' : 'button'}
+          value={t('consentSubmitButton')}
+          className={general ? button : inactiveButton}
+        />
+      </form>
+    </>
   );
 };
 

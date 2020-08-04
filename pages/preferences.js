@@ -1,4 +1,9 @@
-import { ProtectedPage, Content, H1, H4, PreferenceForm } from '../components';
+import {
+  ProtectedPage,
+  Content,
+  Headline,
+  PreferenceForm,
+} from '../components';
 import { useTranslation, withLogin } from '../hooks';
 import { getPrefs, ensureProfile } from '../utils';
 
@@ -7,8 +12,7 @@ export default withLogin(function Preferences({ preferences }) {
   return (
     <ProtectedPage title={t('prefTitle')} description={t('prefDescription')}>
       <Content>
-        <H1>{t('prefHeadline')}</H1>
-        <H4>{t('prefSubline')}</H4>
+        <Headline>{t('prefHeadline')}</Headline>
         <PreferenceForm preferences={preferences} />
       </Content>
     </ProtectedPage>

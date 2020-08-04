@@ -1,11 +1,12 @@
-import { getActivities } from '../../services';
+import { getActivity, getActivities } from '../../services';
+
+import { ActivityCard } from '../../components';
 
 export default function Activity({ activity }) {
-  return <pre>{JSON.stringify(activity, null, 2)}</pre>;
+  return <ActivityCard activity={activity} />;
 }
 
 export async function getStaticProps({ params: { slug }, preview }) {
-  const { getActivity } = require('../../services/activity');
   const activity = await getActivity({ slug }, preview);
   return { props: { activity } };
 }
