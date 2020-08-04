@@ -10,4 +10,6 @@ export { PreferenceForm } from './PreferenceForm';
 export { ConsentForm } from './ConsentForm';
 export { CookieConsent } from './CookieConsent';
 
-export { H1, H2, H3, H4, Muted } from './Typo';
+export { ActivityCard } from './ActivityCard';
+
+export { H1 as Headline } from './Typo';

@@ -1,4 +1,4 @@
-import { ProtectedPage, Content, H1, H4, ConsentForm } from '../components';
+import { ProtectedPage, Content, Headline, ConsentForm } from '../components';
 import { useTranslation, withLogin } from '../hooks';
 import { ensureProfile, getUser, getRedirectUrl } from '../utils';
 
@@ -10,8 +10,7 @@ export default withLogin(function Consent({ consent, redirectTo }) {
       description={t('consentDescription')}
     >
       <Content>
-        <H1>{t('consentHeadline')}</H1>
-        <H4>{t('consentSubline')}</H4>
+        <Headline>{t('consentHeadline')}</Headline>
         <ConsentForm consent={consent} redirectTo={redirectTo} />
       </Content>
     </ProtectedPage>

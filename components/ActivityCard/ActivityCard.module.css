@@ -13,6 +13,7 @@
 @media (min-width: 720px) {
   .imageWrapper {
     flex-direction: row;
+    min-height: calc(6 * var(--space-xxxl));
   }
 
   .contentWrapper {
@@ -29,21 +30,26 @@
   }
 }
 
-h2.h2,
-h3.h3 {
+.h2.h2,
+.h3.h3 {
   margin: var(--space-0);
 }
 
-h2.h2 {
+.h2.h2 {
   margin-bottom: calc(-1 * var(--space-xs));
 }
 
-h2.h2 > span {
+.h2.h2 > span,
+.h2.h2 a,
+.h2.h2 a:active,
+.h2.h2 a:hover,
+.h2.h2 a:visited {
   color: var(--gray-800);
   background-color: var(--white);
+  text-decoration: none;
 }
 
-h3.h3 > span {
+.h3.h3 > span {
   background-color: var(--gray-800);
   color: var(--effort-background);
 }
@@ -61,6 +67,7 @@ h3.h3 > span {
 }
 
 .description {
+  padding: var(--space-s);
   background-color: var(--white);
   box-shadow: var(--box-shadow-light);
 }
