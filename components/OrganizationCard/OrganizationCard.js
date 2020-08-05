@@ -1,18 +1,20 @@
 import parse from 'snarkdown';
+import { useRouter } from 'next/router';
 
 import { useTranslation } from '../../hooks';
 
 import { Content } from '../Content';
-import { H3 } from '../Typo';
+import { H1, H3 } from '../Typo';
 
 import { wrapper, main, links } from './OrganizationCard.module.css';
 
 export default function OrganizationCard({ organization }) {
+  const { asPath } = useRouter();
   const { t } = useTranslation();
-  const { name, description, mainLink, contactLink } = organization;
+  const { name, slug, description, mainLink, contactLink } = organization;
   return (
     <Content>
-      <H3>{name}</H3>
+      {asPath === `/organization/${slug}` ? <H1>{name}</H1> : <H3>{name}</H3>}
       <div className={wrapper}>
         <div
           className={main}

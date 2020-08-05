@@ -16,6 +16,7 @@ export async function getOrganization(properties, preview) {
     ...organization,
     activities: activities
       .filter((activity) => activity.organization === organization.name)
+      .sort((a, b) => b.aggregateScore - a.aggregateScore)
       .map((activity) => ({
         ...activity,
         type: activityTypes.find(({ type }) => activity.type === type) || null,

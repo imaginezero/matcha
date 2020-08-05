@@ -16,6 +16,10 @@ export {
   ActivityCreditCard,
   AlternativeActivitiesCard,
 } from './ActivityCard';
-export { OrganizationCard } from './OrganizationCard';
+
+export {
+  OrganizationCard,
+  OrganizationActivitiesCard,
+} from './OrganizationCard';
 
 export { H1 as Headline } from './Typo';
