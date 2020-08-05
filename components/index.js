@@ -11,7 +11,11 @@ export { PreferenceForm } from './PreferenceForm';
 export { ConsentForm } from './ConsentForm';
 export { CookieConsent } from './CookieConsent';
 
-export { ActivityCard, ActivityCreditCard } from './ActivityCard';
+export {
+  ActivityCard,
+  ActivityCreditCard,
+  AlternativeActivitiesCard,
+} from './ActivityCard';
 export { OrganizationCard } from './OrganizationCard';
 
 export { H1 as Headline } from './Typo';

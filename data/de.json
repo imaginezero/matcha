@@ -3,6 +3,8 @@
   "locale": "de_DE",
   "aboutDescription": "Matcha gibt dir die besten Empfehlungen, um was gegen die Klimakrise zu tun! Kostenlos, web-basiert und für dich anpassbar",
   "aboutTitle": "Was ist Matcha?",
+  "activityAlternativesHeadline": "Alternative Vorschläge",
+  "activityAlternativesDescription": "Mit diesen Aktivitäten kannst Du potentiell noch etwas mehr für den Klimaschutz tun:",
   "consentDescription": "",
   "consentHeadline": "Stimme bitte der Verabeitung deiner Daten zu",
   "consentQuestion.feedback": "Ja, ich möchte gelegentlich per E-Mail zu Befragungen eingeladen werden, damit der Service von Matcha mit Hilfe meines Feedbacks verbessert werden kann.",
