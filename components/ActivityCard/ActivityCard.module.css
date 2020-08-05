@@ -49,9 +49,14 @@
   text-decoration: none;
 }
 
-.h3.h3 > span {
+.h3.h3 > span,
+.h3.h3 a,
+.h3.h3 a:active,
+.h3.h3 a:hover,
+.h3.h3 a:visited {
   background-color: var(--gray-800);
   color: var(--effort-background);
+  text-decoration: none;
 }
 
 .descriptionWrapper {

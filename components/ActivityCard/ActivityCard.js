@@ -18,15 +18,26 @@ import {
   h3,
 } from './ActivityCard.module.css';
 
-function OrganizationLink({ name }) {
-  return <H3 className={h3}>{name}</H3>;
+function OrganizationLink({ name, slug }) {
+  const { asPath } = useRouter();
+  return (
+    <H3 className={h3}>
+      {asPath === `/organization/${slug}` ? (
+        name
+      ) : (
+        <Link href={'/organization/[slug]'} as={`/organization/${slug}`}>
+          <a>{name}</a>
+        </Link>
+      )}
+    </H3>
+  );
 }
 
 function ActivityLink({ name, slug }) {
   const { asPath } = useRouter();
   return (
     <H2 className={h2}>
-      {asPath.includes(slug) ? (
+      {asPath === `/activity/${slug}` ? (
         name
       ) : (
         <Link href={'/activity/[slug]'} as={`/activity/${slug}`}>
