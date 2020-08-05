@@ -1,0 +1,26 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.links > ul {
+  padding-left: var(--space-0);
+  list-style-position: inside;
+}
+
+@media (min-width: 720px) {
+  .wrapper {
+    display: flex;
+    flex-direction: row;
+  }
+  .main {
+    flex: 1 0 75%;
+    padding-right: var(--space-m);
+  }
+  .links {
+    flex: 1 0 25%;
+  }
+  .links > ul {
+    margin-top: 0;
+  }
+}

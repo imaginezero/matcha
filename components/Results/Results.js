@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 import { useLoading, useTranslation } from '../../hooks';
 
 import { Content } from '../Content';
+import { Cards } from '../Cards';
 import { ActivityCard } from '../ActivityCard';
 
 import { concatClassnames } from '../utilities';
@@ -14,7 +15,6 @@ import {
   wrapper,
   headline,
   content,
-  card,
   loaderWrapper,
   transparentWrapper,
 } from './Results.module.css';
@@ -51,13 +51,13 @@ export default function Results({ activities, moreActivities }) {
       <Content className={content}>
         <h2 className={headline}>{t('mainResultsHeadline')}</h2>
       </Content>
-      <div>
+      <Cards>
         {activities.map((activity) => (
-          <div key={activity.slug} className={card}>
+          <div key={activity.slug}>
             <ActivityCard activity={activity} />
           </div>
         ))}
-      </div>
+      </Cards>
       <Content className={content}>
         <LoadMoreWidget moreActivities={moreActivities} />
       </Content>

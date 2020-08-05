@@ -1,9 +1,23 @@
 import { getActivity, getActivities } from '../../services';
 
-import { ActivityCard } from '../../components';
+import {
+  Page,
+  Cards,
+  ActivityCard,
+  OrganizationCard,
+  ActivityCreditCard,
+} from '../../components';
 
 export default function Activity({ activity }) {
-  return <ActivityCard activity={activity} />;
+  return (
+    <Page title={activity.name} description={activity.description}>
+      <Cards>
+        <ActivityCard activity={activity} />
+        <OrganizationCard organization={activity.organization} />
+        <ActivityCreditCard activity={activity} />
+      </Cards>
+    </Page>
+  );
 }
 
 export async function getStaticProps({ params: { slug }, preview }) {

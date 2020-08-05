@@ -11,14 +11,6 @@
   font-size: var(--size-xxl);
 }
 
-.card {
-  margin-bottom: calc(var(--space-xxxl) + var(--space-s) + var(--space-xs));
-}
-
-.card:last-of-type {
-  margin-bottom: calc(var(--space-l) + var(--space-xs));
-}
-
 .loaderWrapper {
   position: absolute;
   top: 0;
@@ -41,6 +33,7 @@
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  margin-top: calc(var(--space-l) + var(--space-xxs));
   margin-bottom: calc(var(--space-l) + var(--space-xxs));
 }
 

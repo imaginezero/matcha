@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import parse from 'snarkdown';
 
 import { useCapture, useTracking } from '../../hooks';
 
@@ -10,30 +11,15 @@ import {
   imageWrapper,
   contentWrapper,
   actionWrapper,
-  h2,
-  h3,
   descriptionWrapper,
   description,
   button,
+  h2,
+  h3,
 } from './ActivityCard.module.css';
 
-function Button({ link, label, slug }) {
-  const { trackOutboundLink } = useTracking();
-  const { captureOutboundLink } = useCapture();
-  return (
-    <a
-      className={button}
-      href={link}
-      target="_blank"
-      rel="noreferrer"
-      onClick={() => {
-        trackOutboundLink(link);
-        captureOutboundLink(slug, link);
-      }}
-    >
-      {label}
-    </a>
-  );
+function OrganizationLink({ name }) {
+  return <H3 className={h3}>{name}</H3>;
 }
 
 function ActivityLink({ name, slug }) {
@@ -51,11 +37,34 @@ function ActivityLink({ name, slug }) {
   );
 }
 
-function Description({ children }) {
-  return <div className={description}>{children}</div>;
+function OutboundLink({ link, label, slug }) {
+  const { trackOutboundLink } = useTracking();
+  const { captureOutboundLink } = useCapture();
+  return (
+    <a
+      className={button}
+      href={link}
+      target="_blank"
+      rel="noreferrer noopener"
+      onClick={() => {
+        trackOutboundLink(link);
+        captureOutboundLink(slug, link);
+      }}
+    >
+      {label}
+    </a>
+  );
 }
 
-export default function ActivityCard({ activity }) {
+function Description({ content }) {
+  return (
+    <div className={description}>
+      <Content dangerouslySetInnerHTML={{ __html: parse(content) }} />
+    </div>
+  );
+}
+
+export default function ActivityCard({ activity, ...props }) {
   const {
     name,
     slug,
@@ -63,28 +72,26 @@ export default function ActivityCard({ activity }) {
     singleWordCta,
     link,
     imgUrlPublic,
-    organization: org,
+    organization,
   } = activity;
   return (
-    <>
+    <div {...props}>
       <Content
         className={imageWrapper}
         style={{ backgroundImage: `url("${imgUrlPublic}")` }}
         key={slug}
       >
         <div className={contentWrapper}>
-          <H3 className={h3}>{org.name}</H3>
+          <OrganizationLink name={organization.name} slug={organization.slug} />
           <ActivityLink name={name} slug={slug} />
         </div>
         <div className={actionWrapper}>
-          <Button link={link} label={singleWordCta} slug={slug} />
+          <OutboundLink link={link} slug={slug} label={singleWordCta} />
         </div>
       </Content>
       <div className={descriptionWrapper}>
-        <Description>
-          <Content>{description}</Content>
-        </Description>
+        <Description content={description} />
       </div>
-    </>
+    </div>
   );
 }
