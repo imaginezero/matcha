@@ -1,0 +1,9 @@
+.cards > * {
+  margin-bottom: calc(var(--space-xxxl) + var(--space-s) + var(--space-xs));
+}
+
+.cards {
+  margin-bottom: calc(
+    -1 * calc(var(--space-xxxl) + var(--space-s) + var(--space-xs))
+  );
+}

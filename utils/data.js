@@ -1,9 +1,9 @@
+const { join, dirname } = require('path');
+
 const axios = require('axios');
 const parse = require('neat-csv');
 const slugify = require('slugify');
 const camelcaseKeys = require('camelcase-keys');
-
-const data = require('../data/activities.json');
 
 const urls = {
   activities: `https://docs.google.com/spreadsheets/d/e/2PACX-1vTUngdAx7n9WUQddwK-82FpSMHtEUrsQX_LOI150YIhNA-VLEEaAlFdNXPNpcAFLU3Jt9pw-IXyX2Rp/pub?gid=561168914&single=true&output=csv`,
@@ -48,7 +48,10 @@ exports.getData = async (preview) =>
               .map(camelcaseKeys)
               .map((row) =>
                 Object.entries(row).reduce(
-                  (obj, [key, value]) => ({ ...obj, [key]: normalize(value) }),
+                  (obj, [key, value]) => ({
+                    ...obj,
+                    [key]: normalize(value),
+                  }),
                   getDefaults(row)
                 )
               );
@@ -56,6 +59,6 @@ exports.getData = async (preview) =>
           })
         )
       )
-    : data;
+    : require('../data/activities.json');
 
-exports.dataFile = require.resolve('../data/activities.json');
+exports.dataFile = join(dirname(__dirname), 'data', 'activities.json');
