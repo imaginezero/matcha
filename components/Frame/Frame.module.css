@@ -128,3 +128,12 @@
     text-align: right;
   }
 }
+
+@media print {
+  .headerWrapper {
+    position: relative;
+  }
+  .footerWrapper {
+    display: none;
+  }
+}
