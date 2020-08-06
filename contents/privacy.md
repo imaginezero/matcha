@@ -1,12 +1,10 @@
-# Datenschutzerklärung von Matcha
+# Datenschutzerklärung - Matcha
 
-Diese Anwendung erhebt personenbezogene Daten von ihren Nutzern.
+Der **Imagine Zero e.V.** (im Folgenden 'Imagine Zero', 'wir' oder 'uns') misst als Anbieter und Betreiber der Anwendung Matcha (im Folgenden 'Matcha' oder 'Anwendung') dem Schutz deiner Daten höchste Bedeutung zu. Die Erhebung, Verarbeitung und Nutzung personenbezogener Daten im Rahmen der Nutzung unserer Internetseiten, Micro-Pages und Sub-Pages erfolgt ausschließlich unter Beachtung der nachstehenden Bestimmungen.
 
 Dieses Dokument kann zu Zwecken der Aufbewahrung über den Befehl „Drucken“ im Browser ausgedruckt werden.
 
----
-
-## Anbieter und Verantwortlicher
+## I. Anbieter und Verantwortlicher
 
 Imagine Zero e.V.  
 Seilerstraße 38a  
@@ -15,32 +13,25 @@ Deutschland
 
 **E-Mail-Adresse des Anbieters:** info@imagine-zero.org
 
----
+## II. Arten der erhobenen Daten
 
-## Arten der erhobenen Daten
+Personenbezogene Daten sind alle Informationen, die sich auf eine natürliche Person beziehen und dieser eindeutig zugeordnet werden können. Hierzu gehören beispielsweise dein Name, deine E-Mail-Adresse, deine Telefonnummer oder auch deine IP-Adresse.
 
-Zu den personenbezogenen Daten, die diese Anwendung selbstständig oder durch Dritte verarbeitet, gehören: Cookie; Nutzungsdaten; E-Mail; Passwort; Vorname; Nachname; Bild.
+Zu den personenbezogenen Daten, die diese Anwendung selbstständig oder durch Dritte verarbeitet, gehören: Cookie, Nutzungsdaten, E-Mail, Passwort, Vorname, Nachname, Bild.
 
-Vollständige Details zu jeder Art von verarbeiteten personenbezogenen Daten werden in den dafür vorgesehenen Abschnitten dieser Datenschutzerklärung oder punktuell durch Erklärungstexte bereitgestellt, die vor der Datenerhebung angezeigt werden.
-Personenbezogene Daten können vom Nutzer freiwillig angegeben oder, im Falle von Nutzungsdaten, automatisch erhoben werden, wenn diese Anwendung genutzt wird.
-Sofern nicht anders angegeben, ist die Angabe aller durch diese Anwendung angeforderten Daten obligatorisch. Weigert sich der Nutzer, die Daten anzugeben, kann dies dazu führen, dass diese Anwendung dem Nutzer ihre Dienste nicht zur Verfügung stellen kann. In Fällen, in denen diese Anwendung die Angabe personenbezogener Daten ausdrücklich als freiwillig bezeichnet, dürfen sich die Nutzer dafür entscheiden, diese Daten ohne jegliche Folgen für die Verfügbarkeit oder die Funktionsfähigkeit des Dienstes nicht anzugeben.
-Nutzer, die sich darüber im Unklaren sind, welche personenbezogenen Daten obligatorisch sind, können sich an den Anbieter wenden.
-Jegliche Verwendung von Cookies – oder anderer Tracking-Tools – durch diese Anwendung oder Anbieter von Drittdiensten, die durch diese Anwendung eingesetzt werden, dient dem Zweck, den vom Nutzer gewünschten Dienst zu erbringen, und allen anderen Zwecken, die im vorliegenden Dokument und, falls vorhanden, in der Cookie-Richtlinie beschrieben sind.
+Vollständige Details zu jeder Art von verarbeiteten personenbezogenen Daten werden in den dafür vorgesehenen Abschnitten dieser Datenschutzerklärung oder punktuell durch Erklärungstexte bereitgestellt, die vor der Datenerhebung angezeigt werden. Personenbezogene Daten können vom Nutzer freiwillig angegeben oder, im Falle von Nutzungsdaten, automatisch erhoben werden, wenn diese Anwendung genutzt wird. Bei Nutzungsdaten handelt es sich um Daten, die ein Anbieter benötigt, um die Nutzung seiner Anwendung zu ermöglichen, d.h. diese Daten entstehen bei jeder Interaktion zwischen dem Nutzer und der Anwendung. Sofern nicht anders angegeben, ist die Angabe aller durch diese Anwendung angeforderten Daten obligatorisch. Weigert sich der Nutzer, die Daten anzugeben, kann dies dazu führen, dass diese Anwendung dem Nutzer ihre Dienste nicht zur Verfügung stellen kann. In Fällen, in denen diese Anwendung die Angabe personenbezogener Daten ausdrücklich als freiwillig bezeichnet, dürfen sich die Nutzer dafür entscheiden, diese Daten ohne jegliche Folgen für die Verfügbarkeit oder die Funktionsfähigkeit des Dienstes nicht anzugeben. Nutzer, die sich darüber im Unklaren sind, welche personenbezogenen Daten obligatorisch sind, können sich an den Anbieter wenden. Jegliche Verwendung von Cookies – oder anderer Tracking-Tools – durch diese Anwendung oder Anbieter von Drittdiensten, die durch diese Anwendung eingesetzt werden, dient dem Zweck, den vom Nutzer gewünschten Dienst zu erbringen, und allen anderen Zwecken, die im vorliegenden Dokument und, falls vorhanden, in der Cookie-Richtlinie beschrieben sind.
 
 Die Nutzer sind für alle personenbezogenen Daten Dritter verantwortlich, die durch diese Anwendung beschafft, veröffentlicht oder weitergegeben werden, und bestätigen, dass sie die Zustimmung zur Übermittlung personenbezogener Daten etwaiger Dritter an diese Anwendung eingeholt haben.
 
----
+## III. Art und Ort der Datenverarbeitung
 
-## Art und Ort der Datenverarbeitung
+### A. Verarbeitungsmethoden
 
-### Verarbeitungsmethoden
+Wir verarbeiten die Nutzerdaten auf ordnungsgemäße Weise und ergreifen angemessene Sicherheitsmaßnahmen, um den unbefugten Zugriff und die unbefugte Weiterleitung, Veränderung oder Vernichtung von Daten zu vermeiden. Die Datenverarbeitung wird mittels Computern oder IT-basierten Systemen nach organisatorischen Verfahren und Verfahrensweisen durchgeführt, die gezielt auf die angegebenen Zwecke abstellen. Zusätzlich zum Verantwortlichen könnten auch andere Personen intern (Personalverwaltung, Vertrieb, Marketing, Rechtsabteilung, Systemadministratoren) oder extern – und in dem Fall soweit erforderlich, vom Verantwortlichen als Auftragsverarbeiter benannt (wie Anbieter technischer Dienstleistungen, Zustellunternehmen, Hosting-Anbieter, IT-Unternehmen oder Kommunikationsagenturen) - diese Anwendung betreiben und damit Zugriff auf die Daten haben. Eine aktuelle Liste dieser Beteiligten kann jederzeit vom Anbieter verlangt werden.
 
-Der Anbieter verarbeitet die Nutzerdaten auf ordnungsgemäße Weise und ergreift angemessene Sicherheitsmaßnahmen, um den unbefugten Zugriff und die unbefugte Weiterleitung, Veränderung oder Vernichtung von Daten zu vermeiden.
-Die Datenverarbeitung wird mittels Computern oder IT-basierten Systemen nach organisatorischen Verfahren und Verfahrensweisen durchgeführt, die gezielt auf die angegebenen Zwecke abstellen. Zusätzlich zum Verantwortlichen könnten auch andere Personen intern (Personalverwaltung, Vertrieb, Marketing, Rechtsabteilung, Systemadministratoren) oder extern – und in dem Fall soweit erforderlich, vom Verantwortlichen als Auftragsverarbeiter benannt (wie Anbieter technischer Dienstleistungen, Zustellunternehmen, Hosting-Anbieter, IT-Unternehmen oder Kommunikationsagenturen) - diese Anwendung betreiben und damit Zugriff auf die Daten haben. Eine aktuelle Liste dieser Beteiligten kann jederzeit vom Anbieter verlangt werden.
+### B. Rechtsgrundlagen der Verarbeitung
 
-### Rechtsgrundlagen der Verarbeitung
-
-Der Anbieter darf personenbezogene Daten von Nutzern nur dann verarbeiten, wenn einer der folgenden Punkte zutrifft:
+Imagine Zero darf personenbezogene Daten von Nutzern von Matcha nur dann verarbeiten, wenn einer der folgenden Punkte zutrifft:
 
 - Die Nutzer haben ihre Einwilligung für einen oder mehrere bestimmte Zwecke erteilt. Hinweis: In einigen Gesetzgebungen kann es dem Anbieter gestattet sein, personenbezogene Daten zu verarbeiten, bis der Nutzer einer solchen Verarbeitung widerspricht ("Opt-out"), ohne sich auf die Einwilligung oder eine andere der folgenden Rechtsgrundlagen verlassen zu müssen. Dies gilt jedoch nicht, wenn die Verarbeitung personenbezogener Daten dem europäischen Datenschutzrecht unterliegt;
 - die Datenerhebung ist für die Erfüllung eines Vertrages mit dem Nutzer und/oder für vorvertragliche Maßnahmen daraus erforderlich;
@@ -50,17 +41,17 @@ Der Anbieter darf personenbezogene Daten von Nutzern nur dann verarbeiten, wenn 
 
 In jedem Fall erteilt der Anbieter gerne Auskunft über die konkrete Rechtsgrundlage, auf der die Verarbeitung beruht, insbesondere darüber, ob die Angabe personenbezogener Daten eine gesetzliche oder vertragliche Verpflichtung oder eine Voraussetzung für den Abschluss eines Vertrages ist.
 
-### Ort
+### C. Ort
 
-Die Daten werden in der Niederlassung des Anbieters und an allen anderen Orten, an denen sich die an der Datenverarbeitung beteiligten Stellen befinden, verarbeitet.
+Die Daten werden in der Niederlassung von Imagine Zero und an allen anderen Orten, an denen sich die an der Datenverarbeitung beteiligten Stellen befinden, verarbeitet.
 
-Je nach Standort der Nutzer können Datenübertragungen die Übertragung der Daten des Nutzers in ein anderes Land als das eigene beinhalten. Um mehr über den Ort der Verarbeitung der übermittelten Daten zu erfahren, können die Nutzer den Abschnitt mit den ausführlichen Angaben zur Verarbeitung der personenbezogenen Daten konsultieren.
+Je nach Standort der Nutzer können Datenübertragungen die Übertragung der Daten des Nutzers in ein anderes Land als das eigene beinhalten. Weitere Informationen zum Ort der Verarbeitung der übermittelten Daten, können die Nutzer dem Abschnitt mit den ausführlichen Angaben zur Verarbeitung der personenbezogenen Daten entnehmen.
 
 Die Nutzer haben auch das Recht, sich über die Rechtsgrundlage der Datenübermittlung in ein Land außerhalb der Europäischen Union oder an eine internationale Organisation, die dem Völkerrecht unterliegt oder von zwei oder mehr Ländern gegründet wurde, wie beispielsweise die UNO, sowie sich über die vom Anbieter ergriffenen Sicherheitsmaßnahmen zum Schutz ihrer Daten aufklären zu lassen.
 
-Wenn eine solche Übermittlung stattfindet, kann der Nutzer mehr darüber erfahren, indem er die entsprechenden Abschnitte dieses Dokuments überprüft oder sich mit dem Anbieter über die im Kontaktteil angegebenen Informationen in Verbindung setzt.
+Im Falle einer solcher Übermittlung, finden Nutzer dazu weitere Informationen in den entsprechenden Abschnitten dieses Dokuments oder können sich mit dem Anbieter über die im Kontaktteil angegebenen Informationen in Verbindung setzen.
 
-### Speicherdauer
+### D. Speicherdauer
 
 Personenbezogene Daten werden so lange verarbeitet und gespeichert, wie es der Zweck erfordert, zu dem sie erhoben wurden.
 
@@ -73,57 +64,71 @@ Darüber hinaus ist es dem Anbieter gestattet, personenbezogene Daten für einen
 
 Nach Ablauf der Aufbewahrungsfrist werden personenbezogene Daten gelöscht. Daher können das Auskunftsrecht, das Recht auf Löschung, das Recht auf Berichtigung und das Recht auf Datenübertragbarkeit nach Ablauf der Aufbewahrungsfrist nicht geltend gemacht werden.
 
----
-
-## Zwecke der Verarbeitung
+## IV. Zwecke der Verarbeitung
 
 Personenbezogene Daten über den Nutzer werden erhoben, damit der Anbieter den Dienst erbringen und des Weiteren seinen gesetzlichen Verpflichtungen nachkommen, auf Durchsetzungsforderungen reagieren, seine Rechte und Interessen (oder die der Nutzer oder Dritter) schützen, böswillige oder betrügerische Aktivitäten aufdecken kann. Darüber hinaus werden Daten zu folgenden Zwecken erhoben: Analytik, Verwalten von Kontakten und Versenden von Nachrichten und Registrierung und Anmeldung.
 
 Nutzer können im Abschnitt „Ausführliche Angaben über die Verarbeitung personenbezogener Daten” dieses Dokuments weitere detaillierte Informationen zu diesen Verarbeitungszwecken und die zu den für den jeweiligen Zweck verwendeten personenbezogenen Daten vorfinden.
 
----
-
-## Ausführliche Angaben über die Verarbeitung personenbezogener Daten
+## V. Ausführliche Angaben über die Verarbeitung personenbezogener Daten
 
 Personenbezogene Daten werden zu folgenden Zwecken unter Inanspruchnahme folgender Dienstleistungen erhoben:
 
-### Analytik
+### A. Analytik
 
 Mit den in diesem Abschnitt aufgeführten Dienstleistungen kann der Anbieter den Datenverkehr überwachen und analysieren sowie das Verhalten von Nutzern nachverfolgen.
 
 #### Google Analytics (Google Ireland Limited)
 
-Google Analytics ist ein Webanalysedienst von Google Ireland Limited („Google“). Google verwendet die erhobenen Daten, um nachzuverfolgen und zu untersuchen, wie diese Anwendung genutzt wird, Berichte über ihre Aktivitäten zu verfassen und diese gemeinsam mit anderen Google-Diensten zu nutzen.
-Google kann die erhobenen Daten verwenden, um die Anzeigen seines eigenen Werbenetzwerks zu kontextualisieren und personalisieren.
-Verarbeitete personenbezogene Daten: Cookie; Nutzungsdaten.
-Verarbeitungsort: Irland – [Datenschutzerklärung](https://policies.google.com/privacy) – [Opt Out](https://tools.google.com/dlpage/gaoptout?hl=de). Privacy Shield-Mitglied.
+Google Analytics ist ein Webanalysedienst von Google Ireland Limited („Google“). Google verwendet die erhobenen Daten, um nachzuverfolgen und zu untersuchen, wie diese Anwendung genutzt wird, Berichte über ihre Aktivitäten zu verfassen und diese gemeinsam mit anderen Google-Diensten zu nutzen. Google kann die erhobenen Daten verwenden, um die Anzeigen seines eigenen Werbenetzwerks zu kontextualisieren und personalisieren.
 
-### Registrierung und Anmeldung
+**Verarbeitete personenbezogene Daten:** Cookie; Nutzungsdaten. **Verarbeitungsort:** Irland – [Datenschutzerklärung](https://policies.google.com/privacy) – [Opt Out](https://tools.google.com/dlpage/gaoptout?hl=de). Privacy Shield-Mitglied.
 
-Mit der Registrierung oder Anmeldung berechtigen Nutzer diese Anwendung, sie zu identifizieren und ihnen Zugriff auf spezifische Dienste zu gewähren.
-Je nachdem, was im Folgenden angegeben ist, können Drittanbieter Registrierungs- und Anmeldedienste bereitstellen. In diesem Fall kann diese Anwendung auf einige von diesen Drittanbietern gespeicherten Daten zu Registrierungs- oder Identifizierungszwecken zugreifen.
-Einige der unten aufgeführten Dienste erheben möglicherweise personenbezogene Daten zu Targeting- und Profilingszwecken. Weitere Informationen dazu entnehmen Sie der Beschreibung eines jeden Dienstes.
+### B. Registrierung und Anmeldung
+
+Mit der Registrierung oder Anmeldung berechtigen Nutzer diese Anwendung, sie zu identifizieren und ihnen Zugriff auf spezifische Dienste zu gewähren. Je nachdem, was im Folgenden angegeben ist, können Drittanbieter Registrierungs- und Anmeldedienste bereitstellen. In diesem Fall kann diese Anwendung auf einige von diesen Drittanbietern gespeicherten Daten zu Registrierungs- oder Identifizierungszwecken zugreifen. Einige der unten aufgeführten Dienste erheben möglicherweise personenbezogene Daten zu Targeting- und Profilingszwecken. Weitere Informationen dazu entnehmen Sie der Beschreibung eines jeden Dienstes.
 
 #### Auth0 (Auth0, Inc)
 
 Auth0 ist ein von Auth0, Inc bereitgestellter Registrierungs- und Anmeldedienst. Um den Anmelde- und Anmeldeprozess zu vereinfachen, kann Auth0 Identitätsdienste von Drittparteien benutzen und die Informationen auf ihrer Plattform speichern.
-Verarbeitete personenbezogene Daten: Bild; Cookie; E-Mail; Nachname; Passwort; verschiedene Datenarten, wie in der Datenschutzerklärung des Dienstes beschrieben; Vorname.
-Verarbeitungsort: Vereinigte Staaten – [Datenschutzerklärung](https://auth0.com/privacy); Europäische Union – [Datenschutzerklärung](https://auth0.com/privacy). Privacy Shield-Mitglied.
 
-### Verwalten von Kontakten und Versenden von Nachrichten
+**Verarbeitete personenbezogene Daten:** Bild, Cookie, E-Mail, Nachname, Vorname, Passwort, verschiedene Datenarten, wie in der Datenschutzerklärung des Dienstes beschrieben. **Verarbeitungsort:** Vereinigte Staaten – [Datenschutzerklärung](https://auth0.com/privacy); Europäische Union – [Datenschutzerklärung](https://auth0.com/privacy). Privacy Shield-Mitglied.
 
-Diese Art von Diensten ermöglichen die Verwaltung einer Datenbank mit E-Mail-Kontakten, Rufnummern oder jeglichen weiteren Kontaktinformationen, um mit dem Nutzer zu kommunizieren.
-Die Dienste können auch Daten darüber sammeln, an welchem Datum und zu welcher Uhrzeit Nachricht vom Nutzer gelesen wurde, sowie darüber, wann der Nutzer mit eingehenden Nachrichten interagiert, beispielsweise durch Klicken auf Links, die darin enthalten sind.
+### C. Verwalten von Kontakten und Versenden von Nachrichten
+
+Diese Art von Diensten ermöglichen die Verwaltung einer Datenbank mit E-Mail-Kontakten, Rufnummern oder jeglichen weiteren Kontaktinformationen, um mit dem Nutzer zu kommunizieren. Die Dienste können auch Daten darüber sammeln, an welchem Datum und zu welcher Uhrzeit Nachricht vom Nutzer gelesen wurde, sowie darüber, wann der Nutzer mit eingehenden Nachrichten interagiert, beispielsweise durch Klicken auf Links, die darin enthalten sind.
 
 #### Mailchimp (The Rocket Science Group LLC)
 
 Mailchimp ist ein von The Rocket Science Group LLC bereitgestellter Service für die Verwaltung von E-Mail-Adressen und den Versand von Nachrichten.
-Verarbeitete personenbezogene Daten: E-Mail.
-Verarbeitungsort: Vereinigte Staaten – [Datenschutzerklärung](https://mailchimp.com/legal/privacy/). Privacy Shield-Mitglied.
 
----
+**Verarbeitete personenbezogene Daten:** E-Mail. **Verarbeitungsort:** Vereinigte Staaten – [Datenschutzerklärung](https://mailchimp.com/legal/privacy/). Privacy Shield-Mitglied.
 
-## Die Rechte der Nutzer
+### D. Social Media
+
+#### Facebook - 'Teilen'-Funktion
+
+Die "Teilen-Funktion" der SocialMedia-Plattform Facebook erlaubt das Teilen von mit dieser Funktion versehenen Inhalte mit anderen Nutzern der Platform. Verantwortlich für diese Funktion ist ausschließlich die Facebook Inc..
+
+**Verarbeitungsort:** Vereinigte Staaten – [Datenschutzerklärung](https://www.facebook.com/about/privacy). Privacy Shield-Mitglied.
+
+#### Twitter - 'Tweet'-Funktion
+
+Die "tweet”-Funktion von Twitter erlaubt die Veröffentlichung der mit dieser Funktion versehen Inhalte auf dem Twitter-Profil des Nutzers. Verantwortlich hierfür ist die Twitter, Inc..
+
+**Verarbeitungsort:** Vereinigte Staaten – [Datenschutzerklärung](https://twitter.com/de/privacy). Privacy Shield-Mitglied.
+
+### E. Teilnahme an der Feedback-Community
+
+Die Feedback-Community auf Matcha besteht aus Nutzern, die sich freiwillig für die Teilnahme angemeldet haben und somit regelmäßig die Möglichkeit haben, an Befragungen zur Verbesserung von Matcha und Entwicklung neuer Features teilzunehmen. Die Einladung zu Befragungen erfolgt per E-Mail. Bei einer Teilnahme können Daten mit den folgenden Umfragediensten erhoben werden.
+
+#### Google Forms
+
+Google Forms ist ein von der Google LLC bereitgestellter Service zur Durchführung von Befragungen.
+
+**Verarbeitete personenbezogene Daten:** Antworten auf Umfragefragen, Datum/Uhrzeit der Teilnahme, zur Verfügung gestellte Kontaktdaten (z.B. E-Mail), Cookies. **Verarbeitungsort:** Vereinigte Staaten – [Datenschutzerklärung](https://policies.google.com/privacy). Privacy Shield-Mitglied.
+
+## VI. Die Rechte der Nutzer
 
 Die Nutzer können bestimmte Rechte in Bezug auf ihre vom Anbieter verarbeiteten Daten ausüben.
 
@@ -144,87 +149,79 @@ Werden personenbezogene Daten im öffentlichen Interesse, in Ausübung eines dem
 
 Nutzer werden darüber informiert, dass sie der Verarbeitung der personenbezogenen Daten für Direktwerbung jederzeit ohne Angabe von Gründen widersprechen können. Ob der Anbieter personenbezogene Daten für Direktwerbungszwecke verarbeitet, können die Nutzer den entsprechenden Abschnitten dieses Dokuments entnehmen.
 
-### Wie die Rechte ausgeübt werden können
+#### Wie die Rechte ausgeübt werden können
 
 Alle Anfragen zur Ausübung der Nutzerrechte können über die in diesem Dokument angegebenen Kontaktdaten an den Anbieter gerichtet werden. Anträge können kostenlos ausgeübt werden und werden vom Anbieter so früh wie möglich, spätestens innerhalb eines Monats, bearbeitet.
 
----
+## VII. Weitere Informationen über die Erhebung und Verarbeitung von Daten
 
-## Weitere Informationen über die Erhebung und Verarbeitung von Daten
+#### Rechtliche Maßnahmen
 
-### Rechtliche Maßnahmen
+Die personenbezogenen Daten des Nutzers können vom Anbieter zu Zwecken der Rechtsdurchsetzung innerhalb oder in Vorbereitung gerichtlicher Verfahren verarbeitet werden, die sich daraus ergeben, dass diese Anwendung oder die dazugehörigen Dienste nicht ordnungsgemäß genutzt wurden. Der Nutzer erklärt, sich dessen bewusst zu sein, dass der Anbieter von den Behörden zur Herausgabe von personenbezogenen Daten verpflichtet werden könnte.
 
-Die personenbezogenen Daten des Nutzers können vom Anbieter zu Zwecken der Rechtsdurchsetzung innerhalb oder in Vorbereitung gerichtlicher Verfahren verarbeitet werden, die sich daraus ergeben, dass diese Anwendung oder die dazugehörigen Dienste nicht ordnungsgemäß genutzt wurden.
-Der Nutzer erklärt, sich dessen bewusst zu sein, dass der Anbieter von den Behörden zur Herausgabe von personenbezogenen Daten verpflichtet werden könnte.
-
-### Weitere Informationen über die personenbezogenen Daten des Nutzers
+#### Weitere Informationen über die personenbezogenen Daten des Nutzers
 
 Zusätzlich zu den in dieser Datenschutzerklärung aufgeführten Informationen kann diese Anwendung dem Nutzer auf Anfrage weitere kontextbezogene Informationen zur Verfügung stellen, die sich auf bestimmte Dienste oder auf die Erhebung und Verarbeitung personenbezogener Daten beziehen.
 
-### Systemprotokolle und Wartung
+#### Systemprotokolle und Wartung
 
 Diese Anwendung und die Dienste von Drittanbietern können zu Betriebs- und Wartungszwecken Dateien sammeln, die die über diese Anwendung stattfindende Interaktion aufzeichnen (Systemprotokolle), oder andere personenbezogene Daten (z. B. IP-Adresse) zu diesem Zweck verwenden.
 
-### Nicht in dieser Datenschutzerklärung enthaltene Informationen
+#### Nicht in dieser Datenschutzerklärung enthaltene Informationen
 
 Weitere Informationen über die Erhebung oder Verarbeitung personenbezogener Daten können jederzeit vom Anbieter über die aufgeführten Kontaktangaben angefordert werden.
 
-### Wie „Do Not Track“ Anfragen behandelt werden
+#### Wie „Do Not Track“ Anfragen behandelt werden
 
-Diese Anwendung unterstützt keine Nicht-Verfolgen-Anfragen („Do Not Track”) durch Webbrowser.
-Die Information, ob integrierte Drittdienste das Nicht-Verfolgen Protokoll unterstützen, entnehmen Nutzer der Datenschutzerklärung des jeweiligen Dienstes.
+Diese Anwendung unterstützt keine Nicht-Verfolgen-Anfragen („Do Not Track”) durch Webbrowser. Die Information, ob integrierte Drittdienste das Nicht-Verfolgen Protokoll unterstützen, entnehmen Nutzer der Datenschutzerklärung des jeweiligen Dienstes.
 
-### Änderungen dieser Datenschutzerklärung
+#### Änderungen dieser Datenschutzerklärung
 
 Der Anbieter behält sich vor, jederzeit Änderungen an dieser Datenschutzerklärung vorzunehmen, indem Nutzer auf dieser Seite und gegebenenfalls über diese Anwendung und/oder - soweit technisch und rechtlich möglich – durch das Versenden einer Mitteilung über dem Anbieter vorliegende Kontaktdaten der Nutzer informiert werden. Nutzern wird daher nahe gelegt, diese Seite regelmäßig aufzurufen und insbesondere das am Seitenende angegebene Datum der letzten Änderung zu prüfen.
 
 Soweit Änderungen eine auf der Einwilligung des Nutzers basierte Datennutzung betreffen, so wird der Anbieter - soweit erforderlich - eine neue Einwilligung einholen.
 
----
+## VIII. Begriffsbestimmungen und rechtliche Hinweise
 
-## Begriffsbestimmungen und rechtliche Hinweise
-
-### Personenbezogene Daten (oder Daten)
+#### Personenbezogene Daten (oder Daten)
 
 Alle Informationen, durch die direkt oder in Verbindung mit weiteren Informationen die Identität einer natürlichen Person bestimmt wird oder werden kann.
 
-### Nutzungsdaten
+#### Nutzungsdaten
 
 Informationen, die diese Anwendung (oder Dienste Dritter, die diese Anwendung in Anspruch nimmt), automatisch erhebt, z. B.: die IP-Adressen oder Domain-Namen der Computer von Nutzern, die diese Anwendung verwenden, die URI-Adressen (Uniform Resource Identifier), den Zeitpunkt der Anfrage, die Methode, die für die Übersendung der Anfrage an den Server verwendet wurde, die Größe der empfangenen Antwort-Datei, der Zahlencode, der den Status der Server-Antwort anzeigt (erfolgreiches Ergebnis, Fehler etc.), das Herkunftsland, die Funktionen des vom Nutzer verwendeten Browsers und Betriebssystems, die diversen Zeitangaben pro Aufruf (z. B. wie viel Zeit auf jeder Seite der Anwendung verbracht wurde) und Angaben über den Pfad, dem innerhalb einer Anwendung gefolgt wurde, insbesondere die Reihenfolge der besuchten Seiten, sowie sonstige Informationen über das Betriebssystem des Geräts und/oder die IT-Umgebung des Nutzers.
 
-### Nutzer
+#### Nutzer
 
 Die diese Anwendung verwendende Person, die, soweit nicht anders bestimmt, mit dem Betroffenen übereinstimmt.
 
-### Betroffener
+#### Betroffener
 
 Die natürliche Person, auf die sich die personenbezogenen Daten beziehen.
 
-### Auftragsverarbeiter (oder Datenverarbeiter)
+#### Auftragsverarbeiter (oder Datenverarbeiter)
 
 Natürliche oder juristische Person, Behörde, Einrichtung oder andere Stelle, die personenbezogene Daten im Auftrag des Verantwortlichen verarbeitet, wie in dieser Datenschutzerklärung beschrieben.
 
-### Verantwortlicher (oder Anbieter, teilweise auch Eigentümer)
+#### Verantwortlicher (oder Anbieter, teilweise auch Eigentümer)
 
 Die natürliche oder juristische Person, Behörde, Einrichtung oder andere Stelle, die allein oder gemeinsam mit anderen über die Zwecke und Mittel der Verarbeitung personenbezogener Daten sowie die hierfür verwendeten Mittel entscheidet, einschließlich der Sicherheitsmaßnahmen bezüglich des sich auf diese Anwendung beziehenden Betriebs und der Nutzung. Soweit nichts anderes angegeben ist, ist der Verantwortliche die natürliche oder juristische Person, über welche diese Anwendung angeboten wird.
 
-### Diese Anwendung
+#### Diese Anwendung
 
 Das Hardware- oder Software-Tool, mit dem die personenbezogenen Daten des Nutzers erhoben und verarbeitet werden.
 
-### Dienst
+#### Dienst
 
 Der durch diese Anwendung angebotene Dienst, wie in den entsprechenden Nutzungsbedingungen (falls vorhanden) und auf dieser Seite/Anwendung beschrieben.
 
-### Europäische Union (oder EU)
+#### Europäische Union (oder EU)
 
 Sofern nicht anders angegeben, beziehen sich alle Verweise in diesem Dokument auf die Europäische Union auf alle derzeitigen Mitgliedstaaten der Europäischen Union und den Europäischen Wirtschaftsraum (EWR).
 
-### Cookie
+#### Cookie
 
-Kleine Datei, die auf das Gerät des Nutzers gespeichert wird.
-
----
+Kleine Datei, die im Browser des Gerät des Nutzers gespeichert wird, um beispielsweise Logins bei einer Webanwendung abzuspeichern oder HTML-Seiten individuell an Nutzer anzupassen.
 
 ### Rechtlicher Hinweis
 
@@ -232,6 +229,4 @@ Diese Datenschutzerklärung wurde auf der Grundlage von Bestimmungen verschieden
 
 Diese Datenschutzerklärung bezieht sich ausschließlich auf diese Anwendung, sofern in diesem Dokument nicht anders angegeben.
 
----
-
-Letzte Aktualisierung: 8 Juli 2020
+_Letzte Aktualisierung: 31. Juli 2020_
