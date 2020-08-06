@@ -1,5 +1,24 @@
 import Link from 'next/link';
 import { MDXProvider } from '@mdx-js/react';
+import { useLogin, useTracking, useTranslation } from '../../hooks';
+
+function LoginLink(props) {
+  const { isLoggedIn } = useLogin();
+  const { trackLogin, trackLogout } = useTracking();
+  const { t } = useTranslation();
+  return (
+    <a
+      {...props}
+      href={`/api/auth/${isLoggedIn ? 'logout' : 'login'}`}
+      onClick={(event) => {
+        event.preventDefault();
+        (isLoggedIn ? trackLogout : trackLogin)(event.target.href, true);
+      }}
+    >
+      {`${t(isLoggedIn ? 'logout' : 'login')}`}
+    </a>
+  );
+}
 
 import { H1, H2, H3, H4 } from '../Typo';
 
@@ -22,15 +41,22 @@ const components = {
     return <>{children}</>;
   },
   a: function MarkdownLink({ href, children, ...props }) {
-    return /^[a-z]*:/.test(href) ? (
-      <a href={href} {...props}>
-        {children}
-      </a>
-    ) : (
-      <Link href={href}>
-        <a {...props}>{children}</a>
-      </Link>
-    );
+    if (href === '/api/auth/login') {
+      return <LoginLink {...props} />;
+    }
+    if (/^[a-z]*:/.test(href)) {
+      return (
+        <a href={href} {...props}>
+          {children}
+        </a>
+      );
+    } else {
+      return (
+        <Link href={href}>
+          <a {...props}>{children}</a>
+        </Link>
+      );
+    }
   },
 };
 
