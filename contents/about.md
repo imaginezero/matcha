@@ -34,7 +34,7 @@ Und wie funktioniert das?
 
 <table style={{width:'90%'}}>
   <tr>
-    <td style={{width:'33%'}}><img src="https://storage.googleapis.com/gomatcha/logos/matcha-logo.svg" alt="matcha-logo" width="75%" /></td>
+    <td style={{width:'33%'}}><img src="https://storage.googleapis.com/gomatcha/logos/matcha.svg" alt="matcha-logo" width="75%" /></td>
     <td>
     Schließlich sind unsere Entwickler drauf los gegangen, das in eine Website zu packen. Wir haben getestet, alles ‘open source’ gestellt und da war Matcha auch schon live! <a href="https://gomatcha.org/">Probier’s aus!</a>
     </td>
