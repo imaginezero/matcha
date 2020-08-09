@@ -46,8 +46,7 @@ Und wie funktioniert das?
 <table style={{width:'90%'}}>
   <tr>
     <td>
-    Um Matcha herum hat sich der Verein **Imagine Zero e.V.** gebildet. Wir bauen Projekte, die skalieren und einen starken Einfluss auf die Klimakrise haben. <a href="https://imagine-zero.org/">Erfahre mehr!</a>
-    Um Matcha hat sich der Verein Imagine Zero e.V. gebildet. Wir bauen Projekte, die skalieren und einen starken Einfluss auf die Klimakrise haben.
+    Um Matcha hat sich der Verein <b><a href="https://imagine-zero.org/">Imagine Zero e.V.</a></b> gebildet. Wir bauen Projekte, die skalieren und einen starken Einfluss auf die Klimakrise haben.
     </td>
     <td style={{width:'33%'}}>
     <img src="https://storage.googleapis.com/gomatcha/logos/imagine-zero.svg" alt="imagine-zero-logo" width="75%" /></td>
