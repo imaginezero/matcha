@@ -47,10 +47,10 @@
   dependencies:
     cross-fetch "3.0.5"
 
-"@auth0/nextjs-auth0@^0.13.0":
-  version "0.13.0"
-  resolved "https://registry.yarnpkg.com/@auth0/nextjs-auth0/-/nextjs-auth0-0.13.0.tgz#cc48e210bc5e35d7c7e37abcf5cc7e963c3aa96f"
-  integrity sha512-1UZ/Fjm9mHCZtqMsHPfQex64n8Ili5/hWEd6xSauy44eM6+RqTz/Hy3DQCMtLGV+mh7TATNtz+TIDn63qMlv7A==
+"@auth0/nextjs-auth0@^0.15.0":
+  version "0.15.0"
+  resolved "https://registry.yarnpkg.com/@auth0/nextjs-auth0/-/nextjs-auth0-0.15.0.tgz#68353d2cdfcbce1da5ae3e48eaaace448553f9cf"
+  integrity sha512-UN1Hsbpet6xMTTFl8kvyylyN8C8sFfR4M97IBY5mPdYq9ydhBckY/1L8LlG/Ie5P7fyoRQgf97XWxIzV8JH6MQ==
   dependencies:
     "@hapi/iron" "^5.1.4"
     base64url "^3.0.1"
