@@ -4,6 +4,8 @@
 
 Wenn du die Webseite gomatcha.org oder eine andere Webseite, die Matcha gehört oder von Matcha betrieben wird, (im Folgenden die „Webseite“) besuchst und nutzt, erklärst du dich mit Matchas Nutzungsbedingungen, einschließlich der Nutzungsbedingungen für die Webseite, der Datenschutzrichtlinie und aller sonstigen rechtlichen Hinweise, Haftungsausschlüsse und Richtlinien, die auf dieser Webseite enthalten sind, (im Folgenden die „Nutzungsbedingungen“) einverstanden.
 
+Im Kontext dieser Website werden Daten erhoben und verarbeitet. Wie diese Daten verwendet werden, können registrierte Nutzer\*innen [hier konfigurieren](/consent).
+
 Du wirst die Webseite nicht zu rechtswidrigen oder laut den Nutzungsbedingungen verbotenen Zwecken nutzen.
 
 Wenn du die Webseite besuchst oder nutzt, bestätigst du, dass du die Nutzungsbedingungen vollumfänglich akzeptierst. Wenn du die Nutzungsbedingungen nicht akzeptierst, musst du den Besuch oder die Nutzung unserer Webseite unverzüglich beenden.
@@ -34,9 +36,5 @@ Diese Webseite enthält Verknüpfungen zu Webseites Dritter ("externe Links"). D
 ## V. Urheber- und Leistungsschutzrechte
 
 Die auf dieser Webseite veröffentlichten Inhalte unterliegen dem deutschen Urheber- und Leistungsschutzrecht. Jede vom deutschen Urheber- und Leistungsschutzrecht nicht zugelassene Verwertung bedarf der vorherigen schriftlichen Zustimmung des Anbieters oder jeweiligen Rechteinhabers. Dies gilt insbesondere für Vervielfältigung, Bearbeitung, Übersetzung, Einspeicherung, Verarbeitung bzw. Wiedergabe von Inhalten in Datenbanken oder anderen elektronischen Medien und Systemen. Inhalte und Rechte Dritter sind dabei als solche gekennzeichnet. Die unerlaubte Vervielfältigung oder Weitergabe einzelner Inhalte oder kompletter Seiten ist nicht gestattet und strafbar. Lediglich die Herstellung von Kopien und Downloads für den persönlichen, privaten und nicht kommerziellen Gebrauch ist erlaubt. Die Darstellung dieser Webseite in fremden Frames ist nur mit schriftlicher Erlaubnis zulässig.
-
-## VI. Datenverarbeitung
-
-Im Kontext dieser Website werden Daten erhoben und verarbeitet. Wie diese Daten verwendet werden, können registrierte Nutzer\*innen [hier konfigurieren](/consent).
 
 _Letzte Aktualisierung: 31. Juli 2020_
