@@ -15,7 +15,11 @@ import {
 
 export default function Activity({ activity, activities }) {
   return (
-    <Page title={activity.name} description={activity.description}>
+    <Page
+      title={activity.name}
+      description={activity.description}
+      image={activity.imgUrlPublic}
+    >
       <Cards>
         <ActivityCard activity={activity} />
         <OrganizationCard organization={activity.organization} />

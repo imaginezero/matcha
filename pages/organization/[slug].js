@@ -9,8 +9,9 @@ import {
 
 export default function Organization({ organization }) {
   const { name, description, activities } = organization;
+  const image = activities.length ? activities[0].imgUrlPublic : null;
   return (
-    <Page title={name} description={description}>
+    <Page title={name} description={description} image={image}>
       <Cards>
         <OrganizationCard organization={organization} />
         <OrganizationActivitiesCard
