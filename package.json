@@ -50,7 +50,7 @@
     "react-dom": "^16.13.1",
     "rimraf": "^3.0.2",
     "sharp": "^0.25.4",
-    "slugify": "^1.4.0",
+    "slugify": "^1.4.5",
     "snakecase-keys": "^3.2.0",
     "snarkdown": "^1.2.2"
   },
