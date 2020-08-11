@@ -27,7 +27,7 @@
     "@auth0/nextjs-auth0": "^0.15.0",
     "@mdx-js/loader": "^1.6.16",
     "@mdx-js/react": "^1.6.16",
-    "@next/mdx": "^9.5.1",
+    "@next/mdx": "^9.5.2",
     "auth0": "^2.27.1",
     "axios": "^0.19.2",
     "babel-eslint": "^10.1.0",
