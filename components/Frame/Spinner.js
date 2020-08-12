@@ -7,7 +7,7 @@ import { concatClassnames } from '../utilities';
 
 import { logomark, spinner } from './Frame.module.css';
 
-export default function Spinner() {
+export default function Spinner({ title }) {
   const { loading } = useLoading();
   const [spinning, setSpinning] = useState(loading);
   useEffect(() => {
@@ -19,6 +19,7 @@ export default function Spinner() {
       onAnimationIteration={() => {
         if (!loading && spinning) setSpinning(false);
       }}
+      title={title}
     />
   );
 }

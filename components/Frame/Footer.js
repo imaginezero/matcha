@@ -3,7 +3,8 @@ import { Markdown } from '../Markdown';
 import { AssociationMark } from '../Logo';
 
 import MenuContent from '../../contents/menu.md';
-import SocialContent from '../../contents/social.md';
+
+import SocialLinks from './SocialLinks';
 
 import {
   footerWrapper,
@@ -26,9 +27,7 @@ export default function Footer() {
             </Markdown>
           </div>
           <div className={social}>
-            <Markdown>
-              <SocialContent />
-            </Markdown>
+            <SocialLinks />
           </div>
           <div className={association}>
             <a href="https://imagine-zero.org/">
