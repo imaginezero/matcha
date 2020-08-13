@@ -22,7 +22,11 @@ function normalize(value) {
 function getDefaults(row) {
   const { imgUrlInternal: imgUrlPublic, impactScore, effortScore } = row;
   return {
-    slug: slugify(row.name.toLowerCase()),
+    slug: slugify(row.name, {
+      remove: /[^a-z0-9 -]/gi,
+      lower: true,
+      strict: true,
+    }),
     ...(imgUrlPublic ? { imgUrlPublic } : {}),
     ...(impactScore && effortScore
       ? {
