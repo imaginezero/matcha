@@ -5,6 +5,7 @@ import {
   Cards,
   OrganizationCard,
   OrganizationActivitiesCard,
+  ShareCard,
 } from '../../components';
 
 export default function Organization({ organization }) {
@@ -14,6 +15,7 @@ export default function Organization({ organization }) {
     <Page title={name} description={description} image={image}>
       <Cards>
         <OrganizationCard organization={organization} />
+        <ShareCard />
         <OrganizationActivitiesCard
           organization={organization}
           activities={activities}

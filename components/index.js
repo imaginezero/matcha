@@ -22,4 +22,6 @@ export {
   OrganizationActivitiesCard,
 } from './OrganizationCard';
 
+export { ShareCard } from './ShareCard';
+
 export { H1 as Headline } from './Typo';

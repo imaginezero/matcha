@@ -97,6 +97,19 @@
   margin-bottom: var(--space-xl);
 }
 
+.socialWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.socialIcon {
+  display: block;
+  flex: 0 0 var(--space-xl);
+  height: var(--space-xl);
+  margin: 0 var(--space-s);
+}
+
 .association {
   margin-bottom: var(--space-l);
   text-align: center;
@@ -124,19 +137,6 @@
     margin: var(--space-0);
     text-align: right;
   }
-}
-
-.socialWrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.socialIcon {
-  display: block;
-  flex: 0 0 var(--space-xl);
-  height: var(--space-xl);
-  margin: 0 var(--space-s);
 }
 
 @media print {
