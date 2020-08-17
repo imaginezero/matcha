@@ -51,7 +51,7 @@ export default function Results({ activities, moreActivities }) {
       <Content className={content}>
         <h2 className={headline}>{t('mainResultsHeadline')}</h2>
       </Content>
-      <Cards>
+      <Cards height="high">
         {activities.map((activity) => (
           <div key={activity.slug}>
             <ActivityCard activity={activity} />

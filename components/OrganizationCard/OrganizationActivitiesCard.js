@@ -15,7 +15,7 @@ export default function OrganizationActivitiesCard({
       <Content>
         <H3>{t('organizationActivities', organization)}</H3>
       </Content>
-      <Cards>
+      <Cards height="high">
         {activities.map((activity) => (
           <ActivityCard activity={activity} key={activity.slug} />
         ))}

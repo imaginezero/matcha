@@ -99,3 +99,8 @@ a:hover {
   color: var(--white);
   background-color: var(--purple-600);
 }
+
+ul {
+  padding-left: var(--space-0);
+  list-style-position: inside;
+}
