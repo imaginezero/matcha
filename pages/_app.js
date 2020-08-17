@@ -1,7 +1,7 @@
 import { Frame, CookieConsent } from '../components';
 import { withTracking, withLogin } from '../hooks';
 
-import './global.css';
+import '../components/global.css';
 
 export default withLogin(
   withTracking(function MatchaApp({ Component, pageProps }) {

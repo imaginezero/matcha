@@ -89,6 +89,11 @@
   }
 }
 
+.interstitialButton {
+  composes: button;
+  margin: var(--space-0) var(--space-m) var(--space-0) var(--space-0);
+}
+
 .alternativesWrapper {
   margin-bottom: calc(-1 * var(--space-0));
 }

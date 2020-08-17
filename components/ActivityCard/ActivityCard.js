@@ -2,10 +2,10 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import parse from 'snarkdown';
 
-import { useCapture, useTracking } from '../../hooks';
-
 import { H2, H3 } from '../Typo';
 import { Content } from '../Content';
+
+import CallToAction from './CallToAction';
 
 import {
   imageWrapper,
@@ -13,7 +13,6 @@ import {
   actionWrapper,
   descriptionWrapper,
   description,
-  button,
   h2,
   h3,
 } from './ActivityCard.module.css';
@@ -48,25 +47,6 @@ function ActivityLink({ name, slug }) {
   );
 }
 
-function OutboundLink({ link, label, slug }) {
-  const { trackOutboundLink } = useTracking();
-  const { captureOutboundLink } = useCapture();
-  return (
-    <a
-      className={button}
-      href={link}
-      target="_blank"
-      rel="noreferrer noopener"
-      onClick={() => {
-        trackOutboundLink(link);
-        captureOutboundLink(slug, link);
-      }}
-    >
-      {label}
-    </a>
-  );
-}
-
 function Description({ content }) {
   return (
     <div className={description}>
@@ -97,7 +77,7 @@ export default function ActivityCard({ activity, ...props }) {
           <ActivityLink name={name} slug={slug} />
         </div>
         <div className={actionWrapper}>
-          <OutboundLink link={link} slug={slug} label={singleWordCta} />
+          <CallToAction link={link} slug={slug} label={singleWordCta} />
         </div>
       </Content>
       <div className={descriptionWrapper}>
