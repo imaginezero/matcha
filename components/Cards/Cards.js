@@ -1,9 +1,14 @@
 import { concatClassnames } from '../utilities';
 
-import { cards } from './Cards.module.css';
+import styles from './Cards.module.css';
 
-export default function Cards({ children, className, ...props }) {
-  const classNames = concatClassnames(cards, className);
+export default function Cards({
+  height = 'normal',
+  children,
+  className,
+  ...props
+}) {
+  const classNames = concatClassnames(styles[height], className);
   return (
     <div className={classNames} {...props}>
       {children}

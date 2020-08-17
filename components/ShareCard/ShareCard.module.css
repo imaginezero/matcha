@@ -1,0 +1,12 @@
+.shareWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: var(--space-l) var(--space-0) var(--space-l);
+}
+
+.shareLink {
+  flex: 0 0 var(--space-xl);
+  height: var(--space-xl);
+  margin: 0 var(--space-s);
+}

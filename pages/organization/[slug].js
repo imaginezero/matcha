@@ -5,6 +5,7 @@ import {
   Cards,
   OrganizationCard,
   OrganizationActivitiesCard,
+  ShareCard,
 } from '../../components';
 
 export default function Organization({ organization }) {
@@ -18,6 +19,7 @@ export default function Organization({ organization }) {
           organization={organization}
           activities={activities}
         />
+        <ShareCard />
       </Cards>
     </Page>
   );

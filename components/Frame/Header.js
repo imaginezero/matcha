@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 
-import { useEffort } from '../../hooks';
+import { useEffort, useTranslation } from '../../hooks';
 
 import { Content } from '../Content';
 import { TypeMark } from '../Logo';
@@ -19,6 +19,7 @@ import {
 
 export default function Header() {
   const { getQuery } = useEffort();
+  const { t } = useTranslation();
   const [headerClassName, setHeaderClassName] = useState(headerWrapper);
   useEffect(() => {
     const handleScroll = () => {
@@ -41,14 +42,14 @@ export default function Header() {
           <div className={logo}>
             <Link href={href}>
               <a>
-                <TypeMark className={typemark} />
+                <TypeMark className={typemark} title={t('mainPageLink')} />
               </a>
             </Link>
           </div>
           <div className={logo}>
             <Link href={href}>
               <a>
-                <Spinner />
+                <Spinner title={t('mainPageLink')} />
               </a>
             </Link>
           </div>

@@ -11,6 +11,7 @@ import {
   ActivityCreditCard,
   AlternativeActivitiesCard,
   OrganizationCard,
+  ShareCard,
 } from '../../components';
 
 export default function Activity({ activity, activities }) {
@@ -24,6 +25,7 @@ export default function Activity({ activity, activities }) {
         <ActivityCard activity={activity} />
         <OrganizationCard organization={activity.organization} />
         <AlternativeActivitiesCard activities={activities} />
+        <ShareCard />
         <ActivityCreditCard activity={activity} />
       </Cards>
     </Page>

@@ -50,16 +50,6 @@ function trackEvent(action, params = {}) {
   }
 }
 
-function trackOutboundLink(url, navigate) {
-  trackEvent('click', {
-    eventCategory: 'outbound',
-    eventLabel: url,
-    eventCallback: createFunctionWithTimeout(
-      () => navigate && (document.location = url)
-    ),
-  });
-}
-
 function trackLogin(url, navigate) {
   trackEvent('login', {
     eventCategory: 'engagement',
@@ -77,6 +67,23 @@ function trackLogout(url, navigate) {
     eventCallback: createFunctionWithTimeout(
       () => navigate && (document.location = url)
     ),
+  });
+}
+
+function trackOutboundLink(url, navigate) {
+  trackEvent('click', {
+    eventCategory: 'outbound',
+    eventLabel: url,
+    eventCallback: createFunctionWithTimeout(
+      () => navigate && (document.location = url)
+    ),
+  });
+}
+
+function trackShareLink(platform) {
+  trackEvent('share', {
+    eventCategory: 'engagement',
+    eventLabel: platform,
   });
 }
 
@@ -141,5 +148,11 @@ export function withTracking(Component, ConsentComponent) {
 withTracking.trackVitals = trackVitals;
 
 export function useTracking() {
-  return { trackEvent, trackOutboundLink, trackLogin, trackLogout };
+  return {
+    trackEvent,
+    trackOutboundLink,
+    trackShareLink,
+    trackLogin,
+    trackLogout,
+  };
 }

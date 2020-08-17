@@ -14,6 +14,7 @@
   "consentSubmitButton": "Einwilligung Speichern",
   "consentTitle": "Einwilligung zur Datenverarbeitung",
   "cookieConsentButton": "Cookies Akzeptieren",
+  "mainPageLink": "Matcha Startseite",
   "imprintTitle": "Impressum",
   "imprintDescription": "",
   "login": "Anmelden",
@@ -43,6 +44,16 @@
   "prefTitle": "Individuelle Einstellungen",
   "privacyDescription": "",
   "privacyTitle": "Datenschutz",
+  "shareFacebook": "Auf Facebook teilen",
+  "shareHeadline": "Diese Seite teilen",
+  "shareMail": "Per E-Mail teilen",
+  "shareTelegram": "Per Telegram teilen",
+  "shareText": "Hallo, ich glaube das hier wäre etwas für Dich:\r\n{{ url }}",
+  "shareTwitter": "Auf Twitter teilen",
+  "shareWhatsApp": "Per WhatsApp teilen",
   "termsDescription": "",
-  "termsTitle": "Nutzungsbedingungen"
+  "termsTitle": "Nutzungsbedingungen",
+  "visitFacebook": "Besuch uns auf Facebook",
+  "visitInstagram": "Besuch uns auf Instagram",
+  "visitTwitter": "Besuch uns auf Twitter"
 }

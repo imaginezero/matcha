@@ -1,8 +1,16 @@
-.cards > * {
+.normal > * {
+  margin-bottom: var(--space-l);
+}
+
+.normal {
+  margin-bottom: calc(-1 * var(--space-l));
+}
+
+.high > * {
   margin-bottom: calc(var(--space-xxxl) + var(--space-s) + var(--space-xs));
 }
 
-.cards {
+.high {
   margin-bottom: calc(
     -1 * calc(var(--space-xxxl) + var(--space-s) + var(--space-xs))
   );

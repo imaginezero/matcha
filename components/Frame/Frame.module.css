@@ -73,6 +73,7 @@
 .footerWrapper {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   width: 100%;
 }
 
@@ -96,6 +97,19 @@
   margin-bottom: var(--space-xl);
 }
 
+.socialWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.socialIcon {
+  display: block;
+  flex: 0 0 var(--space-xl);
+  height: var(--space-xl);
+  margin: 0 var(--space-s);
+}
+
 .association {
   margin-bottom: var(--space-l);
   text-align: center;
@@ -117,10 +131,6 @@
     flex-grow: 1;
     flex-shrink: 1;
     margin-bottom: var(--space-0);
-  }
-
-  .social {
-    text-align: center;
   }
 
   .association {
