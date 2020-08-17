@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 
-import { useTranslation } from '../../hooks';
+import { useTranslation, useTracking } from '../../hooks';
 
 import { getAbsoluteUrl } from '../utilities';
 
@@ -13,6 +13,7 @@ import { shareWrapper, shareLink } from './ShareCard.module.css';
 export default function Share() {
   const { asPath } = useRouter();
   const { t } = useTranslation();
+  const { trackShareLink } = useTracking();
   const url = getAbsoluteUrl(asPath);
   const encodedUrl = encodeURIComponent(url);
   const encodedText = encodeURIComponent(t('shareText', { url }));
@@ -22,6 +23,7 @@ export default function Share() {
       <div className={shareWrapper}>
         <a
           href={`https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`}
+          onClick={() => trackShareLink('Facebook')}
           rel="noreferrer noopener"
           target="_blank"
         >
@@ -29,6 +31,7 @@ export default function Share() {
         </a>
         <a
           href={`https://twitter.com/intent/tweet?url=${encodedUrl}`}
+          onClick={() => trackShareLink('Twitter')}
           rel="noreferrer noopener"
           target="_blank"
         >
@@ -36,6 +39,7 @@ export default function Share() {
         </a>
         <a
           href={`https://wa.me/?text=${encodedText}`}
+          onClick={() => trackShareLink('WhatsApp')}
           rel="noreferrer noopener"
           target="_blank"
         >
@@ -43,6 +47,7 @@ export default function Share() {
         </a>
         <a
           href={`https://t.me/share/url?url=${encodedUrl}`}
+          onClick={() => trackShareLink('Twitter')}
           rel="noreferrer noopener"
           target="_blank"
         >
@@ -50,6 +55,7 @@ export default function Share() {
         </a>
         <a
           href={`mailto:?body=${encodedText}`}
+          onClick={() => trackShareLink('Email')}
           rel="noreferrer noopener"
           target="_blank"
         >
