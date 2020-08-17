@@ -7,35 +7,36 @@ import { H2 } from '../Typo';
 
 import { button, interstitialButton } from './ActivityCard.module.css';
 
-function Interstitial({ link, slug }) {
+function Interstitial({ link, slug, close }) {
   const { t } = useTranslation();
   const { trackLogin, trackOutboundLink } = useTracking();
   const params = new URLSearchParams({ redirectTo: `/activity/${slug}` });
   return (
-    <Modal>
-      <>
-        <H2>{t('interstitialHeadline')}</H2>
-        <p>{t('interstitialDescription')}</p>
-        <a
-          href={`/api/auth/login?${params.toString()}`}
-          onClick={(event) => {
-            event.preventDefault();
-            trackLogin(event.target.href, true);
-          }}
-          className={interstitialButton}
-        >
-          {`${t('login')}`}
-        </a>
-        <a
-          href={link}
-          target="_blank"
-          rel="noreferrer noopener"
-          onClick={() => trackOutboundLink(link)}
-        >
-          {t('interstitialDirectLink')}
-        </a>
-      </>
-    </Modal>
+    <>
+      <H2>{t('interstitialHeadline')}</H2>
+      <p>{t('interstitialDescription')}</p>
+      <a
+        href={`/api/auth/login?${params.toString()}`}
+        onClick={(event) => {
+          event.preventDefault();
+          trackLogin(event.target.href, true);
+        }}
+        className={interstitialButton}
+      >
+        {`${t('login')}`}
+      </a>
+      <a
+        href={link}
+        target="_blank"
+        rel="noreferrer noopener"
+        onClick={() => {
+          trackOutboundLink(link);
+          close();
+        }}
+      >
+        {t('interstitialDirectLink')}
+      </a>
+    </>
   );
 }
 
@@ -47,7 +48,11 @@ function LoggedOutButton(props) {
       <a className={button} onClick={() => setIsOpen(true)}>
         {label}
       </a>
-      {isOpen ? <Interstitial {...props} /> : null}
+      {isOpen ? (
+        <Modal onClose={() => setIsOpen(false)}>
+          <Interstitial {...props} />
+        </Modal>
+      ) : null}
     </>
   );
 }
