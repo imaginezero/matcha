@@ -18,7 +18,7 @@
   "imprintTitle": "Impressum",
   "imprintDescription": "",
   "interstitialDescription": "Wir sind auf dein Feedback angewiesen, um unsere Empfehlungen zu verbessern. Bitte melde dich an und werde Teil unserer Community, damit wir dich gelegentlich um Feedback bitten können.",
-  "interstitialDirectLink": "Nein, direkt weiter",
+  "interstitialDirectLink": "Direkt weiter",
   "interstitialHeadline": "Hilf mit, unsere Empfehlungen zu verbessern",
   "login": "Anmelden",
   "loginInfo": "Du bist momentan als {{ email }} angemeldet.",
