@@ -13,6 +13,6 @@ export default withLogin(
   }, CookieConsent)
 );
 
-export function reportWebVitals(params) {
-  withTracking.trackVitals(params);
-}
+// export function reportWebVitals(params) {
+//   withTracking.trackVitals(params);
+// }
