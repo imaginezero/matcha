@@ -1,5 +1,3 @@
 # TBD
 
 To Be Documented.
-
-🐳 ⚓️
