@@ -57,31 +57,36 @@ function Description({ content }) {
 
 export default function ActivityCard({ activity, ...props }) {
   const {
-    name,
+    title,
     slug,
-    description,
-    singleWordCta,
-    link,
-    imgUrlPublic,
+    summary,
+    callToAction,
+    mainLink,
+    headerImage,
     organization,
   } = activity;
   return (
     <div {...props}>
       <Content
         className={imageWrapper}
-        style={{ backgroundImage: `url("${imgUrlPublic}")` }}
+        style={{
+          backgroundImage: `url("${headerImage ? headerImage.url : null}")`,
+        }}
         key={slug}
       >
         <div className={contentWrapper}>
-          <OrganizationLink name={organization.name} slug={organization.slug} />
-          <ActivityLink name={name} slug={slug} />
+          <OrganizationLink
+            name={organization.title}
+            slug={organization.slug}
+          />
+          <ActivityLink name={title} slug={slug} />
         </div>
         <div className={actionWrapper}>
-          <CallToAction link={link} slug={slug} label={singleWordCta} />
+          <CallToAction link={mainLink} slug={slug} label={callToAction} />
         </div>
       </Content>
       <div className={descriptionWrapper}>
-        <Description content={description} />
+        <Description content={summary} />
       </div>
     </div>
   );

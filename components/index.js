@@ -2,7 +2,6 @@ export { Frame } from './Frame';
 export { Page, ProtectedPage } from './Page';
 export { Content } from './Content';
 export { Cards } from './Cards';
-export { Markdown } from './Markdown';
 
 export { EffortForm } from './EffortForm';
 export { Results } from './Results';

@@ -1,4 +1,4 @@
-import { getData } from '../utils';
+import { getEntry, getEntries } from '../utils';
 
 const conditions = {
   parentOnly: 'isParent',
@@ -37,37 +37,34 @@ function filterActivities(activities, effort, prefs) {
   );
 }
 
-export async function getActivities() {
-  const { activities } = await getData();
+export async function getActivities(preview) {
+  const activities = await getEntries('activity', preview);
   return activities;
 }
 
 export async function getActivity(properties, preview) {
-  const { activities, activityTypes, organizations } = await getData(preview);
-  const activity = activities.find((activity) =>
-    Object.entries(properties).every(([key, value]) => activity[key] === value)
-  );
+  const activity = await getEntry('activity', properties, preview);
+  const organizations = await getEntries('organization', preview);
   return {
     ...activity,
-    organization:
-      organizations.find(({ name }) => name === activity.organization) || null,
-    type: activityTypes.find(({ type }) => type === activity.type) || null,
+    organization: organizations.find(
+      ({ id }) => id === activity.organization.id
+    ),
   };
 }
 
 export async function recommendActivities(effort, prefs, preview) {
-  const { activities, activityTypes, organizations } = await getData(preview);
+  const activities = await getEntries('activity', preview);
+  const organizations = await getEntries('organization', preview);
   return filterActivities(activities, effort, prefs)
-    .map((activity) => ({
+    .map(({ effortScore, impactScore, organization, ...activity }) => ({
       ...activity,
-      organization:
-        organizations.find(
-          (organization) => organization.name === activity.organization
-        ) || null,
-      type:
-        activityTypes.find(
-          (activityType) => activityType.name === activity.type
-        ) || null,
+      effortScore,
+      impactScore,
+      aggregateScore: Math.round(
+        (Math.pow(impactScore, 2) / effortScore) * Math.log2(impactScore)
+      ),
+      organization: organizations.find(({ id }) => id === organization.id),
     }))
     .sort((a, b) => b.aggregateScore - a.aggregateScore);
 }
