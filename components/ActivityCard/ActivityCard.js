@@ -1,9 +1,9 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import parse from 'snarkdown';
 
 import { H2, H3 } from '../Typo';
 import { Content } from '../Content';
+import { Markdown } from '../Markdown';
 
 import CallToAction from './CallToAction';
 
@@ -50,7 +50,9 @@ function ActivityLink({ name, slug }) {
 function Description({ content }) {
   return (
     <div className={description}>
-      <Content dangerouslySetInnerHTML={{ __html: parse(content) }} />
+      <Content>
+        <Markdown contents={content} />
+      </Content>
     </div>
   );
 }

@@ -1,8 +1,7 @@
-import parse from 'snarkdown';
-
 import { useTranslation } from '../../hooks';
 
 import { Modal } from '../Modal';
+import { Markdown } from '../Markdown';
 
 import { button } from './CookieConsent.module.css';
 
@@ -23,9 +22,7 @@ export default function CookieConsent({ onClose }) {
   return (
     <Modal onClose={onClose}>
       <CookieConsentForm>
-        <div
-          dangerouslySetInnerHTML={{ __html: parse(t('cookieConsentText')) }}
-        />
+        <Markdown contents={t('cookieConsentText')} />
       </CookieConsentForm>
     </Modal>
   );

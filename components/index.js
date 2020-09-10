@@ -23,4 +23,6 @@ export {
 
 export { ShareCard } from './ShareCard';
 
+export { Markdown } from './Markdown';
+
 export { H1 as Headline } from './Typo';

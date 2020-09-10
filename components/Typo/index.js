@@ -40,5 +40,5 @@ export function H4({ children, className, ...props }) {
 
 export function Muted({ className, ...props }) {
   const classNames = concatClassnames(muted, className);
-  return <p className={classNames} {...props} />;
+  return <div className={classNames} {...props} />;
 }

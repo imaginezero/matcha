@@ -1,11 +1,11 @@
-import { Page, Content } from '../components';
+import { Page, Content, Markdown } from '../components';
 import { getPages, getPage } from '../services';
 
 export default function ContentPage({ title, summary, contents }) {
   return (
     <Page title={title} description={summary}>
       <Content>
-        <pre>{contents}</pre>
+        <Markdown contents={contents} />
       </Content>
     </Page>
   );

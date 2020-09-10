@@ -1,9 +1,8 @@
-import parse from 'snarkdown';
-
 import { useTranslation } from '../../hooks';
 
 import { Content } from '../Content';
 import { AssociationMark } from '../Logo';
+import { Markdown } from '../Markdown';
 
 import SocialLinks from './SocialLinks';
 
@@ -24,11 +23,7 @@ export default function Footer() {
       <div className={compliance}>
         <Content className={content}>
           <div className={menu}>
-            <div
-              dangerouslySetInnerHTML={{
-                __html: parse(t('mainMenu')),
-              }}
-            />
+            <Markdown contents={t('mainMenu')} />
           </div>
           <div className={social}>
             <SocialLinks />

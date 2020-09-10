@@ -45,9 +45,11 @@
     "postcss-preset-env": "^6.7.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "remark-parse": "^8.0.3",
+    "remark-react": "^7.0.1",
     "rimraf": "^3.0.2",
     "snakecase-keys": "^3.2.0",
-    "snarkdown": "^2.0.0"
+    "unified": "^9.2.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^9.1.2",
