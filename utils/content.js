@@ -2,6 +2,8 @@ const { format } = require('util');
 
 const { createClient } = require('contentful');
 
+const { getCachedEntries } = require('./cache');
+
 function createContentfulClient(preview) {
   return preview
     ? createClient({
@@ -92,8 +94,7 @@ async function fetchEntries(contentType, preview) {
 
 async function getEntries(contentType, preview) {
   if (!preview) {
-    const { getCachedEntries } = require('../scripts/download');
-    const entries = getCachedEntries(contentType);
+    const entries = await getCachedEntries(contentType);
     if (entries) return entries;
   }
   return fetchEntries(contentType, preview);

@@ -1,8 +1,8 @@
+#!/usr/bin/env node
+
 const { basename, join } = require('path');
 const { promisify } = require('util');
 const fs = require('fs');
-
-require('dotenv').config({ path: join(process.cwd(), '.env.local') });
 
 const pkgDir = require('pkg-dir');
 const rimraf = require('rimraf');
@@ -10,14 +10,12 @@ const mkdirp = require('mkdirp');
 const axios = require('axios');
 
 const { fetchEntries } = require('../utils/content');
+const { cacheFolder, getCacheFileName } = require('../utils/cache');
 
-const projectFolder = pkgDir.sync();
-const cacheFolder = join(projectFolder, 'data');
-const imageFolder = join(projectFolder, 'public', 'images');
+const rootFolder = pkgDir.sync();
+const imageFolder = join(rootFolder, 'public', 'images');
 
-const fileExists = fs.existsSync;
-const writeFile = promisify(fs.writeFile);
-const readFile = promisify(fs.readFile);
+const mkfile = promisify(fs.writeFile);
 const rmdir = promisify(rimraf);
 
 const types = ['activity', 'category', 'organization', 'page', 'resource'];
@@ -27,11 +25,11 @@ async function fetchImage(url, slug) {
   const { data } = await axios.get(url, {
     responseType: 'arraybuffer',
   });
-  await writeFile(join(imageFolder, fileName), data);
+  await mkfile(join(imageFolder, fileName), data);
   return `/${basename(imageFolder)}/${fileName}`;
 }
 
-async function processEntry(entry) {
+async function fetchImages(entry) {
   return Object.fromEntries(
     await Promise.all(
       Object.entries(entry).map(async ([key, value]) => {
@@ -45,20 +43,10 @@ async function processEntry(entry) {
   );
 }
 
-const cache = {};
-exports.getCachedEntries = async function getCachedEntries(type) {
-  if (!(type in cache)) {
-    const cacheFile = join(cacheFolder, `${type}.json`);
-    if (fileExists(cacheFile)) {
-      cache[type] = JSON.parse(await readFile(cacheFile, 'utf8'));
-    } else {
-      cache[type] = null;
-    }
-  }
-  return cache[type];
-};
-
 if (require.main === module) {
+  require('dotenv').config({
+    path: join(rootFolder, '.env.local'),
+  });
   (async () => {
     try {
       await Promise.all(
@@ -70,14 +58,12 @@ if (require.main === module) {
       await Promise.all(
         types.map(async (type) => {
           const entries = await Promise.all(
-            (await fetchEntries(type, true)).map(processEntry)
+            (await fetchEntries(type)).map(fetchImages)
           );
-          await writeFile(
-            join(cacheFolder, `${type}.json`),
-            JSON.stringify(entries, null, 2)
-          );
+          await mkfile(getCacheFileName(type), JSON.stringify(entries));
         })
       );
+      process.exit(0);
     } catch (error) {
       console.error(error);
       process.exit(1);

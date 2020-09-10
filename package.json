@@ -9,9 +9,8 @@
     "start": "next start",
     "fmt": "prettier --write --ignore-path .gitignore .",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "download": "node scripts/download.js",
-    "prebuild": "npm run download",
-    "predevelop": "npm run download"
+    "prebuild": "./scripts/download.js",
+    "predevelop": "./scripts/download.js"
   },
   "repository": {
     "type": "git",
