@@ -1,5 +1,9 @@
+import { Fragment } from 'react';
 import Link from 'next/link';
-import { MDXProvider } from '@mdx-js/react';
+import unified from 'unified';
+import parse from 'remark-parse';
+import render from 'remark-react';
+
 import { useLogin, useTracking, useTranslation } from '../../hooks';
 
 function LoginLink(props) {
@@ -22,7 +26,7 @@ function LoginLink(props) {
 
 import { H1, H2, H3, H4 } from '../Typo';
 
-import { markdown } from './Markdown.module.css';
+import { p } from './Markdown.module.css';
 
 const components = {
   h1({ children, ...props }) {
@@ -40,7 +44,14 @@ const components = {
   hr({ children }) {
     return <>{children}</>;
   },
-  a: function MarkdownLink({ href, children, ...props }) {
+  p({ children, ...props }) {
+    return (
+      <p className={p} {...props}>
+        {children}
+      </p>
+    );
+  },
+  a({ href, children, ...props }) {
     if (href === '/api/auth/login') {
       return <LoginLink {...props} />;
     }
@@ -50,20 +61,24 @@ const components = {
           {children}
         </a>
       );
-    } else {
+    }
+    if (href) {
       return (
         <Link href={href}>
           <a {...props}>{children}</a>
         </Link>
       );
     }
+    return children;
   },
 };
 
-export default function Markdown({ children }) {
-  return (
-    <MDXProvider components={components}>
-      <div className={markdown}>{children}</div>
-    </MDXProvider>
-  );
+export default function Markdown({ contents }) {
+  return unified()
+    .use(parse)
+    .use(render, {
+      remarkReactComponents: components,
+      fragment: Fragment,
+    })
+    .processSync(contents).result;
 }

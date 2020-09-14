@@ -1,9 +1,9 @@
-import parse from 'snarkdown';
 import { useRouter } from 'next/router';
 
 import { useTranslation } from '../../hooks';
 
 import { Content } from '../Content';
+import { Markdown } from '../Markdown';
 import { H1, H3 } from '../Typo';
 
 import { wrapper, main, links } from './OrganizationCard.module.css';
@@ -11,15 +11,14 @@ import { wrapper, main, links } from './OrganizationCard.module.css';
 export default function OrganizationCard({ organization }) {
   const { asPath } = useRouter();
   const { t } = useTranslation();
-  const { name, slug, description, mainLink, contactLink } = organization;
+  const { title, slug, summary, mainLink, contactLink } = organization;
   return (
     <Content>
-      {asPath === `/organization/${slug}` ? <H1>{name}</H1> : <H3>{name}</H3>}
+      {asPath === `/organization/${slug}` ? <H1>{title}</H1> : <H3>{title}</H3>}
       <div className={wrapper}>
-        <div
-          className={main}
-          dangerouslySetInnerHTML={{ __html: parse(description) }}
-        />
+        <div className={main}>
+          <Markdown contents={summary} />
+        </div>
         <div className={links}>
           <ul>
             <li>

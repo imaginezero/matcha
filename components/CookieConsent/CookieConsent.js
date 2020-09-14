@@ -1,7 +1,5 @@
 import { useTranslation } from '../../hooks';
 
-import CookieConsentContent from '../../contents/cookies.md';
-
 import { Modal } from '../Modal';
 import { Markdown } from '../Markdown';
 
@@ -20,12 +18,11 @@ function CookieConsentForm({ children, close }) {
 }
 
 export default function CookieConsent({ onClose }) {
+  const { t } = useTranslation();
   return (
     <Modal onClose={onClose}>
       <CookieConsentForm>
-        <Markdown>
-          <CookieConsentContent />
-        </Markdown>
+        <Markdown contents={t('cookieConsentText')} />
       </CookieConsentForm>
     </Modal>
   );

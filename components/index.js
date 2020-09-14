@@ -2,7 +2,6 @@ export { Frame } from './Frame';
 export { Page, ProtectedPage } from './Page';
 export { Content } from './Content';
 export { Cards } from './Cards';
-export { Markdown } from './Markdown';
 
 export { EffortForm } from './EffortForm';
 export { Results } from './Results';
@@ -23,5 +22,7 @@ export {
 } from './OrganizationCard';
 
 export { ShareCard } from './ShareCard';
+
+export { Markdown } from './Markdown';
 
 export { H1 as Headline } from './Typo';

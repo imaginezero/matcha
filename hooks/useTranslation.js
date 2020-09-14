@@ -4,7 +4,12 @@ import hoistNonReactStatics from 'hoist-non-react-statics';
 import flatten from 'flat';
 import escape from 'escape-html';
 
-import translations from '../data/de.json';
+// #TODO: replace this with an implementation supporting preview mode
+import resources from '../data/resource.json';
+const translations = resources.reduce(
+  (result, { key, value = '' }) => ({ ...result, [key]: value }),
+  {}
+);
 
 const t = (key, data) => {
   if (!(key in translations)) {

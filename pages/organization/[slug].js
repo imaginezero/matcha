@@ -1,4 +1,4 @@
-import { getOrganizations } from '../../services';
+import { getOrganizations, getOrganization } from '../../services';
 
 import {
   Page,
@@ -26,7 +26,6 @@ export default function Organization({ organization }) {
 }
 
 export async function getStaticProps({ params: { slug }, preview }) {
-  const { getOrganization } = require('../../services/organization');
   const organization = await getOrganization({ slug }, preview);
   return {
     props: {

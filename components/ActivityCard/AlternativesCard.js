@@ -14,10 +14,10 @@ export default function AlternativesCard({ activities }) {
       <H3>{t('activityAlternativesHeadline')}</H3>
       <p>{t('activityAlternativesDescription')}</p>
       <ul>
-        {activities.map(({ slug, name }) => (
+        {activities.map(({ slug, title }) => (
           <li key={slug}>
             <Link href="/activity/[slug]" as={`/activity/${slug}`}>
-              <a>{name}</a>
+              <a>{title}</a>
             </Link>
           </li>
         ))}

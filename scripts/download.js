@@ -1,61 +1,72 @@
-require('dotenv').config();
+#!/usr/bin/env node
 
+const { basename, join } = require('path');
 const { promisify } = require('util');
-const { basename, dirname, join } = require('path');
 const fs = require('fs');
 
+const pkgDir = require('pkg-dir');
 const rimraf = require('rimraf');
 const mkdirp = require('mkdirp');
 const axios = require('axios');
-const pLimit = require('p-limit');
-const sharp = require('sharp');
-const imagemin = require('imagemin');
-const imageminJpegtran = require('imagemin-jpegtran');
 
-const { getData, dataFile } = require('../utils/data');
+const { fetchEntries } = require('../utils/content');
+const { cacheFolder, getCacheFileName } = require('../utils/cache');
 
-const imageFolder = join(dirname(__dirname), 'public', 'images');
+const rootFolder = pkgDir.sync();
+const imageFolder = join(rootFolder, 'public', 'images');
 
-const limit = pLimit(2);
-const writeFile = promisify(fs.writeFile);
-const deleteFiles = promisify(rimraf);
+const mkfile = promisify(fs.writeFile);
+const rmdir = promisify(rimraf);
 
-(async () => {
-  try {
-    const data = await getData(true);
-    await deleteFiles(dataFile);
-    await deleteFiles(imageFolder);
-    await mkdirp(imageFolder);
-    const activities = await Promise.all(
-      data.activities.map((activity) =>
-        limit(async () => {
-          const { slug, imgUrlInternal } = activity;
-          const fileName = `${slug}.jpg`;
-          const { data } = await axios.get(imgUrlInternal, {
-            responseType: 'arraybuffer',
-          });
-          await writeFile(
-            join(imageFolder, fileName),
-            await imagemin.buffer(
-              await sharp(data)
-                .resize({ width: 900, height: 600 })
-                .jpeg({ quality: 80 })
-                .toBuffer(),
-              {
-                plugins: [imageminJpegtran({ progressive: true })],
-              }
-            )
-          );
-          return {
-            ...activity,
-            imgUrlPublic: `/${basename(imageFolder)}/${fileName}`,
-          };
+const types = ['activity', 'category', 'organization', 'page', 'resource'];
+
+async function fetchImage(url, slug) {
+  const fileName = `${slug}.jpg`;
+  const { data } = await axios.get(url, {
+    responseType: 'arraybuffer',
+  });
+  await mkfile(join(imageFolder, fileName), data);
+  return `/${basename(imageFolder)}/${fileName}`;
+}
+
+async function fetchImages(entry) {
+  return Object.fromEntries(
+    await Promise.all(
+      Object.entries(entry).map(async ([key, value]) => {
+        if (value.type === 'image') {
+          const url = await fetchImage(value.url, entry.slug);
+          return [key, { ...value, url }];
+        }
+        return [key, value];
+      })
+    )
+  );
+}
+
+if (require.main === module) {
+  require('dotenv').config({
+    path: join(rootFolder, '.env.local'),
+  });
+  (async () => {
+    try {
+      await Promise.all(
+        [cacheFolder, imageFolder].map(async (folder) => {
+          await rmdir(folder);
+          await mkdirp(folder);
         })
-      )
-    );
-    await writeFile(dataFile, JSON.stringify({ ...data, activities }));
-  } catch (error) {
-    console.error(error);
-    process.exit(1);
-  }
-})();
+      );
+      await Promise.all(
+        types.map(async (type) => {
+          const entries = await Promise.all(
+            (await fetchEntries(type)).map(fetchImages)
+          );
+          await mkfile(getCacheFileName(type), JSON.stringify(entries));
+        })
+      );
+      process.exit(0);
+    } catch (error) {
+      console.error(error);
+      process.exit(1);
+    }
+  })();
+}

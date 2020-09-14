@@ -1,8 +1,8 @@
-import { Content } from '../Content';
-import { Markdown } from '../Markdown';
-import { AssociationMark } from '../Logo';
+import { useTranslation } from '../../hooks';
 
-import MenuContent from '../../contents/menu.md';
+import { Content } from '../Content';
+import { AssociationMark } from '../Logo';
+import { Markdown } from '../Markdown';
 
 import SocialLinks from './SocialLinks';
 
@@ -17,14 +17,13 @@ import {
 } from './Frame.module.css';
 
 export default function Footer() {
+  const { t } = useTranslation();
   return (
     <footer className={footerWrapper}>
       <div className={compliance}>
         <Content className={content}>
           <div className={menu}>
-            <Markdown>
-              <MenuContent />
-            </Markdown>
+            <Markdown contents={t('mainMenu')} />
           </div>
           <div className={social}>
             <SocialLinks />

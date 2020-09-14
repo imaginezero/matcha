@@ -1,5 +1,0 @@
-[Was ist Matcha?](/about)  
-[Kontakt](/imprint)  
-[Nutzungsbedingungen](/terms)  
-[Datenschutz](/privacy)  
-[Login](/api/auth/login)

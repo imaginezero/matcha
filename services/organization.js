@@ -1,25 +1,20 @@
-import { getData } from '../utils';
+import { getEntry, getEntries } from '../utils';
 
-export async function getOrganizations() {
-  const { organizations } = await getData();
+export async function getOrganizations(preview) {
+  const organizations = await getEntries('organization', preview);
   return organizations;
 }
 
 export async function getOrganization(properties, preview) {
-  const { activities, activityTypes, organizations } = await getData(preview);
-  const organization = organizations.find((organization) =>
-    Object.entries(properties).every(
-      ([key, value]) => organization[key] === value
-    )
-  );
+  const activities = await getEntries('activity', preview);
+  const organization = await getEntry('organization', properties, preview);
   return {
     ...organization,
     activities: activities
-      .filter((activity) => activity.organization === organization.name)
-      .sort((a, b) => b.aggregateScore - a.aggregateScore)
-      .map((activity) => ({
-        ...activity,
-        type: activityTypes.find(({ type }) => activity.type === type) || null,
-      })),
+      .filter(
+        (activity) =>
+          activity.organization && activity.organization.id === organization.id
+      )
+      .sort((a, b) => b.aggregateScore - a.aggregateScore),
   };
 }

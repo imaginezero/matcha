@@ -7,14 +7,14 @@ export {
   updateUserAppMetadata,
 } from './auth';
 
+export { getEntry, getEntries } from './content';
+
 export {
   createContact,
   updateContact,
   updateContactTags,
   sendContactEvent,
 } from './crm';
-
-export { getData, dataFile } from './data';
 
 export { prefs, getPrefs, setPrefs, resetPrefs } from './prefs';
 

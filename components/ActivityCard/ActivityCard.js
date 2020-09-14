@@ -1,9 +1,9 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import parse from 'snarkdown';
 
 import { H2, H3 } from '../Typo';
 import { Content } from '../Content';
+import { Markdown } from '../Markdown';
 
 import CallToAction from './CallToAction';
 
@@ -50,38 +50,45 @@ function ActivityLink({ name, slug }) {
 function Description({ content }) {
   return (
     <div className={description}>
-      <Content dangerouslySetInnerHTML={{ __html: parse(content) }} />
+      <Content>
+        <Markdown contents={content} />
+      </Content>
     </div>
   );
 }
 
 export default function ActivityCard({ activity, ...props }) {
   const {
-    name,
+    title,
     slug,
-    description,
-    singleWordCta,
-    link,
-    imgUrlPublic,
+    summary,
+    callToAction,
+    mainLink,
+    headerImage,
     organization,
   } = activity;
   return (
     <div {...props}>
       <Content
         className={imageWrapper}
-        style={{ backgroundImage: `url("${imgUrlPublic}")` }}
+        style={{
+          backgroundImage: `url("${headerImage ? headerImage.url : null}")`,
+        }}
         key={slug}
       >
         <div className={contentWrapper}>
-          <OrganizationLink name={organization.name} slug={organization.slug} />
-          <ActivityLink name={name} slug={slug} />
+          <OrganizationLink
+            name={organization.title}
+            slug={organization.slug}
+          />
+          <ActivityLink name={title} slug={slug} />
         </div>
         <div className={actionWrapper}>
-          <CallToAction link={link} slug={slug} label={singleWordCta} />
+          <CallToAction link={mainLink} slug={slug} label={callToAction} />
         </div>
       </Content>
       <div className={descriptionWrapper}>
-        <Description content={description} />
+        <Description content={summary} />
       </div>
     </div>
   );
