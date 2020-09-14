@@ -24,7 +24,7 @@
   .actionWrapper {
     flex-grow: 0;
     flex-shrink: 0;
-    flex-basis: 25%;
+    flex-basis: 30%;
     text-align: right;
     margin-top: var(--space-0);
   }
