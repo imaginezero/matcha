@@ -1,5 +1,8 @@
+import { getRedirectUrl } from '../../../utils';
+
 export default function handlePreviewMode(req, res) {
-  const { slug: action, redirect = '/' } = req.query;
+  const redirectTo = getRedirectUrl(req) || '/';
+  const { slug: action } = req.query;
   try {
     switch (action) {
       case 'on':
@@ -11,7 +14,7 @@ export default function handlePreviewMode(req, res) {
       default:
         throw new Error(`invalid action: ${action}`);
     }
-    res.writeHead(302, { Location: redirect });
+    res.writeHead(302, { Location: redirectTo });
     res.end();
   } catch (error) {
     console.error(error);
