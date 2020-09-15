@@ -18,8 +18,8 @@ export default function Activity({ activity, activities }) {
   return (
     <Page
       title={activity.name}
-      description={activity.description}
-      image={activity.imgUrlPublic}
+      description={activity.summary}
+      image={activity.headerImage.url || null}
     >
       <Cards>
         <ActivityCard activity={activity} />

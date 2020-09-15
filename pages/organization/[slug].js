@@ -9,10 +9,9 @@ import {
 } from '../../components';
 
 export default function Organization({ organization }) {
-  const { name, description, activities } = organization;
-  const image = activities.length ? activities[0].imgUrlPublic : null;
+  const { name, summary, activities } = organization;
   return (
-    <Page title={name} description={description} image={image}>
+    <Page title={name} description={summary}>
       <Cards>
         <OrganizationCard organization={organization} />
         <OrganizationActivitiesCard
