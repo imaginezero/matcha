@@ -17,8 +17,9 @@ export default withLogin(function Home({ activities, moreActivities }) {
 });
 
 export async function getServerSideProps({ req, query, preview }) {
-  const { e: effort = defaultEffort, p: page = 1 } = query;
-  const num = Number(page) * 3;
+  const { e: effort = defaultEffort /*, p: page = 1 */ } = query;
+  // const num = Number(page) * 3;
+  const num = 100;
   const prefs = getPrefs(req);
   const profile = await getProfile(req);
   const activities = await recommendActivities(effort, prefs, preview);
