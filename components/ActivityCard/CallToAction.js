@@ -11,15 +11,16 @@ function Interstitial({ link, slug, close }) {
   const { t } = useTranslation();
   const { trackLogin, trackOutboundLink } = useTracking();
   const params = new URLSearchParams({ redirectTo: `/activity/${slug}` });
+  const loginLink = `/api/auth/login?${params.toString()}`;
   return (
     <>
       <H2>{t('interstitialHeadline')}</H2>
       <p>{t('interstitialDescription')}</p>
       <a
-        href={`/api/auth/login?${params.toString()}`}
+        href={loginLink}
         onClick={(event) => {
           event.preventDefault();
-          trackLogin(event.target.href, true);
+          trackLogin(loginLink, true);
         }}
         className={interstitialButton}
       >
@@ -29,8 +30,9 @@ function Interstitial({ link, slug, close }) {
         href={link}
         target="_blank"
         rel="noreferrer noopener"
-        onClick={() => {
-          trackOutboundLink(link);
+        onClick={(event) => {
+          event.preventDefault();
+          trackOutboundLink(link, true, '_blank');
           close();
         }}
       >
@@ -45,7 +47,13 @@ function LoggedOutButton(props) {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <>
-      <a className={button} onClick={() => setIsOpen(true)}>
+      <a
+        className={button}
+        onClick={(event) => {
+          event.preventDefault();
+          setIsOpen(true);
+        }}
+      >
         {label}
       </a>
       {isOpen ? (
@@ -66,9 +74,10 @@ function LoggedInButton({ link, label, slug }) {
       href={link}
       target="_blank"
       rel="noreferrer noopener"
-      onClick={() => {
-        trackOutboundLink(link);
+      onClick={(event) => {
+        event.preventDefault();
         captureOutboundLink(slug, link);
+        trackOutboundLink(link, true, '_blank');
       }}
     >
       {label}

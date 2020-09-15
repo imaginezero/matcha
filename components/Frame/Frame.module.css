@@ -79,6 +79,7 @@
 
 .compliance {
   padding-top: var(--space-m);
+  padding-bottom: var(--space-m);
   background-color: var(--gray-800);
 }
 

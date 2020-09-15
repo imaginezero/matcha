@@ -5,51 +5,30 @@ import { H2, H3 } from '../Typo';
 import { Content } from '../Content';
 import { Markdown } from '../Markdown';
 
-import CallToAction from './CallToAction';
-
 import {
+  activityLink,
   imageWrapper,
   contentWrapper,
-  actionWrapper,
-  descriptionWrapper,
-  description,
+  summaryWrapper,
+  summary,
   h2,
   h3,
 } from './ActivityCard.module.css';
 
-function OrganizationLink({ name, slug }) {
+function ActivityLink({ slug, children }) {
   const { asPath } = useRouter();
-  return (
-    <H3 className={h3}>
-      {asPath === `/organization/${slug}` ? (
-        name
-      ) : (
-        <Link href={'/organization/[slug]'} as={`/organization/${slug}`}>
-          <a>{name}</a>
-        </Link>
-      )}
-    </H3>
+  return asPath === `/activity/${slug}` ? (
+    children
+  ) : (
+    <Link href={'/activity/[slug]'} as={`/activity/${slug}`}>
+      <a className={activityLink}>{children}</a>
+    </Link>
   );
 }
 
-function ActivityLink({ name, slug }) {
-  const { asPath } = useRouter();
+function Summary({ content }) {
   return (
-    <H2 className={h2}>
-      {asPath === `/activity/${slug}` ? (
-        name
-      ) : (
-        <Link href={'/activity/[slug]'} as={`/activity/${slug}`}>
-          <a>{name}</a>
-        </Link>
-      )}
-    </H2>
-  );
-}
-
-function Description({ content }) {
-  return (
-    <div className={description}>
+    <div className={summary}>
       <Content>
         <Markdown contents={content} />
       </Content>
@@ -57,39 +36,32 @@ function Description({ content }) {
   );
 }
 
-export default function ActivityCard({ activity, ...props }) {
-  const {
-    title,
-    slug,
-    summary,
-    callToAction,
-    mainLink,
-    headerImage,
-    organization,
-  } = activity;
+export default function ActivityCard({
+  activity,
+  withSummary = true,
+  ...props
+}) {
+  const { title, slug, summary, headerImage, organization } = activity;
   return (
     <div {...props}>
-      <Content
-        className={imageWrapper}
-        style={{
-          backgroundImage: `url("${headerImage ? headerImage.url : null}")`,
-        }}
-        key={slug}
-      >
-        <div className={contentWrapper}>
-          <OrganizationLink
-            name={organization.title}
-            slug={organization.slug}
-          />
-          <ActivityLink name={title} slug={slug} />
+      <ActivityLink slug={slug}>
+        <Content
+          className={imageWrapper}
+          style={{
+            backgroundImage: `url("${headerImage ? headerImage.url : null}")`,
+          }}
+        >
+          <div className={contentWrapper}>
+            <H3 className={h3}>{organization.title}</H3>
+            <H2 className={h2}>{title}</H2>
+          </div>
+        </Content>
+      </ActivityLink>
+      {withSummary ? (
+        <div className={summaryWrapper}>
+          <Summary content={summary} />
         </div>
-        <div className={actionWrapper}>
-          <CallToAction link={mainLink} slug={slug} label={callToAction} />
-        </div>
-      </Content>
-      <div className={descriptionWrapper}>
-        <Description content={summary} />
-      </div>
+      ) : null}
     </div>
   );
 }

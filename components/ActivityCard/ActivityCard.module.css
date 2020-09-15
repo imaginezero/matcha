@@ -20,14 +20,6 @@
     flex-grow: 1;
     flex-shrink: 1;
   }
-
-  .actionWrapper {
-    flex-grow: 0;
-    flex-shrink: 0;
-    flex-basis: 30%;
-    text-align: right;
-    margin-top: var(--space-0);
-  }
 }
 
 .h2.h2,
@@ -59,19 +51,25 @@
   text-decoration: none;
 }
 
-.descriptionWrapper {
+.activityLink,
+.activityLink:hover,
+.activityLink:active {
+  text-decoration: none;
+}
+
+.summaryWrapper {
   composes: wrapper from '../atoms.module.css';
   padding: var(--space-0) var(--space-m);
   margin-top: calc(-1 * calc(var(--space-m) + var(--space-s)));
 }
 
 @media (min-width: 720px) {
-  .descriptionWrapper {
+  .summaryWrapper {
     padding: var(--space-0) calc(var(--space-xxxl) + var(--space-m));
   }
 }
 
-.description {
+.summary {
   padding: var(--space-s);
   background-color: var(--white);
   box-shadow: var(--box-shadow-light);
@@ -96,4 +94,10 @@
 
 .alternativesWrapper {
   margin-bottom: calc(-1 * var(--space-0));
+}
+
+.descriptionButtonWrapper {
+  margin-top: var(--space-xl);
+  margin-bottom: calc(-1 * var(--space-l));
+  text-align: center;
 }

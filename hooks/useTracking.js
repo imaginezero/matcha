@@ -6,6 +6,17 @@ import cookie from 'cookie';
 
 import { useLogin } from './useLogin';
 
+function navigateSecurely(url, target = '_self') {
+  const a = document.createElement('a');
+  document.body.appendChild(a);
+  a.rel = 'noreferrer noopener';
+  a.style = 'display:none';
+  a.target = target;
+  a.href = url;
+  a.click();
+  document.body.removeChild(a);
+}
+
 function loadGtag() {
   if (window && window.gaId && !window.gaRequested) {
     const script = document.createElement('script');
@@ -55,7 +66,7 @@ function trackLogin(url, navigate) {
     eventCategory: 'engagement',
     eventLabel: 'Auth0',
     eventCallback: createFunctionWithTimeout(
-      () => navigate && (document.location = url)
+      () => navigate && navigateSecurely(url)
     ),
   });
 }
@@ -65,17 +76,17 @@ function trackLogout(url, navigate) {
     eventCategory: 'engagement',
     eventLabel: 'Auth0',
     eventCallback: createFunctionWithTimeout(
-      () => navigate && (document.location = url)
+      () => navigate && navigateSecurely(url)
     ),
   });
 }
 
-function trackOutboundLink(url, navigate) {
+function trackOutboundLink(url, navigate, target) {
   trackEvent('click', {
     eventCategory: 'outbound',
     eventLabel: url,
     eventCallback: createFunctionWithTimeout(
-      () => navigate && (document.location = url)
+      () => navigate && navigateSecurely(url, target)
     ),
   });
 }

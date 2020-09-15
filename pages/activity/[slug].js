@@ -10,6 +10,7 @@ import {
   ActivityCard,
   ActivityCreditCard,
   AlternativeActivitiesCard,
+  DescriptionCard,
   OrganizationCard,
   ShareCard,
 } from '../../components';
@@ -22,7 +23,8 @@ export default function Activity({ activity, activities }) {
       image={activity.headerImage.url || null}
     >
       <Cards>
-        <ActivityCard activity={activity} />
+        <ActivityCard activity={activity} withSummary={false} />
+        <DescriptionCard activity={activity} />
         <OrganizationCard organization={activity.organization} />
         <AlternativeActivitiesCard activities={activities} />
         <ShareCard />
