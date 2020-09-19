@@ -54,7 +54,7 @@ export default function Results({ activities /*, moreActivities */ }) {
       <Cards height="high">
         {activities.map((activity) => (
           <div key={activity.slug}>
-            <ActivityCard activity={activity} />
+            <ActivityCard activity={activity} withDetailsButton={true} />
           </div>
         ))}
       </Cards>
