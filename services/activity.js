@@ -1,3 +1,4 @@
+import { EFFORT_STEP, EFFORT_MIN, EFFORT_MAX } from './static-config';
 import { getEntry, getEntries } from '../utils';
 
 const conditions = {
@@ -10,8 +11,8 @@ const conditions = {
 };
 
 function filterActivities(activities, effort, prefs) {
-  const minEffort = Math.max(Number(effort) - 10, 0);
-  const maxEffort = Math.min(Number(effort), 100);
+  const minEffort = Math.max(Number(effort) - EFFORT_STEP, EFFORT_MIN);
+  const maxEffort = Math.min(Number(effort), EFFORT_MAX);
   const maxScores = { impact: 0, aggregate: 0 };
   return [
     ...activities.filter(({ effortScore, impactScore, aggregateScore }) => {
@@ -25,7 +26,7 @@ function filterActivities(activities, effort, prefs) {
     ...activities.filter(({ effortScore, impactScore, aggregateScore }) => {
       return (
         effortScore <= minEffort &&
-        effortScore > minEffort - 5 &&
+        effortScore > minEffort - (EFFORT_STEP / 2) &&
         aggregateScore > maxScores.aggregate &&
         impactScore > maxScores.impact
       );
