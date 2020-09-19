@@ -1,4 +1,4 @@
-import { EFFORT_STEP, EFFORT_MIN, EFFORT_MAX } from './static-config';
+import { EFFORT_STEP, EFFORT_MIN, EFFORT_MAX } from '../static-config';
 import { getEntry, getEntries } from '../utils';
 
 const conditions = {
