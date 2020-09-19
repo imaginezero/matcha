@@ -49,7 +49,15 @@ export default function Results({ activities /*, moreActivities */ }) {
     <div className={wrapper}>
       <Overlay />
       <Content className={content}>
-        <h2 className={headline}>{t('mainResultsHeadline')}</h2>
+        {/* TODO use standard translation processing.
+                 The solution below clutters the resource space and isn't language-agnostic.
+                 Cleanup: Search for mainResultsHeadline* resources and clean up.
+        */}
+        {activities.length === 1 ? (
+        <h2 className={headline}>{t('mainResultsHeadlineSingle')}</h2>
+        ) : (
+          <h2 className={headline}>{t('mainResultsHeadlineMultiple', {count: activities.length})}</h2>
+        )}
       </Content>
       <Cards height="high">
         {activities.map((activity) => (
