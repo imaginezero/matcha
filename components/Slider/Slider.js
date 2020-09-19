@@ -1,6 +1,11 @@
 import { useEffort } from '../../hooks';
 
-import { wrapper, slider, ticks } from './Slider.module.css';
+import {
+  wrapper,
+  slider,
+  ticks,
+  legend,
+} from './Slider.module.css';
 
 export default function Slider() {
   const { effort, setEffort } = useEffort();
@@ -16,6 +21,10 @@ export default function Slider() {
         className={slider}
       />
       <div className={ticks} />
+      <div className={legend}>
+          <div>5 Minuten</div>
+          <div>Vollzeit</div>
+      </div>
     </div>
   );
 }

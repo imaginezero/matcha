@@ -144,3 +144,12 @@
     transparent calc(calc(100% / 9) - calc(calc(var(--space-l) + 5px) / 10))
   );
 }
+
+.legend {
+  display: flex;
+  justify-content: space-between;
+}
+.legend > div{
+    font-size: var(--size-m);
+    color: var(--body-color);
+}
