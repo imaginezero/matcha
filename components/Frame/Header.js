@@ -44,7 +44,17 @@ export default function Header() {
     };
   }, []);
 
-  const onActivityDetailPage = pathname === '/activity/[slug]';
+  //TODO This is a simple way of allowing 'back' navigation on activity pages.
+  //     With activities and organizations, defining the meaning of 'back' is more complex.
+  //     Consider all possible navigation paths, e.g.:
+  //     - results > activity
+  //     - results > activity > org
+  //     - results > org
+  //     - activity > org
+  //     - org
+  //     - org > activity > org
+  
+  const onDetailPage = pathname === '/activity/[slug]' || pathname === '/organization/[slug]';
   const href = { pathname: '/', query: getQuery() };
 
   return (
@@ -54,7 +64,7 @@ export default function Header() {
           <div className={logo}>
             <Link href={href}>
               <a>
-                {onActivityDetailPage ? (
+                {onDetailPage ? (
                   <BackLink />
                 ) : (
                   <TypeMark className={typemark} title={t('mainPageLink')} />
