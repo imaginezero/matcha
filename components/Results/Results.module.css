@@ -27,7 +27,7 @@
   transition: opacity 500ms;
 }
 
-.loadMoreWrapper {
+.followupActionsWrapper {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -37,7 +37,7 @@
   margin-bottom: calc(var(--space-l) + var(--space-xxs));
 }
 
-.loadMoreWrapper > div {
+.followupActionsWrapper > div {
   flex-grow: 0;
   flex-shrink: 0;
   margin: var(--space-s);

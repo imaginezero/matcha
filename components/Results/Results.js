@@ -9,7 +9,7 @@ import { ActivityCard } from '../ActivityCard';
 
 import { concatClassnames } from '../utilities';
 
-import NextHigherEffortWidget from './NextHigherEffortWidget';
+import FollowupActionsWrapper from './FollowupActionsWrapper';
 
 import {
   wrapper,
@@ -59,7 +59,7 @@ export default function Results({ activities /*, moreActivities */ }) {
         ))}
       </Cards>
       <Content className={content}>
-        <NextHigherEffortWidget />
+        <FollowupActionsWrapper />
       </Content>
     </div>
   );

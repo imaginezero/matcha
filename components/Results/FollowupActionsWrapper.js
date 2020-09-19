@@ -1,13 +1,13 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
-import { useEffort, useLogin, useTracking, useTranslation } from '../../hooks';
+import { useEffort, useTracking, useTranslation } from '../../hooks';
 
 import {
   button,
   inactiveButton,
   preferenceLink,
-  loadMoreWrapper,
+  followupActionsWrapper,
 } from './Results.module.css';
 
 function LoadMoreButton({ moreActivities }) {
@@ -59,18 +59,35 @@ function LoginButton() {
   );
 }
 
-export default function LoadMoreWidget({ moreActivities }) {
-  const { isLoggedIn } = useLogin();
+function NextHigherEffortButton() {
+  const { hasNextHigherEffortLevel, getNextHigherEffortLevelUrl } = useEffort();
+  const { t } = useTranslation();
   return (
-    <div className={loadMoreWrapper}>
-      {isLoggedIn ? (
+    <div>
+      {hasNextHigherEffortLevel() ? (
+        <Link href={getNextHigherEffortLevelUrl()}>
+          <a className={button}>{t('mainResultsNextHigherEffort')}</a>
+        </Link>
+      ) : (
+        null
+      )}
+    </div>
+  );
+}
+
+export default function FollowupActionsWrapper({ moreActivities }) {
+  // const { isLoggedIn } = useLogin();
+  return (
+    <div className={followupActionsWrapper}>
+      <NextHigherEffortButton />
+      {/* {isLoggedIn ? (
         <>
           <LoadMoreButton moreActivities={moreActivities} />
           <PreferenceLink />
         </>
       ) : (
         <LoginButton />
-      )}
+      )} */}
     </div>
   );
 }
