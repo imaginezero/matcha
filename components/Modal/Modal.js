@@ -19,7 +19,15 @@ function ModalPortal({ children }) {
   return createPortal(children, el);
 }
 
-function ModalWrapper({ children, closing, onClose, className, ...props }) {
+function ModalWrapper({
+  children,
+  closing,
+  onClose,
+  canceable,
+  cancel,
+  className,
+  ...props
+}) {
   const [hidden, setHidden] = useState(true);
   useEffect(() => {
     setTimeout(() => setHidden(false));
@@ -30,8 +38,18 @@ function ModalWrapper({ children, closing, onClose, className, ...props }) {
       setTimeout(() => onClose(), 125);
     }
   }, [closing]);
+
+  const handlers = canceable ? {
+    onClick: e => {    
+      if(e.target === e.currentTarget) {
+        // Click on the modal wrapper happened outside the modal
+        console.log('cloio');
+        cancel();
+      }
+    }
+  } : {};
   return (
-    <div className={hidden ? hiddenWrapper : wrapper}>
+    <div className={hidden ? hiddenWrapper : wrapper} {...handlers}>
       <div {...props} className={concatClassnames(modal, className)}>
         {children}
       </div>
@@ -39,7 +57,13 @@ function ModalWrapper({ children, closing, onClose, className, ...props }) {
   );
 }
 
-export default function Modal({ children, onClose = () => {}, ...props }) {
+export default function Modal({
+  children,
+  canceable = true,
+  onClose = () => {},
+  onCancel = () => {},
+  ...props
+}) {
   const [open, setOpen] = useState(null);
   const [closing, setClosing] = useState(false);
   useEffect(() => {
@@ -48,7 +72,16 @@ export default function Modal({ children, onClose = () => {}, ...props }) {
   }, [open]);
   return open ? (
     <ModalPortal>
-      <ModalWrapper {...props} closing={closing} onClose={() => setOpen(false)}>
+      <ModalWrapper
+        {...props}
+        closing={closing}
+        canceable={canceable}
+        onClose={() => setOpen(false)}
+        cancel={() => {
+          setClosing(true);
+          onCancel();
+        }}
+      >
         {cloneElement(Children.only(children), {
           close() {
             setClosing(true);

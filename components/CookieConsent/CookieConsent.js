@@ -5,23 +5,23 @@ import { Markdown } from '../Markdown';
 
 import { button } from './CookieConsent.module.css';
 
-function CookieConsentForm({ children, close }) {
+function CookieConsentForm({ children, confirm }) {
   const { t } = useTranslation();
   return (
     <>
       {children}
-      <a className={button} onClick={close}>
+      <a className={button} onClick={confirm}>
         {t('cookieConsentButton')}
       </a>
     </>
   );
 }
 
-export default function CookieConsent({ onClose }) {
+export default function CookieConsent({ onConfirm }) {
   const { t } = useTranslation();
   return (
-    <Modal onClose={onClose}>
-      <CookieConsentForm>
+    <Modal canceable={false}>
+      <CookieConsentForm onConfirm={onConfirm}>
         <Markdown contents={t('cookieConsentText')} />
       </CookieConsentForm>
     </Modal>
