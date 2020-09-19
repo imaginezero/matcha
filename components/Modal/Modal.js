@@ -40,13 +40,12 @@ function ModalWrapper({
   }, [closing]);
 
   const handlers = canceable ? {
-    onClick: e => {    
+    onClick(e) {    
       if(e.target === e.currentTarget) {
         // Click on the modal wrapper happened outside the modal
-        console.log('cloio');
         cancel();
       }
-    }
+    },
   } : {};
   return (
     <div className={hidden ? hiddenWrapper : wrapper} {...handlers}>
