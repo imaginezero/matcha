@@ -56,10 +56,6 @@
   transition: var(--mark-transition);
 }
 
-.backLink {
-  font-size: var(--size-xxl);
-}
-
 .logomark {
   height: var(--logomark-size);
   transition: var(--mark-transition);

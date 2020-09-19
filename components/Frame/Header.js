@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
 
 import { useEffort, useTranslation } from '../../hooks';
 
@@ -16,16 +15,9 @@ import {
   headerLogos,
   logo,
   typemark,
-  backLink,
 } from './Frame.module.css';
 
-function BackLink () {
-  const { t } = useTranslation();
-  return <span className={backLink}>{t('mainBackLink')}</span>
-}
-
 export default function Header() {
-  const { pathname } = useRouter();
   const { getQuery } = useEffort();
   const { t } = useTranslation();
   const [headerClassName, setHeaderClassName] = useState(headerWrapper);
@@ -42,9 +34,6 @@ export default function Header() {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
-
-  const onActivityDetailPage = pathname === '/activity/[slug]';
-
   const href = { pathname: '/', query: getQuery() };
   return (
     <header className={headerClassName}>
@@ -53,11 +42,7 @@ export default function Header() {
           <div className={logo}>
             <Link href={href}>
               <a>
-                {onActivityDetailPage ? (
-                  <BackLink />
-                ) : (
-                  <TypeMark className={typemark} title={t('mainPageLink')} />
-                )}
+                <TypeMark className={typemark} title={t('mainPageLink')} />
               </a>
             </Link>
           </div>
