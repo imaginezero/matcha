@@ -8,6 +8,8 @@ import {
 import { useRouter } from 'next/router';
 import hoistNonReactStatics from 'hoist-non-react-statics';
 
+import { EFFORT_STEP, EFFORT_MAX } from '../static-config';
+
 const EffortContext = createContext(null);
 
 const setBackgroundColor = (effort) => {
@@ -58,6 +60,15 @@ export function withEffort(Component) {
               setTimeout(() => router.push({ pathname, query: { e } }), 250)
             );
             setEffort(e);
+          },
+          hasNextHigherEffortLevel() {
+            return (queryEffort || defaultEffort) + EFFORT_STEP <= EFFORT_MAX;
+          },
+          getNextHigherEffortLevelUrl() {
+            return {
+              pathname,
+              query: { e: Math.min(EFFORT_MAX, (queryEffort || defaultEffort) + EFFORT_STEP) },
+            };
           },
           getNextUrl() {
             return {

@@ -9,7 +9,7 @@ import { ActivityCard } from '../ActivityCard';
 
 import { concatClassnames } from '../utilities';
 
-// import LoadMoreWidget from './LoadMoreWidget';
+import FollowupActionsWrapper from './FollowupActionsWrapper';
 
 import {
   wrapper,
@@ -67,7 +67,7 @@ export default function Results({ activities /*, moreActivities */ }) {
         ))}
       </Cards>
       <Content className={content}>
-        {/* <LoadMoreWidget moreActivities={moreActivities} /> */}
+        <FollowupActionsWrapper />
       </Content>
     </div>
   );
