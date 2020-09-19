@@ -59,7 +59,7 @@ export default function Results({ activities /*, moreActivities */ }) {
         ))}
       </Cards>
       <Content className={content}>
-        <FollowupActionsWrapper moreActivities={moreActivities} />
+        <FollowupActionsWrapper />
       </Content>
     </div>
   );
