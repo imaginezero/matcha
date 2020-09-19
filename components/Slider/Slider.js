@@ -1,9 +1,18 @@
 import { useEffort } from '../../hooks';
+import { useTranslation } from '../../hooks';
 
-import { wrapper, slider, ticks } from './Slider.module.css';
+import {
+  wrapper,
+  slider,
+  ticks,
+  legend,
+} from './Slider.module.css';
 
 export default function Slider() {
+
+  const { t } = useTranslation();
   const { effort, setEffort } = useEffort();
+
   return (
     <div className={wrapper}>
       <input
@@ -16,6 +25,10 @@ export default function Slider() {
         className={slider}
       />
       <div className={ticks} />
+      <div className={legend}>
+        <div>{t('mainSliderMinimum')}</div>
+        <div>{t('mainSliderMaximum')}</div>
+      </div>
     </div>
   );
 }
