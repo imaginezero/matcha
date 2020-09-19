@@ -5,12 +5,12 @@ import { Markdown } from '../Markdown';
 
 import { button } from './CookieConsent.module.css';
 
-function CookieConsentForm({ children, confirm }) {
+function CookieConsentForm({ children, onConfirm }) {
   const { t } = useTranslation();
   return (
     <>
       {children}
-      <a className={button} onClick={confirm}>
+      <a className={button} onClick={onConfirm}>
         {t('cookieConsentButton')}
       </a>
     </>
