@@ -1,0 +1,17 @@
+.inputWrapper {
+  display: flex;
+  margin-bottom: var(--space-l);
+}
+
+.text {
+  composes: input from '../atoms.module.css';
+  margin: var(--space-0);
+  margin-right: var(--space-s);
+  flex-grow: 1;
+  min-width: var(--space-0);
+}
+
+.button {
+  composes: actionButton from '../atoms.module.css';
+  margin: var(--space-0);
+}
