@@ -66,7 +66,7 @@
   --button-background: var(--purple-800);
 
   /* dynamic tokens */
-  --effort-background: hsl(151, 44%, 70%);
+  --effort-background: hsl(125, 54%, 67.5%);
 }
 
 html {
