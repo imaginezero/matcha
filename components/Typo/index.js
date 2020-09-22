@@ -2,7 +2,7 @@ import { concatClassnames } from '../utilities';
 
 import { h1, h2, h3, h4, narrow, muted } from './Typo.module.css';
 
-export function H1({ children, className, narrow: isNarrow = true, ...props }) {
+export function H1({ children, className, narrow: isNarrow = false, ...props }) {
   const classNames = concatClassnames(h1, isNarrow && narrow, className);
   return (
     <h1 className={classNames} {...props}>
@@ -11,7 +11,7 @@ export function H1({ children, className, narrow: isNarrow = true, ...props }) {
   );
 }
 
-export function H2({ children, className, narrow: isNarrow = true, ...props }) {
+export function H2({ children, className, narrow: isNarrow = false, ...props }) {
   const classNames = concatClassnames(h2, isNarrow && narrow, className);
   return (
     <h2 className={classNames} {...props}>
