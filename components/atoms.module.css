@@ -23,6 +23,11 @@
   color: var(--white);
   cursor: pointer;
 }
+.button:disabled {
+  background-color: var(--gray-600);
+  color: var(--gray-200);
+}
+
 
 .button:focus {
   box-shadow: var(--box-shadow-medium);

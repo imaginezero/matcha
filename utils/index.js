@@ -14,6 +14,7 @@ export {
   updateContact,
   updateContactTags,
   sendContactEvent,
+  subscribe,
 } from './crm';
 
 export { prefs, getPrefs, setPrefs, resetPrefs } from './prefs';

@@ -1,46 +1,16 @@
 import { useState } from 'react';
 
-import { useLogin, useCapture, useTracking, useTranslation } from '../../hooks';
+import {
+  useCapture,
+  useTracking,
+  didEnterEmail
+} from '../../hooks';
 
 import { Modal } from '../Modal';
-import { H2 } from '../Typo';
 
-import { button, interstitialButton } from './ActivityCard.module.css';
+import Interstitial from './Interstitial';
 
-function Interstitial({ link, slug, close }) {
-  const { t } = useTranslation();
-  const { trackLogin, trackOutboundLink } = useTracking();
-  const params = new URLSearchParams({ redirectTo: `/activity/${slug}` });
-  const loginLink = `/api/auth/login?${params.toString()}`;
-  return (
-    <>
-      <H2>{t('interstitialHeadline')}</H2>
-      <p>{t('interstitialDescription')}</p>
-      <a
-        href={loginLink}
-        onClick={(event) => {
-          event.preventDefault();
-          trackLogin(loginLink, true);
-        }}
-        className={interstitialButton}
-      >
-        {`${t('login')}`}
-      </a>
-      <a
-        href={link}
-        target="_blank"
-        rel="noreferrer noopener"
-        onClick={(event) => {
-          event.preventDefault();
-          trackOutboundLink(link, true, '_blank');
-          close();
-        }}
-      >
-        {t('interstitialDirectLink')}
-      </a>
-    </>
-  );
-}
+import { button } from './ActivityCard.module.css';
 
 function LoggedOutButton(props) {
   const { label } = props;
@@ -86,8 +56,7 @@ function LoggedInButton({ link, label, slug }) {
 }
 
 export default function CallToAction(props) {
-  const { isLoggedIn } = useLogin();
-  return isLoggedIn ? (
+  return didEnterEmail() ? (
     <LoggedInButton {...props} />
   ) : (
     <LoggedOutButton {...props} />

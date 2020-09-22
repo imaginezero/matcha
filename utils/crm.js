@@ -8,7 +8,7 @@ async function request(url, { method = 'get', ...config } = {}) {
 }
 
 function getUrl(email, suffix) {
-  const baseUrl = 'https://us10.api.mailchimp.com/3.0/lists/7b5132350f/members';
+  const baseUrl = `https://us10.api.mailchimp.com/3.0/lists/${process.env.MAILCHIMP_AUDIENCE_ID}/members`;
   if (email) {
     const hash = createHash('md5').update(email.toLowerCase()).digest('hex');
     return `${baseUrl}/${hash}${suffix ? `/${suffix}` : ''}`;
@@ -89,4 +89,16 @@ export async function sendContactEvent({ email }, name, properties) {
       throw error;
     }
   }
+}
+
+export async function subscribe(email) {
+  await request(getUrl(email), {
+    method: 'PUT',
+    data: {
+      email_address: email,
+      status: 'pending',
+      update_existing: false,
+      merge_fields: {},
+    },
+  });
 }
