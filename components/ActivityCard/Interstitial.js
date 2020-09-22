@@ -25,11 +25,13 @@ export default function Interstitial({ organization, link, slug, close }) {
     close();
   }
 
+  // TODO clean up interstitial* in Contentful
+
   return (
     <>
-      <H2>{`Gleich geht's in Richtung ${organization.title}...`}</H2>
-      <p>{'Aber vorher brauchen wir deine Emailadresse! Wir fragen dich in einigen Wochen, wie\'s war und entscheiden dann, was wir in Zukunft empfehlen.'}</p>
-      <p>{'Matcha ist gemeinnützig, niemand sonst bekommt deine Daten und wir verstehen etwas von IT-Sicherheit.'}</p>
+      <H2>{t('interstitialHeadline2', {organization: organization.title})}</H2>
+      <p>{t('interstitialDescriptionLine1')}</p>
+      <p>{t('interstitialDescriptionLine2')}</p>
       <form
         onSubmit={onSubmit}
         action="/api/clickout"
@@ -51,7 +53,7 @@ export default function Interstitial({ organization, link, slug, close }) {
         />
         </p>
       </form>
-      <p>{`Wir wollen dich zu nichts zwingen. Du kannst auch weiter, ohne uns zu helfen, Matcha nützlicher zu machen :`}</p>
+      <p>{t('interstitialDirectDescription')}</p>
       <a
         href={link}
         target="_blank"
