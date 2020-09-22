@@ -145,7 +145,7 @@ export function withTracking(Component, ConsentComponent) {
     return createElement(
       Fragment,
       {},
-      createElement(ConsentComponent, { onClose: () => setHasConsented(true) }),
+      createElement(ConsentComponent, { onConfirm: () => setHasConsented(true) }),
       createElement(Component, props)
     );
   };
