@@ -52,8 +52,10 @@ export default function ActivityCard({
           }}
         >
           <div className={contentWrapper}>
-            <H3 className={h3} narrow={true}>{organization.title}</H3>
-            <H2 className={h2} narrow={true}>{title}</H2>
+            <H3 className={h3}>{organization.title}</H3>
+            <H2 className={h2} narrow={true}>
+              {title}
+            </H2>
           </div>
         </Content>
       </ActivityLink>
