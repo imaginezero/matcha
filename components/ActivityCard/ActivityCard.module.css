@@ -79,6 +79,7 @@
   composes: actionButton from '../atoms.module.css';
   display: inline-block;
   margin-bottom: calc(var(--space-l) + var(--space-xxxs));
+  padding: var(--space-m) var(--space-xl);
 }
 
 @media (min-width: 720px) {
