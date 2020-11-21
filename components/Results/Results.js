@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 // import { useRouter } from 'next/router';
 
-import { useLoading, useTranslation } from '../../hooks';
+import { useLoading, useTranslation, useEffort } from '../../hooks';
 
 import { Content } from '../Content';
 import { Cards } from '../Cards';
@@ -34,7 +34,8 @@ const Overlay = () => {
 };
 
 export default function Results({ activities /*, moreActivities */ }) {
-  const { t } = useTranslation();
+  const { t, hasTranslation } = useTranslation();
+  const { getEffort } = useEffort();
   // const { events } = useRouter();
   // useEffect(() => {
   //   const handleRouteChange = () => (window._scrollY = window.scrollY);
@@ -45,19 +46,25 @@ export default function Results({ activities /*, moreActivities */ }) {
   //   };
   // }, []);
   // useEffect(() => void window.scrollTo(0, window._scrollY || window.scrollY));
+
+  const headlineCaption = hasTranslation('mainResultsHeadline_' +  + getEffort())
+      ? t('mainResultsHeadline_' + getEffort())
+      : (
+
+        /* TODO use standard translation processing.
+                This clutters the resource space and isn't language-agnostic.
+        */
+        activities.length === 1 
+        ? t('mainResultsHeadlineSingle')
+        : t('mainResultsHeadlineMultiple', {count: activities.length})
+      );
+
+  
   return (
     <div className={wrapper}>
       <Overlay />
       <Content className={content}>
-        {/* TODO use standard translation processing.
-                 The solution below clutters the resource space and isn't language-agnostic.
-                 Cleanup: Search for mainResultsHeadline* resources and clean up.
-        */}
-        {activities.length === 1 ? (
-        <h2 className={headline}>{t('mainResultsHeadlineSingle')}</h2>
-        ) : (
-          <h2 className={headline}>{t('mainResultsHeadlineMultiple', {count: activities.length})}</h2>
-        )}
+        <h2 className={headline}>{headlineCaption}</h2>
       </Content>
       <Cards height="high">
         {activities.map((activity) => (

@@ -61,6 +61,7 @@ export function withEffort(Component) {
             );
             setEffort(e);
           },
+          getEffort: () => effort,
           hasNextHigherEffortLevel() {
             return (queryEffort || defaultEffort) + EFFORT_STEP <= EFFORT_MAX;
           },
