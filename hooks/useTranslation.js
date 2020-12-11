@@ -11,6 +11,8 @@ const translations = resources.reduce(
   {}
 );
 
+const hasTranslation = key => !!(key in translations);
+
 const t = (key, data) => {
   if (!(key in translations)) {
     throw new Error(`translation key not found: ${key}`);
@@ -45,5 +47,5 @@ export function withTranslation(Component) {
 }
 
 export function useTranslation() {
-  return { t };
+  return { t, hasTranslation };
 }
