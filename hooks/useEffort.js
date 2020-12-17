@@ -26,7 +26,7 @@ const setBackgroundColor = (effort) => {
   );
 };
 
-export const defaultEffort = 60;
+export const defaultEffort = 30;
 
 export function withEffort(Component) {
   const WrappedComponent = (props) => {
