@@ -27,7 +27,7 @@
   "dependencies": {
     "@auth0/nextjs-auth0": "^0.16.0",
     "auth0": "^2.28.0",
-    "axios": "^0.20.0",
+    "axios": "^0.21.1",
     "babel-eslint": "^10.1.0",
     "browserslist": "^4.14.2",
     "camelcase-keys": "^6.2.2",
