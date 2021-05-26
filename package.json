@@ -29,7 +29,7 @@
     "auth0": "^2.28.0",
     "axios": "^0.20.0",
     "babel-eslint": "^10.1.0",
-    "browserslist": "^4.14.2",
+    "browserslist": "^4.16.5",
     "camelcase-keys": "^6.2.2",
     "contentful": "^7.14.6",
     "cookie": "^0.4.1",
